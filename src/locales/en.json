@@ -1,0 +1,43 @@
+{
+  "gameTitle": "Clans of Caledonia",
+  "home": {
+    "title": "Clans of Caledonia Solo Helper",
+    "play1": "Play <a href='https://boardgamegeek.com/boardgame/216132/clans-of-caledonia' target='_blank' rel='noopener'><b>Clans of Caledonia</b></a> against Automa, the solo opponent.",
+    "play2": "This application replaces the Automa cards, and guides you through the game flow. Additionally, it automates the tech card drafting and prosperity card selection.",
+    "feedback": "Discussion and Feedback:"
+  },
+  "setup": {
+    "title": "Setup Game",
+    "difficultyLevel": {
+      "title": "Difficulty Level",
+      "easy": "Easy",
+      "hard": "Hard"
+    }
+  },
+  "notfound": {
+    "title": "Not Found"
+  },
+  "action": {
+    "playGame": "Play Game",
+    "startGame": "Start Game",
+    "next": "Next",
+    "nextRound": "Next Round",
+    "abortGame": "Abort Game",
+    "abortGameConfirm": "Aborting the running game - are you sure?",
+    "endGame": "End Game",
+    "endGameConfirm": "End this game and return to home screen - are you sure?",
+    "cancel": "Cancel",
+    "backToHome": "Back to Home",
+    "back": "Back",
+    "close": "Close",
+    "ok": "OK",
+    "reset": "Reset"
+  },
+  "footer": {
+    "credits": "Credits"
+  },
+  "serviceWorkerUpdatedRefresh": {
+    "title": "Refresh Application",
+    "notice": "The application was updated - do you want to refresh to use the latest version?"
+  }
+}
