@@ -2,9 +2,9 @@
  * Map Sector
  */
 enum MapSector {
-  A = 'A',
-  B = 'B',
-  C = 'C',
-  D = 'D'
+  A = 'a',
+  B = 'b',
+  C = 'c',
+  D = 'd'
 }
 export default MapSector

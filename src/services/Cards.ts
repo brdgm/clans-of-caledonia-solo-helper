@@ -10,7 +10,7 @@ const cards : Card[] = [
     id: 1,
     round: 1,
     actions: [Action.TECHNOLOGY_UPGRADE, Action.EXPAND, Action.EXPORT_CONTRACT],
-    expandCriteria: [ExpandCriteria.PORT_TILE, ExpandCriteria.MIN_COSTS, ExpandCriteria.MAX_SETTLEMENTS, ExpandCriteria.MAX_NEIGHBORHOOD_FARMERS_MARKET],
+    expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.COSTS, ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 1,
     mapSectors: [MapSector.A]
@@ -19,7 +19,7 @@ const cards : Card[] = [
     id: 2,
     round: 1,
     actions: [Action.TECHNOLOGY_UPGRADE, Action.EXPAND, Action.EXPORT_CONTRACT],
-    expandCriteria: [ExpandCriteria.PORT_TILE, ExpandCriteria.MIN_COSTS, ExpandCriteria.MAX_SETTLEMENTS, ExpandCriteria.MAX_NEIGHBORHOOD_FARMERS_MARKET],
+    expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.COSTS, ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 2,
     mapSectors: [MapSector.B]
@@ -28,7 +28,7 @@ const cards : Card[] = [
     id: 3,
     round: 1,
     actions: [Action.TRADE, Action.EXPORT_CONTRACT, Action.EXPAND],
-    expandCriteria: [ExpandCriteria.MIN_COSTS, ExpandCriteria.PORT_TILE, ExpandCriteria.MAX_SETTLEMENTS, ExpandCriteria.MAX_NEIGHBORHOOD_FARMERS_MARKET],
+    expandCriteria: [ExpandCriteria.COSTS, ExpandCriteria.PORT, ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 3,
     mapSectors: [MapSector.C]
@@ -37,7 +37,7 @@ const cards : Card[] = [
     id: 4,
     round: 1,
     actions: [Action.TRADE, Action.EXPORT_CONTRACT, Action.EXPAND],
-    expandCriteria: [ExpandCriteria.MIN_COSTS, ExpandCriteria.PORT_TILE, ExpandCriteria.MAX_SETTLEMENTS, ExpandCriteria.MAX_NEIGHBORHOOD_FARMERS_MARKET],
+    expandCriteria: [ExpandCriteria.COSTS, ExpandCriteria.PORT, ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 4,
     mapSectors: [MapSector.D]
@@ -46,7 +46,7 @@ const cards : Card[] = [
     id: 5,
     round: 1,
     actions: [Action.TECHNOLOGY_UPGRADE, Action.EXPAND, Action.EXPORT_CONTRACT, Action.TRADE],
-    expandCriteria: [ExpandCriteria.PORT_TILE, ExpandCriteria.MIN_COSTS, ExpandCriteria.MAX_SETTLEMENTS, ExpandCriteria.MAX_NEIGHBORHOOD_FARMERS_MARKET],
+    expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.COSTS, ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 5,
     mapSectors: [MapSector.A]
@@ -55,7 +55,7 @@ const cards : Card[] = [
     id: 6,
     round: 1,
     actions: [Action.TECHNOLOGY_UPGRADE, Action.EXPAND, Action.EXPORT_CONTRACT, Action.TRADE],
-    expandCriteria: [ExpandCriteria.PORT_TILE, ExpandCriteria.MIN_COSTS, ExpandCriteria.MAX_SETTLEMENTS, ExpandCriteria.MAX_NEIGHBORHOOD_FARMERS_MARKET],
+    expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.COSTS, ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 6,
     mapSectors: [MapSector.B]
@@ -64,7 +64,7 @@ const cards : Card[] = [
     id: 7,
     round: 1,
     actions: [Action.UPGRADE, Action.EXPORT_CONTRACT, Action.EXPAND, Action.TRADE],
-    expandCriteria: [ExpandCriteria.MAX_NEIGHBORHOOD_FARMERS_MARKET, ExpandCriteria.PORT_TILE, ExpandCriteria.MIN_COSTS, ExpandCriteria.MAX_SETTLEMENTS],
+    expandCriteria: [ExpandCriteria.NEIGHBORHOOD, ExpandCriteria.PORT, ExpandCriteria.COSTS, ExpandCriteria.SETTLEMENTS],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 7,
     mapSectors: [MapSector.C]
@@ -73,7 +73,7 @@ const cards : Card[] = [
     id: 8,
     round: 1,
     actions: [Action.EXPORT_CONTRACT, Action.EXPAND, Action.UPGRADE, Action.TRADE],
-    expandCriteria: [ExpandCriteria.PORT_TILE, ExpandCriteria.MAX_SETTLEMENTS, ExpandCriteria.MAX_NEIGHBORHOOD_FARMERS_MARKET, ExpandCriteria.MIN_COSTS],
+    expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD, ExpandCriteria.COSTS],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 1,
     mapSectors: [MapSector.D]
@@ -82,7 +82,7 @@ const cards : Card[] = [
     id: 9,
     round: 1,
     actions: [Action.EXPORT_CONTRACT, Action.EXPAND, Action.TRADE, Action.UPGRADE],
-    expandCriteria: [ExpandCriteria.PORT_TILE, ExpandCriteria.MAX_SETTLEMENTS, ExpandCriteria.MAX_NEIGHBORHOOD_FARMERS_MARKET, ExpandCriteria.MIN_COSTS],
+    expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD, ExpandCriteria.COSTS],
     upgradeType: UpgradeType.SHIP_LEVEL,
     chooseUnitSteps: 2,
     mapSectors: [MapSector.A, MapSector.B]
@@ -92,7 +92,7 @@ const cards : Card[] = [
     round: 1,
     actions: [Action.SKIP_TURN],
     removeCard: true,
-    expandCriteria: [ExpandCriteria.PORT_TILE, ExpandCriteria.MAX_SETTLEMENTS, ExpandCriteria.MIN_COSTS, ExpandCriteria.MAX_NEIGHBORHOOD_FARMERS_MARKET],
+    expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.SETTLEMENTS, ExpandCriteria.COSTS, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.SHIP_LEVEL,
     chooseUnitSteps: 3,
     mapSectors: [MapSector.B]
@@ -102,7 +102,7 @@ const cards : Card[] = [
     round: 1,
     actions: [Action.SKIP_TURN],
     removeCard: true,
-    expandCriteria: [ExpandCriteria.PORT_TILE, ExpandCriteria.MAX_SETTLEMENTS, ExpandCriteria.MIN_COSTS, ExpandCriteria.MAX_NEIGHBORHOOD_FARMERS_MARKET],
+    expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.SETTLEMENTS, ExpandCriteria.COSTS, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.SHIP_LEVEL,
     chooseUnitSteps: 4,
     mapSectors: [MapSector.C]
@@ -112,7 +112,7 @@ const cards : Card[] = [
     round: 1,
     actions: [Action.SKIP_TURN],
     removeCard: true,
-    expandCriteria: [ExpandCriteria.PORT_TILE, ExpandCriteria.MAX_SETTLEMENTS, ExpandCriteria.MAX_NEIGHBORHOOD_FARMERS_MARKET, ExpandCriteria.MIN_COSTS],
+    expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD, ExpandCriteria.COSTS],
     upgradeType: UpgradeType.SHIP_LEVEL,
     chooseUnitSteps: 5,
     mapSectors: [MapSector.D]
@@ -122,7 +122,7 @@ const cards : Card[] = [
     round: 1,
     actions: [Action.SKIP_TURN],
     removeCard: true,
-    expandCriteria: [ExpandCriteria.PORT_TILE, ExpandCriteria.MAX_SETTLEMENTS, ExpandCriteria.MIN_COSTS, ExpandCriteria.MAX_NEIGHBORHOOD_FARMERS_MARKET],
+    expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.SETTLEMENTS, ExpandCriteria.COSTS, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.SHIP_LEVEL,
     chooseUnitSteps: 6,
     mapSectors: [MapSector.A]
@@ -131,7 +131,7 @@ const cards : Card[] = [
     id: 14,
     round: 1,
     actions: [Action.EXPAND, Action.EXPORT_CONTRACT, Action.UPGRADE, Action.TRADE],
-    expandCriteria: [ExpandCriteria.MAX_NEIGHBORHOOD_FARMERS_MARKET, ExpandCriteria.PORT_TILE, ExpandCriteria.MIN_COSTS, ExpandCriteria.MAX_SETTLEMENTS],
+    expandCriteria: [ExpandCriteria.NEIGHBORHOOD, ExpandCriteria.PORT, ExpandCriteria.COSTS, ExpandCriteria.SETTLEMENTS],
     upgradeType: UpgradeType.SHIP_LEVEL,
     chooseUnitSteps: 7,
     mapSectors: [MapSector.D, MapSector.C]
@@ -140,7 +140,7 @@ const cards : Card[] = [
     id: 15,
     round: 2,
     actions: [Action.EXPORT_CONTRACT, Action.EXPAND, Action.TRADE, Action.UPGRADE],
-    expandCriteria: [ExpandCriteria.PORT_TILE, ExpandCriteria.MAX_SETTLEMENTS, ExpandCriteria.MIN_COSTS, ExpandCriteria.MAX_NEIGHBORHOOD_FARMERS_MARKET],
+    expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.SETTLEMENTS, ExpandCriteria.COSTS, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.SHIP_LEVEL,
     chooseUnitSteps: 1,
     mapSectors: [MapSector.A, MapSector.C]
@@ -149,7 +149,7 @@ const cards : Card[] = [
     id: 16,
     round: 2,
     actions: [Action.TRADE, Action.EXPORT_CONTRACT, Action.EXPAND, Action.UPGRADE],
-    expandCriteria: [ExpandCriteria.PORT_TILE, ExpandCriteria.MAX_SETTLEMENTS, ExpandCriteria.MIN_COSTS, ExpandCriteria.MAX_NEIGHBORHOOD_FARMERS_MARKET],
+    expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.SETTLEMENTS, ExpandCriteria.COSTS, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.SHIP_LEVEL,
     chooseUnitSteps: 2,
     mapSectors: [MapSector.B, MapSector.D]
@@ -158,7 +158,7 @@ const cards : Card[] = [
     id: 17,
     round: 3,
     actions: [Action.UPGRADE, Action.EXPORT_CONTRACT, Action.EXPAND, Action.TRADE],
-    expandCriteria: [ExpandCriteria.MIN_COSTS, ExpandCriteria.MAX_SETTLEMENTS, ExpandCriteria.PORT_TILE, ExpandCriteria.MAX_NEIGHBORHOOD_FARMERS_MARKET],
+    expandCriteria: [ExpandCriteria.COSTS, ExpandCriteria.SETTLEMENTS, ExpandCriteria.PORT, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 3,
     mapSectors: [MapSector.A, MapSector.D]
@@ -167,7 +167,7 @@ const cards : Card[] = [
     id: 18,
     round: 3,
     actions: [Action.SKIP_TURN],
-    expandCriteria: [ExpandCriteria.MIN_COSTS, ExpandCriteria.MAX_SETTLEMENTS, ExpandCriteria.PORT_TILE, ExpandCriteria.MAX_NEIGHBORHOOD_FARMERS_MARKET],
+    expandCriteria: [ExpandCriteria.COSTS, ExpandCriteria.SETTLEMENTS, ExpandCriteria.PORT, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 4,
     mapSectors: [MapSector.B, MapSector.C]
@@ -176,7 +176,7 @@ const cards : Card[] = [
     id: 19,
     round: 4,
     actions: [Action.EXPORT_CONTRACT, Action.EXPAND, Action.TRADE],
-    expandCriteria: [ExpandCriteria.MAX_SETTLEMENTS, ExpandCriteria.MIN_COSTS, ExpandCriteria.PORT_TILE, ExpandCriteria.MAX_NEIGHBORHOOD_FARMERS_MARKET],
+    expandCriteria: [ExpandCriteria.SETTLEMENTS, ExpandCriteria.COSTS, ExpandCriteria.PORT, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 5,
     mapSectors: [MapSector.A, MapSector.B]
@@ -185,7 +185,7 @@ const cards : Card[] = [
     id: 20,
     round: 4,
     actions: [Action.TRADE, Action.EXPORT_CONTRACT, Action.EXPAND],
-    expandCriteria: [ExpandCriteria.MAX_SETTLEMENTS, ExpandCriteria.MIN_COSTS, ExpandCriteria.PORT_TILE, ExpandCriteria.MAX_NEIGHBORHOOD_FARMERS_MARKET],
+    expandCriteria: [ExpandCriteria.SETTLEMENTS, ExpandCriteria.COSTS, ExpandCriteria.PORT, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 6,
     mapSectors: [MapSector.D, MapSector.C]
@@ -194,7 +194,7 @@ const cards : Card[] = [
     id: 21,
     round: 5,
     actions: [Action.EXPORT_CONTRACT, Action.EXPAND, Action.TRADE],
-    expandCriteria: [ExpandCriteria.MAX_SETTLEMENTS, ExpandCriteria.MAX_NEIGHBORHOOD_FARMERS_MARKET, ExpandCriteria.MIN_COSTS, ExpandCriteria.PORT_TILE],
+    expandCriteria: [ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD, ExpandCriteria.COSTS, ExpandCriteria.PORT],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 7,
     mapSectors: [MapSector.A, MapSector.C]
@@ -203,7 +203,7 @@ const cards : Card[] = [
     id: 22,
     round: 5,
     actions: [Action.TRADE, Action.EXPORT_CONTRACT, Action.EXPAND],
-    expandCriteria: [ExpandCriteria.MAX_SETTLEMENTS, ExpandCriteria.MAX_NEIGHBORHOOD_FARMERS_MARKET, ExpandCriteria.MIN_COSTS, ExpandCriteria.PORT_TILE],
+    expandCriteria: [ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD, ExpandCriteria.COSTS, ExpandCriteria.PORT],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 1,
     mapSectors: [MapSector.B, MapSector.D]

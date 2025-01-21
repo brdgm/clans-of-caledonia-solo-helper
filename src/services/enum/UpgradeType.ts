@@ -3,6 +3,6 @@
  */
 enum UpgradeType {
   MERCHANT = 'merchant',
-  SHIP_LEVEL = 'ship-level'
+  SHIP_LEVEL = 'shipping'
 }
 export default UpgradeType
