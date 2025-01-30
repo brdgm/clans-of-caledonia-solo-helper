@@ -1,6 +1,9 @@
 import { defineStore } from 'pinia'
 import { name } from '@/../package.json'
 import DifficultyLevel from '@/services/enum/DifficultyLevel'
+import PlayerColor from '@/services/enum/PlayerColor'
+import Expansion from '@/services/enum/Expansion'
+import toggleArrayItem from '@brdgm/brdgm-commons/src/util/array/toggleArrayItem'
 
 export const useStateStore = defineStore(`${name}.state`, {
   state: () => {
@@ -8,7 +11,13 @@ export const useStateStore = defineStore(`${name}.state`, {
       language: 'en',
       baseFontSize: 1.0,
       setup: {
-        difficultyLevel: DifficultyLevel.NORMAL
+        playerSetup: {
+          playerCount: 1,
+          botCount: 1,
+          playerColors: [PlayerColor.RED, PlayerColor.BLACK, PlayerColor.BLUE, PlayerColor.WHITE]
+        },
+        expansions: [],
+        difficultyLevel: DifficultyLevel.VERY_EASY
       },
       rounds: []
     } as State
@@ -16,6 +25,9 @@ export const useStateStore = defineStore(`${name}.state`, {
   actions: {
     resetGame() {
       this.rounds = []
+    },
+    setupToggleExpansion(expansion: Expansion) {
+      toggleArrayItem(this.setup.expansions, expansion)
     },
     storeRound(round : Round) {
       this.rounds = this.rounds.filter(item => item.round < round.round)
@@ -32,8 +44,15 @@ export interface State {
   rounds: Round[]
 }
 export interface Setup {
+  expansions: Expansion[]
+  playerSetup: PlayerSetup
   difficultyLevel: DifficultyLevel
   debugMode?: boolean
+}
+export interface PlayerSetup {
+  playerCount: number
+  botCount: number
+  playerColors: PlayerColor[]
 }
 
 export interface Round {

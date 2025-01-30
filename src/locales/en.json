@@ -12,6 +12,13 @@
       "title": "Difficulty Level",
       "easy": "Easy",
       "hard": "Hard"
+    },
+    "expansions": {
+      "title": "Expansions",
+      "intro": "If you own the Industria expansion, you can use all new material with the Automa. The three modules listed here have an effect on the Automa gameplay.",
+      "industria-farmers-markets": "Industria: Farmers markets",
+      "industria-awards": "Industria: Award tiles",
+      "industria-train": "Industria: Train module"
     }
   },
   "difficultyLevel": {
