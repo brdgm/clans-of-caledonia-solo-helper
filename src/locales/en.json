@@ -25,11 +25,45 @@
     "expansions": {
       "title": "Expansions",
       "intro": "If you own the Industria expansion, you can use all new material with the Automa. The three modules listed here have an effect on the Automa gameplay.",
-      "industria-farmers-markets": "Industria: Farmers markets",
-      "industria-awards": "Industria: Award tiles",
+      "industria-farmers-market": "Industria: Farmers markets",
+      "industria-award": "Industria: Award",
       "industria-train": "Industria: Train module",
       "trainPlayerWarning": "The Train module with Automa works only in a 2 player game."
     }
+  },
+  "setupBot": {
+    "title": "Setup Automa",
+    "setup": {
+      "setupGame": "Setup the game as usual for {playerCount} players.",
+      "clansSelection": "<b>Clans selection</b>: the Automa doesn’t have a Clan. You choose between {clanCount} pairs of Clan tiles and Starting tiles.",
+      "farmersMarket2Players": "<b>Farmers market</b>: Place 2 Farmers markets in the map modules A & C or B & D.",
+      "farmersMarket": "<b>Farmers market</b>: Place {playerCount} Farmers markets in {playerCount} different map modules.",
+      "farmersMarketWorkerPlacement": "When you place your own starting Workers, there must be at least 2 hexes in between your starting Worker and any Farmers market.",
+      "farmersMarketWorkerPlacementBot": "This does not apply to the Automa starting Workers.",
+      "botStartingWorkers": {
+        "title": "<b>Automa starting Workers</b>: The Automa places <b>4</b> of its Workers before you deploy your Workers. The Automa places 1 Worker in each map module:",
+        "port": "Worker {worker} on map module <b>{mapModule}</b>: Nearest to the <b>Port tile</b>.",
+        "loch": "Worker {worker} on map module <b>{mapModule}</b>: Nearest to the <b>central loch</b>.",
+        "tieBreaker": {
+          "title": "Choose a hex in this order of priority:",
+          "price": "Hex with cost £1 or £2,",
+          "port": "If nearest to port tile, it prefers the hex that gets it into reach of a Port tile,",
+          "cheapest": "The cheapest hex,",
+          "random": "Choose randomly."
+        }
+      },
+      "turnOrder": "<b>Turn order</b>: the Automa is last in round 1. The following rounds are in usual Passing order."
+    },
+    "award": {
+      "title": "Award"
+    },
+    "train": {
+      "title": "Train module"
+    }
+  },
+  "player": {
+    "player": "Player | Player {player}",
+    "bot": "Automa | Automa {bot}"
   },
   "difficultyLevel": {
     "1": "Very Easy",
