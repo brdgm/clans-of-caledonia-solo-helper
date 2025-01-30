@@ -8,6 +8,15 @@
   },
   "setup": {
     "title": "Setup Game",
+    "players": {
+      "title": "Player",
+      "playerCount": "Human Players",
+      "playerCountItem": "{count} Player | {count} Players",
+      "playerColor": "Player Color | Player {index} Color",
+      "botCount": "Automa",
+      "botCountItem": "{count} Automa | {count} Automas",
+      "botColor": "Automa Color | Automa {index} Color"
+    },
     "difficultyLevel": {
       "title": "Difficulty Level",
       "easy": "Easy",
@@ -18,7 +27,8 @@
       "intro": "If you own the Industria expansion, you can use all new material with the Automa. The three modules listed here have an effect on the Automa gameplay.",
       "industria-farmers-markets": "Industria: Farmers markets",
       "industria-awards": "Industria: Award tiles",
-      "industria-train": "Industria: Train module"
+      "industria-train": "Industria: Train module",
+      "trainPlayerWarning": "The Train module with Automa works only in a 2 player game."
     }
   },
   "difficultyLevel": {

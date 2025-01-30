@@ -23,13 +23,16 @@ export const useStateStore = defineStore(`${name}.state`, {
     } as State
   },
   actions: {
-    resetGame() {
+    getTotalPlayerCount() : number {
+      return this.setup.playerSetup.playerCount + this.setup.playerSetup.botCount
+    },
+    resetGame() : void {
       this.rounds = []
     },
-    setupToggleExpansion(expansion: Expansion) {
+    setupToggleExpansion(expansion: Expansion) : void {
       toggleArrayItem(this.setup.expansions, expansion)
     },
-    storeRound(round : Round) {
+    storeRound(round : Round) : void {
       this.rounds = this.rounds.filter(item => item.round < round.round)
       this.rounds.push(round)
     }

@@ -1,7 +1,7 @@
 <template>
   <h3 class="mt-4 mb-3">{{t('setup.expansions.title')}}</h3>
 
-  <p class="small">{{t('setup.expansions.intro')}}</p>
+  <p class="small" v-html="t('setup.expansions.intro')"></p>
 
   <div class="row" v-for="expansion of expansions" :key="expansion">
     <div class="col">
@@ -12,6 +12,12 @@
           {{t(`setup.expansions.${expansion}`)}}
         </label>
       </div>
+    </div>
+  </div>
+
+  <div class="container-fluid mt-2" v-if="hasTrainModule && state.getTotalPlayerCount() > 2">
+    <div class="row">
+      <div class="col alert alert-warning" v-html="t('setup.expansions.trainPlayerWarning')"></div>
     </div>
   </div>
 </template>
@@ -32,6 +38,9 @@ export default defineComponent({
   computed: {
     expansions() : Expansion[] {
       return Object.values(Expansion)
+    },
+    hasTrainModule() : boolean {
+      return this.state.setup.expansions.includes(Expansion.INDUSTRIA_TRAIN)
     }
   },
   methods: {

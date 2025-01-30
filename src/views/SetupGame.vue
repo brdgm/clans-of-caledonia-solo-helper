@@ -1,6 +1,7 @@
 <template>
   <h1>{{t('setup.title')}}</h1>
 
+  <PlayersSetup/>
   <DifficultyLevel/>
   <ExpansionsSetup/>
 
@@ -18,11 +19,13 @@ import { useStateStore } from '@/store/state'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
 import DifficultyLevel from '@/components/setup/DifficultyLevel.vue'
 import ExpansionsSetup from '@/components/setup/ExpansionsSetup.vue'
+import PlayersSetup from '@/components/setup/PlayersSetup.vue'
 
 export default defineComponent({
   name: 'SetupGame',
   components: {
     FooterButtons,
+    PlayersSetup,
     DifficultyLevel,
     ExpansionsSetup
   },
