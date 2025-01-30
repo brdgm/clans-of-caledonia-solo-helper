@@ -5,6 +5,7 @@
   <div class="instructions">
     <ol>
       <li v-html="t('setupBot.setup.setupGame', {playerCount:state.getTotalPlayerCount()})"></li>
+      <li v-html="t('setupBot.setup.playerBoard')"></li>
       <li v-html="t('setupBot.setup.clansSelection', {clanCount:state.setup.playerSetup.playerCount + 1})"></li>
       <li v-if="hasFarmerMarketExpansion">
         <span v-if="state.getTotalPlayerCount() == 2" v-html="t('setupBot.setup.farmersMarket2Players')"></span>
@@ -35,7 +36,12 @@
     <h3 class="mb-3">{{t('setupBot.award.title')}}</h3>
     <div class="instructions">
       <ol>
-        <li v-html="t('setupBot.award.setup')"></li>
+        <li v-html="t('setupBot.award.drawCard')"></li>
+        <ul>
+          <li v-html="t('setupBot.award.scoringDifferent')"></li>
+          <li v-html="t('setupBot.award.conditions')"></li>
+          <li v-html="t('setupBot.award.scoring')"></li>
+        </ul>
       </ol>
     </div>
   </template>

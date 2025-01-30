@@ -34,7 +34,9 @@
   "setupBot": {
     "title": "Setup Automa",
     "setup": {
+      "title": "Game Board",
       "setupGame": "Setup the game as usual for {playerCount} players.",
+      "playerBoard": "<b>Player board</b>: Automa doesn't need a player. But you can use it to organize the Automa's clan components.",
       "clansSelection": "<b>Clans selection</b>: the Automa doesn’t have a Clan. You choose between {clanCount} pairs of Clan tiles and Starting tiles.",
       "farmersMarket2Players": "<b>Farmers market</b>: Place 2 Farmers markets in the map modules A & C or B & D.",
       "farmersMarket": "<b>Farmers market</b>: Place {playerCount} Farmers markets in {playerCount} different map modules.",
@@ -55,7 +57,11 @@
       "turnOrder": "<b>Turn order</b>: the Automa is last in round 1. The following rounds are in usual Passing order."
     },
     "award": {
-      "title": "Award"
+      "title": "Award",
+      "drawCard": "Draw one Automa Award card and place it below the 5th Scoring tile.",
+      "scoringDifferent": "The way you score the Awards in the Automa mode is different from how you would normally score them.",
+      "conditions": "The conditions are the same as in the multiplayer Award tiles.",
+      "scoring": "Depending on how much you have of the respective item, you score 4VP, 0VP or even lose 4VP."
     },
     "train": {
       "title": "Train module"
