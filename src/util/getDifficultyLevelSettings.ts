@@ -7,9 +7,9 @@ import DifficultyLevel from "@/services/enum/DifficultyLevel"
  */
 export default function(difficultyLevel : DifficultyLevel) : DifficultyLevelSettings {
   switch (difficultyLevel) {
-    case DifficultyLevel.EASY:
-      return { shipLevel: 2, startingMoney: 50, round5VP: 10, round5VPTrain: 10 }
     case DifficultyLevel.VERY_EASY:
+      return { shipLevel: 2, startingMoney: 50, round5VP: 10, round5VPTrain: 10 }
+    case DifficultyLevel.EASY:
       return { shipLevel: 2, startingMoney: 60, round5VP: 20, round5VPTrain: 20 }
     case DifficultyLevel.MODERATE:
       return { shipLevel: 2, startingMoney: 70, round5VP: 30, round5VPTrain: 30 }

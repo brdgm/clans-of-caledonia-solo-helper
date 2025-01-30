@@ -6,6 +6,10 @@
     <ol>
       <li v-html="t('setupBot.setup.setupGame', {playerCount:state.getTotalPlayerCount()})"></li>
       <li v-html="t('setupBot.setup.playerBoard')"></li>
+      <ul>
+        <li v-html="t('setupBot.setup.shipLevel', {level:difficultySettings.shipLevel})"></li>
+        <li v-html="t('setupBot.setup.money', {startingMoney:difficultySettings.startingMoney})"></li>
+      </ul>
       <li v-html="t('setupBot.setup.clansSelection', {clanCount:state.setup.playerSetup.playerCount + 1})"></li>
       <li v-if="hasFarmerMarketExpansion">
         <span v-if="state.getTotalPlayerCount() == 2" v-html="t('setupBot.setup.farmersMarket2Players')"></span>
@@ -16,17 +20,16 @@
         </ul>
       </li>
       <li>
-        <span v-html="t('setupBot.setup.botStartingWorkers.title')"></span><br/>
+        <span v-html="t('setupBot.setup.botStartingWorkers.title')"></span>
         <BotStartingWorkers v-for="bot in botCount" :key="bot" :bot="bot" :botCount="botCount"/>
+        <div v-html="t('setupBot.setup.botStartingWorkers.tieBreaker.title')"></div>
         <ul>
-          <li v-html="t('setupBot.setup.botStartingWorkers.tieBreaker.title')"></li>
-          <ul>
-            <li v-html="t('setupBot.setup.botStartingWorkers.tieBreaker.price')"></li>
-            <li v-html="t('setupBot.setup.botStartingWorkers.tieBreaker.port')"></li>
-            <li v-html="t('setupBot.setup.botStartingWorkers.tieBreaker.cheapest')"></li>
-            <li v-html="t('setupBot.setup.botStartingWorkers.tieBreaker.random')"></li>
-          </ul>
+          <li v-html="t('setupBot.setup.botStartingWorkers.tieBreaker.price')"></li>
+          <li v-html="t('setupBot.setup.botStartingWorkers.tieBreaker.port')"></li>
+          <li v-html="t('setupBot.setup.botStartingWorkers.tieBreaker.cheapest')"></li>
+          <li v-html="t('setupBot.setup.botStartingWorkers.tieBreaker.random')"></li>
         </ul>
+        <div class="mt-2" v-html="t('setupBot.setup.botStartingWorkers.payCosts')"></div>
       </li>
       <li v-html="t('setupBot.setup.turnOrder')"></li>
     </ol>
@@ -35,25 +38,44 @@
   <template v-if="hasAwardExpansion">
     <h3 class="mb-3">{{t('setupBot.award.title')}}</h3>
     <div class="instructions">
-      <ol>
+      <ul>
         <li v-html="t('setupBot.award.drawCard')"></li>
         <ul>
           <li v-html="t('setupBot.award.scoringDifferent')"></li>
           <li v-html="t('setupBot.award.conditions')"></li>
           <li v-html="t('setupBot.award.scoring')"></li>
         </ul>
-      </ol>
+      </ul>
     </div>
   </template>
 
   <template v-if="hasTrainExpansion">
     <h3 class="mb-3">{{t('setupBot.train.title')}}</h3>
     <div class="instructions">
-      <ol>
+      <ul>
         <li v-html="t('setupBot.train.setup')"></li>
-      </ol>
+        <ul>
+          <li v-html="t('setupBot.train.noActions')"></li>
+          <li v-html="t('setupBot.train.playerDeliver')"></li>
+        </ul>
+      </ul>
     </div>
   </template>
+
+  <div class="container-fluid mt-4">
+    <div class="row">
+      <div class="col alert alert-info">
+        <h3>{{t('setupBot.ruleChanges.title')}}</h3>
+        <ul>
+          <li v-html="t('setupBot.ruleChanges.moneyNoGoods')"></li>
+          <li v-html="t('setupBot.ruleChanges.contracts')"></li>
+          <li v-html="t('setupBot.ruleChanges.merchants')"></li>
+          <li v-html="t('setupBot.ruleChanges.production')"></li>
+          <li v-html="t('setupBot.ruleChanges.noScoringPhase')"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
   <button class="btn btn-primary btn-lg mt-4" @click="startGame()">
     {{t('action.startGame')}}
@@ -69,6 +91,7 @@ import { useStateStore } from '@/store/state'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
 import Expansion from '@/services/enum/Expansion'
 import BotStartingWorkers from '@/components/setup/BotStartingWorkers.vue'
+import getDifficultyLevelSettings, { DifficultyLevelSettings } from '@/util/getDifficultyLevelSettings'
 
 export default defineComponent({
   name: 'SetupBot',
@@ -104,6 +127,9 @@ export default defineComponent({
     },
     botCount() : number {
       return this.state.setup.playerSetup.botCount
+    },
+    difficultySettings() : DifficultyLevelSettings {
+      return getDifficultyLevelSettings(this.state.setup.difficultyLevel)
     }
   },
   methods: {

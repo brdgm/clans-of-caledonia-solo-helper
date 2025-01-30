@@ -28,7 +28,7 @@
       "industria-farmers-market": "Industria: Farmers markets",
       "industria-award": "Industria: Award",
       "industria-train": "Industria: Train module",
-      "trainPlayerWarning": "The Train module with Automa works only in a 2 player game."
+      "trainPlayerWarning": "⚠ The Train module with Automa works only in a 2 player game."
     }
   },
   "setupBot": {
@@ -36,7 +36,9 @@
     "setup": {
       "title": "Game Board",
       "setupGame": "Setup the game as usual for {playerCount} players.",
-      "playerBoard": "<b>Player board</b>: Automa doesn't need a player. But you can use it to organize the Automa's clan components.",
+      "playerBoard": "<b>Player board</b>: Prepare a player board with all components for Automa.",
+      "shipLevel": "Set shipping to <b>level {level}</b>.",
+      "money": "Automa receives <b>£{startingMoney}</b>.",
       "clansSelection": "<b>Clans selection</b>: the Automa doesn’t have a Clan. You choose between {clanCount} pairs of Clan tiles and Starting tiles.",
       "farmersMarket2Players": "<b>Farmers market</b>: Place 2 Farmers markets in the map modules A & C or B & D.",
       "farmersMarket": "<b>Farmers market</b>: Place {playerCount} Farmers markets in {playerCount} different map modules.",
@@ -52,7 +54,8 @@
           "port": "If nearest to port tile, it prefers the hex that gets it into reach of a Port tile,",
           "cheapest": "The cheapest hex,",
           "random": "Choose randomly."
-        }
+        },
+        "payCosts": "The Automa <b>pays the cost</b> for placing these Workers, using its starting money."
       },
       "turnOrder": "<b>Turn order</b>: the Automa is last in round 1. The following rounds are in usual Passing order."
     },
@@ -64,7 +67,18 @@
       "scoring": "Depending on how much you have of the respective item, you score 4VP, 0VP or even lose 4VP."
     },
     "train": {
-      "title": "Train module"
+      "title": "Train module",
+      "setup": "Instead of using the standard Milestones, use the Automa milestone cards for the Train map and place them on the matching Milestone areas of the Train map.",
+      "noActions": "The Automa doesn’t perform any Actions related to the Train map.",
+      "playerDeliver": "When you deliver to a location, discard its <b>Delivery bonus</b> tile. <b>This means you can deliver to each location once only.</b>"
+    },
+    "ruleChanges": {
+      "title": "Rule Changes for Automa",
+      "moneyNoGoods": "The Automa manages money, <b>but never has goods in its stock.</b>",
+      "contracts": "It can fulfill contracts, but uses money for fulfilling instead of goods.",
+      "merchants": "It always gains a monetary bonus when performing the trade action or using the neighbourhood bonus or farmers market.",
+      "production": "In the Production phase, it gets additional money instead of goods.",
+      "noScoringPhase": "The Automa skips the scoring phase but gains a fixed amount of glory per difficulty level at the end of the game."
     }
   },
   "player": {
