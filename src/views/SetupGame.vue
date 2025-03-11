@@ -20,6 +20,7 @@ import FooterButtons from '@/components/structure/FooterButtons.vue'
 import DifficultyLevel from '@/components/setup/DifficultyLevel.vue'
 import ExpansionsSetup from '@/components/setup/ExpansionsSetup.vue'
 import PlayersSetup from '@/components/setup/PlayersSetup.vue'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   name: 'SetupGame',
@@ -31,13 +32,14 @@ export default defineComponent({
   },
   setup() {
     const { t } = useI18n()
+    const router = useRouter()
     const state = useStateStore()
 
-    return { t, state }
+    return { t, router, state }
   },
   methods: {
     setupBot() : void {
-      this.$router.push('/setupBot')
+      this.router.push('/setupBot')
     }
   }
 })

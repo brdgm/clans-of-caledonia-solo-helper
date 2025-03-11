@@ -39,13 +39,22 @@
     <h3 class="mb-3">{{t('setupBot.award.title')}}</h3>
     <div class="instructions">
       <ul>
-        <li v-html="t('setupBot.award.drawCard')"></li>
-        <ul>
-          <li v-html="t('setupBot.award.scoringDifferent')"></li>
-          <li v-html="t('setupBot.award.conditions')"></li>
-          <li v-html="t('setupBot.award.scoring')"></li>
-        </ul>
-      </ul>
+        <template v-if="playerCount == 1">
+          <li v-html="t('setupBot.award.drawCard')"></li>
+          <ul>
+            <li v-html="t('setupBot.award.scoringDifferent')"></li>
+            <li v-html="t('setupBot.award.conditions')"></li>
+            <li v-html="t('setupBot.award.scoring')"></li>
+          </ul>
+        </template>
+        <template v-else>
+          <li v-html="t('setupBot.award.multipleHumanPlayers.awardTiles')"></li>
+          <ul>
+            <li v-html="t('setupBot.award.multipleHumanPlayers.playerCount')"></li>
+            <li v-html="t('setupBot.award.multipleHumanPlayers.botDoesNotParticipate')"></li>
+          </ul>
+        </template>
+    </ul>
     </div>
   </template>
 
@@ -53,11 +62,19 @@
     <h3 class="mb-3">{{t('setupBot.train.title')}}</h3>
     <div class="instructions">
       <ul>
-        <li v-html="t('setupBot.train.setup')"></li>
-        <ul>
-          <li v-html="t('setupBot.train.noActions')"></li>
-          <li v-html="t('setupBot.train.playerDeliver')"></li>
-        </ul>
+        <template v-if="playerCount == 1">
+          <li v-html="t('setupBot.train.setup')"></li>
+          <ul>
+            <li v-html="t('setupBot.train.noActions')"></li>
+            <li v-html="t('setupBot.train.playerDeliver')"></li>
+          </ul>
+        </template>
+        <template v-else-if="playerCount == 2">
+          <li v-html="t('setupBot.train.twoHumanPlayersSetup')"></li>
+        </template>
+        <template v-else-if="playerCount > 2">
+          <li v-html="t('setupBot.train.threeHumanPlayersSetup')"></li>
+        </template>
       </ul>
     </div>
   </template>
@@ -92,6 +109,7 @@ import FooterButtons from '@/components/structure/FooterButtons.vue'
 import Expansion from '@/services/enum/Expansion'
 import BotStartingWorkers from '@/components/setup/BotStartingWorkers.vue'
 import getDifficultyLevelSettings, { DifficultyLevelSettings } from '@/util/getDifficultyLevelSettings'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   name: 'SetupBot',
@@ -101,8 +119,9 @@ export default defineComponent({
   },
   setup() {
     const { t } = useI18n()
+    const router = useRouter()
     const state = useStateStore()
-    return { t, state }
+    return { t, router, state }
   },
   data() {
     return {
@@ -136,7 +155,7 @@ export default defineComponent({
     startGame() : void {
       this.state.resetGame()
       // start first round
-      this.$router.push('/round/1/start')
+      this.router.push('/round/1/start')
     }
   }
 })

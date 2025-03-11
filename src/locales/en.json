@@ -27,8 +27,7 @@
       "intro": "If you own the Industria expansion, you can use all new material with the Automa. The three modules listed here have an effect on the Automa gameplay.",
       "industria-farmers-market": "Industria: Farmers markets",
       "industria-award": "Industria: Award",
-      "industria-train": "Industria: Train module",
-      "trainPlayerWarning": "⚠ The Train module with Automa works only in a 2 player game."
+      "industria-train": "Industria: Train module"
     }
   },
   "setupBot": {
@@ -64,13 +63,20 @@
       "drawCard": "Draw one Automa Award card and place it below the 5th Scoring tile.",
       "scoringDifferent": "The way you score the Awards in the Automa mode is different from how you would normally score them.",
       "conditions": "The conditions are the same as in the multiplayer Award tiles.",
-      "scoring": "Depending on how much you have of the respective item, you score 4VP, 0VP or even lose 4VP."
+      "scoring": "Depending on how much you have of the respective item, you score 4VP, 0VP or even lose 4VP.",
+      "multipleHumanPlayers": {
+        "awardTiles": "Multiple human players: Use the Award tiles as in a standard multiplayer game.",
+        "playerCount": "Disregarding the Automa when determining player count.",
+        "botDoesNotParticipate": "The Automa does not participate in the Award scoring."
+      }
     },
     "train": {
       "title": "Train module",
       "setup": "Instead of using the standard Milestones, use the Automa milestone cards for the Train map and place them on the matching Milestone areas of the Train map.",
       "noActions": "The Automa doesn’t perform any Actions related to the Train map.",
-      "playerDeliver": "When you deliver to a location, discard its <b>Delivery bonus</b> tile. <b>This means you can deliver to each location once only.</b>"
+      "playerDeliver": "When you deliver to a location, discard its <b>Delivery bonus</b> tile. <b>This means you can deliver to each location once only.</b>",
+      "twoHumanPlayersSetup": "2 human players: Use the 2-player side of the Train map and play the Train module as a standard 2-player game.",
+      "threeHumanPlayersSetup": "3 human players: Use the 3-4 player side of the Train map and play it as a standard 3-player game."
     },
     "ruleChanges": {
       "title": "Rule Changes for Automa",

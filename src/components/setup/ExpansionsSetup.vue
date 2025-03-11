@@ -14,12 +14,6 @@
       </div>
     </div>
   </div>
-
-  <div class="container-fluid mt-2" v-if="hasTrainModule && state.getTotalPlayerCount() > 2">
-    <div class="row">
-      <div class="col alert alert-warning" v-html="t('setup.expansions.trainPlayerWarning')"></div>
-    </div>
-  </div>
 </template>
 
 <script lang="ts">
@@ -38,9 +32,6 @@ export default defineComponent({
   computed: {
     expansions() : Expansion[] {
       return Object.values(Expansion)
-    },
-    hasTrainModule() : boolean {
-      return this.state.setup.expansions.includes(Expansion.INDUSTRIA_TRAIN)
     }
   },
   methods: {
