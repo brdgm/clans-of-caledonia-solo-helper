@@ -46,14 +46,14 @@
       "farmersMarketWorkerPlacementBot": "This does not apply to the Automa starting Workers.",
       "botStartingWorkers": {
         "title": "<b>Automa starting Workers</b>: The Automa places <b>4</b> of its Workers before you deploy your Workers. The Automa places 1 Worker in each map module:",
-        "port": "Worker {worker} on map module <b>{mapModule}</b>: Nearest to the <b>Port tile</b>.",
-        "loch": "Worker {worker} on map module <b>{mapModule}</b>: Nearest to the <b>central loch</b>.",
+        "port": "Worker {worker} on map module <b>{mapModule}</b>: Nearest to the <b>Port tile</b>",
+        "loch": "Worker {worker} on map module <b>{mapModule}</b>: Nearest to the <b>central loch</b>",
         "tieBreaker": {
           "title": "Choose a hex in this order of priority:",
-          "price": "Hex with cost £1 or £2,",
-          "port": "If nearest to port tile, it prefers the hex that gets it into reach of a Port tile,",
-          "cheapest": "The cheapest hex,",
-          "random": "Choose randomly."
+          "price": "Hex with cost £1 or £2",
+          "port": "If nearest to port tile, it prefers the hex that gets it into reach of a Port tile",
+          "cheapest": "The cheapest hex",
+          "random": "Choose randomly"
         },
         "payCosts": "The Automa <b>pays the cost</b> for placing these Workers, using its starting money."
       },
