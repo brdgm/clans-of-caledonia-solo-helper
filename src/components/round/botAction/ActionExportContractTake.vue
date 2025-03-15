@@ -1,4 +1,4 @@
-<template>  
+<template>
   <div>If the Automa <b>has no Export contract</b>, it will get one.</div>
   <div>The Automa receives or must <b>pay money for taking</b> an Export contract as normal depending on the current round.</div>
   <div class="mt-3">It will take the <b>cheapest</b> export contract, by counting:</div>

@@ -1,7 +1,6 @@
 <template>
   <div class="sidebar">
-    {{t('sideBar.round', {round})}}<br/>
-    <template v-if="turn > 0">{{t('sideBar.turn', {turn})}}<br/></template>
+    {{t('sideBar.round', {round})}}<template v-if="turn > 0">, {{t('sideBar.turn', {turn})}}</template>
   </div>
 </template>
 
@@ -38,13 +37,14 @@ export default defineComponent({
 <style lang="scss" scoped>
 .sidebar {
   float: right;
-  width: 145px;
+  width: fit-content;
   margin-left: 15px;
   margin-bottom: 10px;
   margin-right: -12px;
-  padding: 15px 5px 15px 15px;
+  padding: 10px 10px 10px 10px;
   background-color: #ddd;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
+  font-size: smaller;
 }
 </style>

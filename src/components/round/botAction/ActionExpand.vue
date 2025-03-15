@@ -1,4 +1,4 @@
-<template>  
+<template>
   <p>{{ action }}</p>
 </template>
 

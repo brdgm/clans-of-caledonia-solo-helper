@@ -60,7 +60,6 @@ export default defineComponent({
         const nextRound = this.round + 1
         const initialCardDeck : CardDeck[] = []
         for (let bot = 1; bot<=this.botCount; bot++) {
-          playerOrder.push({ bot })
           initialCardDeck.push(CardDeck.new(nextRound))
         }
         this.state.storeRound({

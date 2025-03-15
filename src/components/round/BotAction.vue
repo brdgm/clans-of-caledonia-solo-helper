@@ -3,15 +3,14 @@
     <div class="col">
       <div class="actionBox upper">
         <AppIcon type="action" :name="action" class="actionIcon"/>
-        <h6>{{t(`botAction.${action}.title`)}}</h6>
+        <h5>{{t(`botAction.${action}.title`)}}</h5>
       </div>
       <div class="actionBox lower">
         <component :is="`action-${action}`" :action="action"
-          :currentCard="currentCard" :currentSupportCard="currentSupportCard" :navigationState="navigationState"/>
+            :currentCard="currentCard" :currentSupportCard="currentSupportCard" :navigationState="navigationState"/>
       </div>
     </div>
   </div>
-  
 </template>
 
 <script lang="ts">
@@ -83,6 +82,11 @@ export default defineComponent({
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     border-top: 0;
+    overflow-y: auto;
+    max-height: 500px;
+    @media (max-width: 600px) {
+      max-height: 300px;
+    }
   }
 }
 .actionIcon {

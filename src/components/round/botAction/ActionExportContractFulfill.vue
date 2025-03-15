@@ -1,4 +1,4 @@
-<template>  
+<template>
   <div>If the Automa <b>has an Export contract</b>, it will try to fulfill it. It has to pay:</div>
   <div class="mt-2">
     <MoneyIcon :value="5" pay/>
