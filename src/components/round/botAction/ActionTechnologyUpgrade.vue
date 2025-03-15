@@ -3,15 +3,15 @@
     <template #summary>
       <p>
         <MoneyIcon :value="10" pay class="me-1"/>
-        <span>Upgrade if Automa has <b>3 or more workers</b> of the same type.</span>
+        <span v-html="t('botAction.technology-upgrade.summary')"></span>
       </p>
     </template>
-    <template #fullRules>
-      <p>If the Automa has 3 or more Workers of the same type deployed and not upgraded, then it must pay <b>£10</b> to upgrade this Worker technology by flipping the Technology tile on its player board.</p>
-      <p>If both Worker types fit this criterion, chose in this order:</p>
+    <template #rules>
+      <p v-html="t('botAction.technology-upgrade.fullRule')"></p>
+      <p v-html="t('botAction.technology-upgrade.tiebreaker')"></p>
       <ul>
         <li v-for="workerType in workerTypes" :key="workerType">
-          {{workerType}}
+          {{t(`workerType.${workerType}`)}}
         </li>
       </ul>
     </template>

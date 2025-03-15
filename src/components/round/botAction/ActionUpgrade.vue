@@ -8,8 +8,8 @@
         <AppIcon type="upgrade-type" :name="upgradeType" class="upgradeTypeIcon"/>
       </template>
     </template>
-    <template #fullRules>
-      <div>Automa must spend <b>£4</b> to upgrade Merchants or Shipping, if not fully upgraded yet. Order of preference see above.</div>
+    <template #rules>
+      <p v-html="t('botAction.upgrade.rules')"></p>
     </template>
   </ActionBox>
 </template>

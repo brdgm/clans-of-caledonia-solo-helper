@@ -4,39 +4,33 @@
       <div class="tradeOptions">
         <div>
           <AppIcon type="good" :name="selectedGood" class="goodIcon me-2" />
-          <button class="btn btn-outline-secondary btn-sm" @click="rerollGood()">Reroll</button>
+          <button class="btn btn-outline-secondary btn-sm" @click="rerollGood()">{{t('botAction.trade.reroll')}}</button>
         </div>
         <div>
           <AppIcon type="upgrade-type" name="merchant" class="merchantIcon me-1" v-for="i of merchantCount" :key="i"/>
         </div>
-        <div>
-          Prefer <b>{{merchantAction}}</b>.
-        </div>
+        <div v-html="t('botAction.trade.preferMerchantAction', {merchantAction:t(`merchantAction.${merchantAction}`)})"></div>
       </div>
     </template>
-    <template #fullRules>
+    <template #rules>
+      <p v-html="t('botAction.trade.rules.selectGood')"></p>
       <div>
-        <p>If Automa has already traded the displayed good this round, reroll to choose a different one.</p>
-        <div>
-          <p>Depending on the <b>current</b> price bracket of that good, choose:</p>
-          <div class="stockMarketPrice">
-            <div class="merchantAction">
-              <div>Sell</div>
-              <div>{{merchantAction}}</div>
-              <div>Buy</div>
-            </div>
-            <div>
-              <img src="@/assets/stockmarket-price-bracket.webp" alt=""/>
-            </div>
+        <p v-html="t('botAction.trade.rules.priceBracket')"></p>
+        <div class="stockMarketPrice">
+          <div class="merchantAction">
+            <div>{{t('merchantAction.sell')}}</div>
+            <div>{{t(`merchantAction.${merchantAction}`)}}</div>
+            <div>{{t('merchantAction.buy')}}</div>
+          </div>
+          <div>
+            <img src="@/assets/stockmarket-price-bracket.webp" alt=""/>
           </div>
         </div>
-        <p class="mt-3">Place up to <b>{{merchantCount}} merchants</b>.</p>
-        <p>
-          Gain <b>£1 per Merchant</b> placed.
-        </p>
-        <p>Adjusts the Price markers as normal. Automa does not gain any more money even when selling a good and also does not pay any money when buying a good.</p>
-        <p>Action is not possible when Automa has no merchant left, or has already traded all types of Goods.</p>
       </div>
+      <p class="mt-3" v-html="t('botAction.trade.rules.placeMerchants', {merchantCount})"></p>
+      <p v-html="t('botAction.trade.rules.gainMoney')"></p>
+      <p v-html="t('botAction.trade.rules.adjustPriceMarkers')"></p>
+      <p v-html="t('botAction.trade.rules.notPossible')"></p>
     </template>
   </ActionBox>
 </template>

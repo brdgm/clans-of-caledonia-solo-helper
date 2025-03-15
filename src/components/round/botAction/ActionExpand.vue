@@ -17,7 +17,7 @@
         </div>
       </div>
     </template>
-    <template #fullRules>
+    <template #rules>
       <p>Automa will try to expand in the highlighted map modules. It chooses a space that best fits this criteria:</p>
       <ol class="criteriaList">
         <li v-for="expandCriteria of expandCriteria" :key="expandCriteria">

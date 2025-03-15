@@ -1,9 +1,9 @@
 <template>
   <slot name="summary"></slot>
   <hr/>
-  <button class="btn btn-sm btn-outline-secondary mb-2" data-bs-toggle="collapse" data-bs-target="#fullRulesCollapse">Rules</button>
+  <button class="btn btn-sm btn-outline-secondary mb-2" data-bs-toggle="collapse" data-bs-target="#fullRulesCollapse">{{t('roundTurnBot.rules')}}</button>
   <div class="collapse" id="fullRulesCollapse">
-    <slot name="fullRules"></slot>
+    <slot name="rules"></slot>
   </div>
 </template>
 
@@ -14,9 +14,9 @@ import { useI18n } from 'vue-i18n'
 export default defineComponent({
   name: 'ActionBox',
   setup() {
-    const t = useI18n()
+    const { t } = useI18n()
     return { t }
-  }
+  },
 })
 </script>
 
