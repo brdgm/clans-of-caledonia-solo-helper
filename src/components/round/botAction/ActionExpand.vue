@@ -8,6 +8,34 @@
       </template>
     </div>
   </div>
+  <hr/>
+  <p>Automa will try to expand in the highlighted map modules. It chooses a space that best fits this criteria:</p>
+  <ol class="criteriaList">
+    <li v-for="expandCriteria of expandCriteria" :key="expandCriteria">
+      <AppIcon type="expand-criteria" :name="expandCriteria" class="expandCriteriaIcon"/>
+      <template v-if="isSettlementsCriteria(expandCriteria)">
+        <span><b>Max Settlements:</b> A space to maximize its number of Settlements:</span>
+        <ol type="a">
+          <li>It tries to connect two groups of Settlements that were disconnected.</li>
+          <li>It tries to add a new Settlement to a group of Settlements.</li>
+        </ol>
+      </template>
+      <template v-if="isCostsCriteria(expandCriteria)">
+        <span><b>Min Costs:</b> The cheapest space.</span>
+      </template>
+      <template v-if="isNeighborhoodCriteria(expandCriteria)">
+        <template v-if="hasFarmersMarketExpansion">
+          <span><b>Max Neighbourhood Bonus / Farmers Market:</b> Space where it would buy/sell the most Goods through the Neighbourhood bonus or a Farmers Market.</span>
+        </template>
+        <template v-else>
+          <span><b>Max Neighbourhood Bonus:</b> Space where it would buy the most Goods through the Neighbourhood bonus.</span>
+        </template>
+      </template>
+      <template v-if="isPortCriteria(expandCriteria)">
+        <span><b>Port tile:</b> Space that would get it into reach of a Port tile.</span>
+      </template>
+    </li>
+  </ol>
 </template>
 
 <script lang="ts">
@@ -21,6 +49,8 @@ import MapModules from '@/components/structure/MapModules.vue'
 import AppIcon from '@/components/structure/AppIcon.vue'
 import ExpandCriteria from '@/services/enum/ExpandCriteria'
 import getAllEnumValues from '@brdgm/brdgm-commons/src/util/enum/getAllEnumValues'
+import { useStateStore } from '@/store/state'
+import Expansion from '@/services/enum/Expansion'
 
 export default defineComponent({
   name: 'ActionExpand',
@@ -31,7 +61,8 @@ export default defineComponent({
   },
   setup() {
     const { t } = useI18n()
-    return { t }
+    const state = useStateStore()
+    return { t, state }
   },
   props: {
     action: {
@@ -68,6 +99,23 @@ export default defineComponent({
         return [ExpandCriteria.SETTLEMENTS, ...(this.currentSupportCard?.expandCriteria ?? []).filter(item => item != ExpandCriteria.SETTLEMENTS)]
       }
       return this.currentSupportCard?.expandCriteria ?? []
+    },
+    hasFarmersMarketExpansion() : boolean {
+      return this.state.setup.expansions.includes(Expansion.INDUSTRIA_FARMERS_MARKET)
+    }
+  },
+  methods: {
+    isSettlementsCriteria(criteria: ExpandCriteria) : boolean {
+      return criteria == ExpandCriteria.SETTLEMENTS
+    },
+    isCostsCriteria(criteria: ExpandCriteria) : boolean {
+      return criteria == ExpandCriteria.COSTS
+    },
+    isNeighborhoodCriteria(criteria: ExpandCriteria) : boolean {
+      return criteria == ExpandCriteria.NEIGHBORHOOD
+    },
+    isPortCriteria(criteria: ExpandCriteria) : boolean {
+      return criteria == ExpandCriteria.PORT
     }
   }
 })
@@ -76,10 +124,20 @@ export default defineComponent({
 <style lang="scss" scoped>
 .expandSelection {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
 }
 .expandCriteriaIcon {
   height: 2rem;
+}
+.criteriaList .expandCriteriaIcon {
+  height: 1.5rem;
+  width: 2.5rem;
+  object-fit: contain;
+  margin-right: 5px;
+}
+.criteriaList > li {
+  margin-bottom: 10px;
 }
 </style>
