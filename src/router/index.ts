@@ -45,6 +45,11 @@ const routes: Array<RouteRecordRaw> = [
     component: RoundTurnBot
   },
   {
+    path: '/round/:round/turn/:turn/:turnOrderIndex/bot/:bot/action/:action',
+    name: 'RoundTurnBotAction',
+    component: RoundTurnBot
+  },
+  {
     path: '/round/:round/production',
     name: 'RoundProduction',
     component: RoundProduction

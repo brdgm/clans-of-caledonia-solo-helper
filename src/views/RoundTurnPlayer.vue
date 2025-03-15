@@ -8,16 +8,16 @@
     {{t('action.next')}}
   </button>
   <button class="btn btn-outline-danger btn-lg mt-4 ms-2" data-bs-toggle="modal" data-bs-target="#passModal">
-    {{t('roundTurnPlayer.pass.title')}}
+    {{t('action.pass')}}
   </button>
 
-  <ModalDialog id="passModal" :title="t('roundTurnPlayer.pass.title')">
+  <ModalDialog id="passModal" :title="t('action.pass')">
     <template #body>
       <p v-html="t('roundTurnPlayer.pass.confirm')"></p>
       <p v-html="t('roundTurnPlayer.pass.info')"></p>
     </template>
     <template #footer>
-      <button class="btn btn-danger" @click="pass" data-bs-dismiss="modal">{{t('roundTurnPlayer.pass.title')}}</button>
+      <button class="btn btn-danger" @click="pass" data-bs-dismiss="modal">{{t('action.pass')}}</button>
       <button class="btn btn-secondary" data-bs-dismiss="modal">{{t('action.cancel')}}</button>
     </template>
   </ModalDialog>

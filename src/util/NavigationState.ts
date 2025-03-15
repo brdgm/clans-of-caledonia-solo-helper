@@ -13,6 +13,7 @@ export default class NavigationState {
   readonly round : number
   readonly turn : number
   readonly turnOrderIndex : number
+  readonly action : number
   readonly player : number
   readonly bot : number
   readonly cardDeck? : CardDeck
@@ -26,6 +27,7 @@ export default class NavigationState {
     this.round = getIntRouteParam(route, 'round')
     this.turn = getIntRouteParam(route, 'turn')
     this.turnOrderIndex = getIntRouteParam(route, 'turnOrderIndex')
+    this.action = getIntRouteParam(route, 'action')
     this.player = getIntRouteParam(route, 'player')
     this.bot = getIntRouteParam(route, 'bot')
 

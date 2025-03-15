@@ -3,11 +3,8 @@
   <h1>{{t('player.bot', {bot}, botCount)}}</h1>
 
   <BotTurn v-if="navigationState.cardDeck?.currentCard"
-       :navigationState="navigationState" :currentCard="navigationState.cardDeck?.currentCard"/>
-
-  <button class="btn btn-primary btn-lg mt-4" @click="next()">
-    {{t('action.next')}}
-  </button>
+       :navigationState="navigationState" :currentCard="navigationState.cardDeck?.currentCard"
+       @executed="next()" @notPossible="notPossible()" @pass="pass()"/>
 
   <DebugInfo :navigationState="navigationState"/>
 
@@ -41,8 +38,8 @@ export default defineComponent({
     const state = useStateStore()
 
     const navigationState = new NavigationState(route, state)
-    const { round, turn, turnOrderIndex, bot, botCount } = navigationState
-    const routeCalculator = new RouteCalculator({round, turn, turnOrderIndex, bot})
+    const { round, turn, turnOrderIndex, action, bot, botCount } = navigationState
+    const routeCalculator = new RouteCalculator({round, turn, turnOrderIndex, action, bot})
 
     return { t, router, navigationState, state, routeCalculator, round, turn, bot, botCount }
   },
@@ -53,13 +50,22 @@ export default defineComponent({
   },
   methods: {
     next() : void {
+      this.nextWithPassed(false)
+    },
+    notPossible() : void {
+      this.router.push(this.routeCalculator.getNextActionRouteTo(this.state))
+    },
+    pass() : void {
+      this.nextWithPassed(true)
+    },
+    nextWithPassed(passed : boolean) : void {
       this.state.storeRoundTurn({
         round:this.navigationState.round,
         turn:this.navigationState.turn,
         turnOrderIndex:this.navigationState.turnOrderIndex,
         bot:this.navigationState.bot,
         cardDeck: this.navigationState.cardDeck?.toPersistence(),
-        pass: false // TODO: how to pass?!
+        pass: passed
       })
       this.router.push(this.routeCalculator.getNextRouteTo(this.state))
     }

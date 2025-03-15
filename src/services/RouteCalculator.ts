@@ -9,13 +9,15 @@ export default class RouteCalculator {
   readonly round : number
   readonly turn : number
   readonly turnOrderIndex : number
+  readonly action : number
   readonly player? : number
   readonly bot? : number
 
-  constructor(params:{round: number, turn?: number, turnOrderIndex?: number, action?: number, workerUsedPreviousAction?: number, player?: number, bot?: number}) {
+  constructor(params:{round: number, turn?: number, turnOrderIndex?: number, action?: number, player?: number, bot?: number}) {
     this.round = params.round
     this.turn = params.turn ?? MAX_TURN  // when called in EndOfRound/EndOfGame context
     this.turnOrderIndex = params.turnOrderIndex ?? 0
+    this.action = params.action ?? 0
     this.player = params.player
     this.bot = params.bot
   }
@@ -33,14 +35,23 @@ export default class RouteCalculator {
     }
     const nextStep = steps[currentStepIndex+1]
     if (!nextStep) {
-      if (this.round == 7) {
-        return `/endOfGame`
-      }
-      else {
-        return `/round/${this.round}/end`
-      }
+      return `/round/${this.round}/production`
     }
     return RouteCalculator.routeTo(nextStep)
+  }
+
+  /**
+   * Get route to the next action of the current step.
+   */
+  public getNextActionRouteTo(state: State) : string {
+    const steps = getTurnOrder(state, this.round, this.turn)
+    const currentStepIndex = steps.findIndex(item => item.round==this.round && item.turn==this.turn
+        && item.player==this.player && item.bot==this.bot)
+    if (currentStepIndex < 0) {
+      return ''
+    }
+    const currentStep = steps[currentStepIndex]
+    return RouteCalculator.routeTo(currentStep, this.action+1)
   }
 
   /**
@@ -53,6 +64,10 @@ export default class RouteCalculator {
         && item.player==this.player && item.bot==this.bot)
     if (currentStepIndex < 0) {
       return ''
+    }
+    if (this.action > 0) {
+      const currentStep = steps[currentStepIndex]
+      return RouteCalculator.routeTo(currentStep, this.action-1)
     }
     const previousStep = steps[currentStepIndex-1]
     if (!previousStep) {
@@ -89,12 +104,12 @@ export default class RouteCalculator {
   /**
    * Build route to player/bot step
    */
-  private static routeTo(step?: Step) : string {
+  private static routeTo(step?: Step, action: number = 0) : string {
     if (!step) {
       return ''
     }
     else if (step.bot) {
-      return `/round/${step.round}/turn/${step.turn}/${step.turnOrderIndex}/bot/${step.bot}`
+      return `/round/${step.round}/turn/${step.turn}/${step.turnOrderIndex}/bot/${step.bot}` + (action > 0 ? `/action/${action}` : '')
     }
     else {
       return `/round/${step.round}/turn/${step.turn}/${step.turnOrderIndex}/player/${step.player}`
