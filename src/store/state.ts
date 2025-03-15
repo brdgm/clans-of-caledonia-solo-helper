@@ -57,7 +57,27 @@ export interface PlayerSetup {
   botCount: number
   playerColors: PlayerColor[]
 }
-
 export interface Round {
   round: number
+  playerOrder: PlayerOrder[]
+  turns: RoundTurn[]
+}
+export interface PlayerOrder {
+  player?: number
+  bot?: number
+}
+export interface RoundTurn {
+  round: number
+  turn: number
+  turnOrderIndex: number
+  player?: number
+  bot?: number
+  pass?: boolean
+  cardDeck?: CardDeckPersistence
+}
+export interface CardDeckPersistence {
+  current?: number
+  currentSupport?: number
+  pile: number[]
+  discard: number[]
 }
