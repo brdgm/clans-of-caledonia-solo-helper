@@ -11,7 +11,17 @@ describe('services/RouteCalculator', () => {
       mockRound({round:1, playerOrder:[{player:1},{bot:1},{bot:2}]})
     ]})
     expect(routeCalculator.getNextRouteTo(state)).to.eq('/round/1/turn/1/1/bot/1')
-    expect(routeCalculator.getBackRouteTo(state)).to.eq('/round/1/income')
+    expect(routeCalculator.getBackRouteTo(state)).to.eq('')
+  })
+
+  it('getNextRouteTo-round2-turn1-player', () => {
+    const routeCalculator = new RouteCalculator({round:2, turn:1, turnOrderIndex:0, player:1})
+
+    const state = mockState({playerCount:1, botCount:2, rounds:[
+      mockRound({round:2, playerOrder:[{player:1},{bot:1},{bot:2}]})
+    ]})
+    expect(routeCalculator.getNextRouteTo(state)).to.eq('/round/2/turn/1/1/bot/1')
+    expect(routeCalculator.getBackRouteTo(state)).to.eq('/round/2/preparation')
   })
 
   it('getNextRouteTo-round1-turn1-bot1', () => {

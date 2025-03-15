@@ -14,7 +14,7 @@ export default function (params?: MockStateParams) : State {
         playerColors: params?.playerColors ?? [PlayerColor.RED, PlayerColor.BLACK, PlayerColor.BLUE, PlayerColor.WHITE]
       },
       expansions: params?.expansions ?? [],
-      difficultyLevel: params?.difficultyLevel ?? DifficultyLevel.EASY
+      difficultyLevel: params?.difficultyLevel ?? DifficultyLevel.VERY_EASY
     },
     rounds: params?.rounds ?? []
   }

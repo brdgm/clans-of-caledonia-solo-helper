@@ -104,12 +104,13 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useStateStore } from '@/store/state'
+import { PlayerOrder, useStateStore } from '@/store/state'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
 import Expansion from '@/services/enum/Expansion'
 import BotStartingWorkers from '@/components/setup/BotStartingWorkers.vue'
 import getDifficultyLevelSettings, { DifficultyLevelSettings } from '@/util/getDifficultyLevelSettings'
 import { useRouter } from 'vue-router'
+import RouteCalculator from '@/services/RouteCalculator'
 
 export default defineComponent({
   name: 'SetupBot',
@@ -154,8 +155,24 @@ export default defineComponent({
   methods: {
     startGame() : void {
       this.state.resetGame()
+      // prepare first round with initial player order
+      const { playerCount, botCount } = this.state.setup.playerSetup
+      const playerOrder : PlayerOrder[] = []
+      for (let player = 1; player<=playerCount; player++) {
+        playerOrder.push({ player })
+      }
+      for (let bot = 1; bot<=botCount; bot++) {
+        playerOrder.push({ bot })
+      }
+      const round = 1
+      this.state.storeRound({
+        round,
+        playerOrder,
+        turns: []
+      })
       // start first round
-      this.router.push('/round/1/start')
+      const routeCalculator = new RouteCalculator({round})
+      this.router.push(routeCalculator.getFirstTurnRouteTo(this.state))
     }
   }
 })

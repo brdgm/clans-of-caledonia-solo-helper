@@ -87,6 +87,9 @@
       "noScoringPhase": "The Automa skips the scoring phase but gains a fixed amount of glory per difficulty level at the end of the game."
     }
   },
+  "roundPreparation": {
+    "title": "Preparation"
+  },
   "player": {
     "player": "Player | Player {player}",
     "bot": "Automa | Automa {bot}"
