@@ -1,13 +1,17 @@
 <template>
-  <div>
-    <MoneyIcon :value="4" pay/>
-    <span class="ms-1 me-2">:</span>
-    <template v-for="(upgradeType, index) in upgradeTypes" :key="upgradeType">
-      <span v-if="index > 0" class="ms-2 me-2">or</span>
-      <AppIcon type="upgrade-type" :name="upgradeType" class="upgradeTypeIcon"/>
+  <ActionBox>
+    <template #summary>
+      <MoneyIcon :value="4" pay/>
+      <span class="ms-1 me-2">:</span>
+      <template v-for="(upgradeType, index) in upgradeTypes" :key="upgradeType">
+        <span v-if="index > 0">＞</span>
+        <AppIcon type="upgrade-type" :name="upgradeType" class="upgradeTypeIcon"/>
+      </template>
     </template>
-  </div>
-  <div class="mt-2">Automa prefers the first option.</div>
+    <template #fullRules>
+      <div>Automa must spend <b>£4</b> to upgrade Merchants or Shipping, if not fully upgraded yet. Order of preference see above.</div>
+    </template>
+  </ActionBox>
 </template>
 
 <script lang="ts">
@@ -19,13 +23,15 @@ import Action from '@/services/enum/Action'
 import Card from '@/services/Card'
 import UpgradeType from '@/services/enum/UpgradeType'
 import MoneyIcon from '@/components/structure/MoneyIcon.vue'
+import ActionBox from '../ActionBox.vue'
 
 export default defineComponent({
   name: 'ActionUpgrade',
   inheritAttrs: false,
   components: {
     AppIcon,
-    MoneyIcon
+    MoneyIcon,
+    ActionBox
   },
   setup() {
     const { t } = useI18n()
@@ -67,5 +73,7 @@ export default defineComponent({
   width: 2rem;
   height: 2rem;
   object-fit: contain;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 </style>

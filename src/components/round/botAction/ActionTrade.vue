@@ -1,36 +1,44 @@
 <template>
-  <div class="tradeBox">
-    <div>
-      Good (reroll if already traded by Automa):
-      <div>
-        <AppIcon type="good" :name="selectedGood" class="goodIcon me-2" />
-        <button class="btn btn-outline-secondary" @click="rerollGood()">Reroll</button>
-      </div>
-      <div class="mt-3">
-        Place up to <b>{{merchantCount}} merchants</b>.<br/>
-        <AppIcon type="upgrade-type" name="merchant" class="merchantIcon me-1" v-for="i of merchantCount" :key="i"/>
-      </div>
-    </div>
-    <div>
-      <p>Depending on the <b>current</b> price bracket of that good, choose:</p>
-      <div class="stockMarketPrice">
-        <div class="merchantAction">
-          <div>Sell</div>
-          <div>{{merchantAction}}</div>
-          <div>Buy</div>
+  <ActionBox>
+    <template #summary>
+      <div class="tradeOptions">
+        <div>
+          <AppIcon type="good" :name="selectedGood" class="goodIcon me-2" />
+          <button class="btn btn-outline-secondary btn-sm" @click="rerollGood()">Reroll</button>
         </div>
         <div>
-          <img src="@/assets/stockmarket-price-bracket.webp" alt=""/>
+          <AppIcon type="upgrade-type" name="merchant" class="merchantIcon me-1" v-for="i of merchantCount" :key="i"/>
+        </div>
+        <div>
+          Prefer <b>{{merchantAction}}</b>.
         </div>
       </div>
-    </div>
-  </div>
-  <div class="mt-3">
-    <p>
-      Gain <MoneyIcon :value="1"/> per <AppIcon type="upgrade-type" name="merchant" class="merchantIcon me-1"/> placed.
-    </p>
-    <p>Adjusts the Price markers as normal. Automa does not gain any more money even when selling a good and also does not pay any money when buying a good. Action is not possible when Automa has no merchant left, or has already traded all types of Goods.</p>
-  </div>
+    </template>
+    <template #fullRules>
+      <div>
+        <p>If Automa has already traded the displayed good this round, reroll to choose a different one.</p>
+        <div>
+          <p>Depending on the <b>current</b> price bracket of that good, choose:</p>
+          <div class="stockMarketPrice">
+            <div class="merchantAction">
+              <div>Sell</div>
+              <div>{{merchantAction}}</div>
+              <div>Buy</div>
+            </div>
+            <div>
+              <img src="@/assets/stockmarket-price-bracket.webp" alt=""/>
+            </div>
+          </div>
+        </div>
+        <p class="mt-3">Place up to <b>{{merchantCount}} merchants</b>.</p>
+        <p>
+          Gain <b>£1 per Merchant</b> placed.
+        </p>
+        <p>Adjusts the Price markers as normal. Automa does not gain any more money even when selling a good and also does not pay any money when buying a good.</p>
+        <p>Action is not possible when Automa has no merchant left, or has already traded all types of Goods.</p>
+      </div>
+    </template>
+  </ActionBox>
 </template>
 
 <script lang="ts">
@@ -46,14 +54,14 @@ import rollDice from '@brdgm/brdgm-commons/src/util/random/rollDice'
 import { ref } from 'vue'
 import Good from '@/services/enum/Good'
 import MerchantAction from '@/services/enum/MerchantAction'
-import MoneyIcon from '@/components/structure/MoneyIcon.vue'
+import ActionBox from '../ActionBox.vue'
 
 export default defineComponent({
   name: 'ActionTrade',
   inheritAttrs: false,
   components: {
     AppIcon,
-    MoneyIcon
+    ActionBox
   },
   setup() {
     const { t } = useI18n()
@@ -99,10 +107,11 @@ export default defineComponent({
 .merchantIcon {
   width: 1.25rem;
 }
-.tradeBox {
+.tradeOptions {
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
+  align-items: center;
 }
 .stockMarketPrice {
   display: flex;

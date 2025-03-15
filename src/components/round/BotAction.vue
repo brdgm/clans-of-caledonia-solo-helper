@@ -1,15 +1,11 @@
 <template>
-  <div class="row">
-    <div class="col">
-      <div class="actionBox upper">
-        <AppIcon type="action" :name="action" class="actionIcon"/>
-        <h5>{{t(`botAction.${action}.title`)}}</h5>
-      </div>
-      <div class="actionBox lower">
-        <component :is="`action-${action}`" :action="action"
-            :currentCard="currentCard" :currentSupportCard="currentSupportCard" :navigationState="navigationState"/>
-      </div>
-    </div>
+  <div class="actionBox upper">
+    <AppIcon type="action" :name="action" class="actionIcon"/>
+    <h5>{{t(`botAction.${action}.title`)}}</h5>
+  </div>
+  <div class="actionBox lower">
+    <component :is="`action-${action}`" :action="action"
+        :currentCard="currentCard" :currentSupportCard="currentSupportCard" :navigationState="navigationState"/>
   </div>
 </template>
 

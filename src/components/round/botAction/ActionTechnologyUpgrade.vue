@@ -1,14 +1,21 @@
 <template>
-  <div>If Automa has <b>3 or more workers of the same type</b>:</div>
-  <div class="mt-1">
-    <MoneyIcon :value="10" pay/>
-    <span class="ms-1">to upgrade:</span>
-    <template v-for="(workerType, index) in workerTypes" :key="workerType">
-      <span v-if="index > 0">, </span>
-      {{workerType}}
+  <ActionBox>
+    <template #summary>
+      <p>
+        <MoneyIcon :value="10" pay class="me-1"/>
+        <span>Upgrade if Automa has <b>3 or more workers</b> of the same type.</span>
+      </p>
     </template>
-  </div>
-  <div class="mt-2">Automa prefers the first option.</div>  
+    <template #fullRules>
+      <p>If the Automa has 3 or more Workers of the same type deployed and not upgraded, then it must pay <b>£10</b> to upgrade this Worker technology by flipping the Technology tile on its player board.</p>
+      <p>If both Worker types fit this criterion, chose in this order:</p>
+      <ul>
+        <li v-for="workerType in workerTypes" :key="workerType">
+          {{workerType}}
+        </li>
+      </ul>
+    </template>
+  </ActionBox>
 </template>
 
 <script lang="ts">
@@ -20,12 +27,14 @@ import Card from '@/services/Card'
 import MoneyIcon from '@/components/structure/MoneyIcon.vue'
 import randomEnum from '@brdgm/brdgm-commons/src/util/random/randomEnum'
 import WorkerType from '@/services/enum/WorkerType'
+import ActionBox from '../ActionBox.vue'
 
 export default defineComponent({
   name: 'ActionTechnologyUpgrade',
   inheritAttrs: false,
   components: {
-    MoneyIcon
+    MoneyIcon,
+    ActionBox
   },
   setup() {
     const { t } = useI18n()
