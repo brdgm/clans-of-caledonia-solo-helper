@@ -6,7 +6,7 @@
 
   <BotTurn v-if="navigationState.cardDeck?.currentCard"
        :navigationState="navigationState" :currentCard="navigationState.cardDeck?.currentCard"
-       @executed="next()" @notPossible="notPossible()" @pass="pass()"/>
+       @executed="next" @notPossible="notPossible" @pass="pass"/>
 
   <DebugInfo :navigationState="navigationState"/>
 
@@ -26,6 +26,8 @@ import SideBar from '@/components/round/SideBar.vue'
 import DebugInfo from '@/components/round/DebugInfo.vue'
 import PlayerColorDisplay from '@/components/structure/PlayerColorDisplay.vue'
 import Action from '@/services/enum/Action'
+import getNextUnitType from '@/util/getNextUnitType'
+import UnitType from '@/services/enum/UnitType'
 
 export default defineComponent({
   name: 'RoundTurnBot',
@@ -54,8 +56,8 @@ export default defineComponent({
     }
   },
   methods: {
-    next() : void {
-      this.nextWithPassed(false)
+    next(action: Action) : void {
+      this.nextWithPassed(false, action)
     },
     notPossible() : void {
       this.router.push(this.routeCalculator.getNextActionRouteTo(this.state))
@@ -63,18 +65,29 @@ export default defineComponent({
     pass() : void {
       this.nextWithPassed(true)
     },
-    nextWithPassed(passed : boolean) : void {
+    nextWithPassed(passed : boolean, action?: Action) : void {
+      const cardDeck = this.navigationState.cardDeck
+      if (!cardDeck) {
+        return
+      }
       // ensure support card is drawn if the chose action, or one of the skipped ones, demanded one
-      const possibleActions = (this.navigationState.cardDeck?.currentCard?.actions ?? []).slice(0, this.navigationState.action + 1)
+      const possibleActions = (cardDeck.currentCard?.actions ?? []).slice(0, this.navigationState.action + 1)
       if (possibleActions.includes(Action.UPGRADE) || possibleActions.includes(Action.EXPAND)) {
         this.navigationState.cardDeck?.drawSupport()
+      }
+      let preferredUnitType = this.navigationState.preferredUnitType ?? UnitType.SHEEP
+      if (action == Action.EXPAND) {
+        preferredUnitType = getNextUnitType(preferredUnitType, cardDeck.currentSupportCard?.chooseUnitSteps ?? 0)
       }
       this.state.storeRoundTurn({
         round:this.navigationState.round,
         turn:this.navigationState.turn,
         turnOrderIndex:this.navigationState.turnOrderIndex,
         bot:this.navigationState.bot,
-        cardDeck: this.navigationState.cardDeck?.toPersistence(),
+        botPersistence: {
+          cardDeck: cardDeck.toPersistence(),
+          preferredUnitType
+        },
         pass: passed
       })
       this.router.push(this.routeCalculator.getNextRouteTo(this.state))

@@ -1,10 +1,13 @@
 import DifficultyLevel from '@/services/enum/DifficultyLevel'
-import { State } from '@/store/state'
+import { BotPersistence, State } from '@/store/state'
 import { RouteLocation } from 'vue-router'
 import CardDeck from '@/services/CardDeck'
 import getIntRouteParam from '@brdgm/brdgm-commons/src/util/router/getIntRouteParam'
 import getPreviousTurns from './getPreviousTurns'
 import PlayerColor from '@/services/enum/PlayerColor'
+import getNextUnitType from './getNextUnitType'
+import UnitType from '@/services/enum/UnitType'
+import rollDice from '@brdgm/brdgm-commons/src/util/random/rollDice'
 
 export default class NavigationState {
 
@@ -19,6 +22,7 @@ export default class NavigationState {
   readonly bot : number
   readonly playerColor : PlayerColor
   readonly cardDeck? : CardDeck
+  readonly preferredUnitType? : UnitType
 
   constructor(route: RouteLocation, state: State) {    
     const setup = state.setup
@@ -36,29 +40,31 @@ export default class NavigationState {
 
     if (this.bot > 0) {
       // card deck: draw next card for bot
-      this.cardDeck = getCardDeck(state, this.round, this.turn, this.bot)
+      const botPersistence = getBotPersistence(state, this.round, this.turn, this.bot)
+      this.cardDeck = CardDeck.fromPersistence(botPersistence.cardDeck)
       this.cardDeck.draw()
+      this.preferredUnitType = botPersistence.preferredUnitType
     }
   }
 
 }
 
-function getCardDeck(state:State, round:number, turn:number, bot:number) : CardDeck {
+function getBotPersistence(state:State, round:number, turn:number, bot:number) : BotPersistence {
   // get card deck from previous turn
   const previousTurns = getPreviousTurns({state, round, turn, bot})
   for (let i=previousTurns.length-1; i>=0; i--) {
     const previousTurn = previousTurns[i]
-    if (previousTurn.cardDeck) {
-      return CardDeck.fromPersistence(previousTurn.cardDeck)
+    if (previousTurn.botPersistence) {
+      return previousTurn.botPersistence
     }
   }
   // get initial card deck prepared for this round
-  const initialCardDeck = (state.rounds.find(item => item.round == round)?.initialCardDeck ?? [])[bot - 1]
-  if (initialCardDeck) {
-    return CardDeck.fromPersistence(initialCardDeck)
+  const initialBotPersistence = (state.rounds.find(item => item.round == round)?.initialBotPersistence ?? [])[bot - 1]
+  if (initialBotPersistence) {
+    return initialBotPersistence
   }
   // last resort: create new card deck
-  return CardDeck.new(round)
+  return { cardDeck: CardDeck.new(round).toPersistence(), preferredUnitType: getNextUnitType(UnitType.WORKER, rollDice(6)) }
 }
 
 function getPlayerColor(player : number, bot : number, playerCount : number, playerColors : PlayerColor[]) : PlayerColor {

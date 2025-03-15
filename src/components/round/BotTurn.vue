@@ -46,7 +46,11 @@ export default defineComponent({
     AppIcon,
     BotAction
   },
-  emits: ['executed', 'notPossible', 'pass'],
+  emits: {
+    executed: (_action: Action) => true,  // eslint-disable-line @typescript-eslint/no-unused-vars
+    notPossible: () => true,
+    pass: () => true
+  },
   setup(props) {
     const { t } = useI18n()
     const state = useStateStore()
@@ -82,7 +86,7 @@ export default defineComponent({
   },
   methods: {
     executed() : void {
-      this.$emit('executed')
+      this.$emit('executed', this.currentAction)
     },
     notPossible() : void {
       this.$emit('notPossible')

@@ -104,7 +104,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { PlayerOrder, useStateStore } from '@/store/state'
+import { BotPersistence, PlayerOrder, useStateStore } from '@/store/state'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
 import Expansion from '@/services/enum/Expansion'
 import BotStartingWorkers from '@/components/setup/BotStartingWorkers.vue'
@@ -112,6 +112,9 @@ import getDifficultyLevelSettings, { DifficultyLevelSettings } from '@/util/getD
 import { useRouter } from 'vue-router'
 import RouteCalculator from '@/services/RouteCalculator'
 import CardDeck from '@/services/CardDeck'
+import rollDice from '@brdgm/brdgm-commons/src/util/random/rollDice'
+import getNextUnitType from '@/util/getNextUnitType'
+import UnitType from '@/services/enum/UnitType'
 
 export default defineComponent({
   name: 'SetupBot',
@@ -160,19 +163,22 @@ export default defineComponent({
       const round = 1
       // prepare first round with initial player order
       const playerOrder : PlayerOrder[] = []
-      const initialCardDeck : CardDeck[] = []
+      const initialBotPersistence : BotPersistence[] = []
       for (let player = 1; player<=playerCount; player++) {
         playerOrder.push({ player })
       }
       for (let bot = 1; bot<=botCount; bot++) {
         playerOrder.push({ bot })
-        initialCardDeck.push(CardDeck.new(round))
+        initialBotPersistence.push({
+          cardDeck: CardDeck.new(round).toPersistence(),
+          preferredUnitType: getNextUnitType(UnitType.WORKER, rollDice(6))
+        })
       }
       this.state.storeRound({
         round,
         playerOrder,
         turns: [],
-        initialCardDeck: initialCardDeck.map(cardDeck => cardDeck.toPersistence())
+        initialBotPersistence
       })
       // start first round
       const routeCalculator = new RouteCalculator({round})

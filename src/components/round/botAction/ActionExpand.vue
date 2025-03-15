@@ -3,8 +3,14 @@
     <MapModules :mapModules="mapModules"/>
     <div>
       <template v-for="(expandCriteria,index) of expandCriteria" :key="expandCriteria">
-        <span v-if="index > 0" class="ms-1 me-1">＞</span>
+        <span v-if="index > 0">＞</span>
         <AppIcon type="expand-criteria" :name="expandCriteria" class="expandCriteriaIcon"/>
+      </template>
+    </div>
+    <div>
+      <template v-for="(unitType,index) of unitTypes" :key="unitType">
+        <span v-if="index > 0">＞</span>
+        <AppIcon type="unit-type" :name="unitType" extension="svg" class="unitTypeIcon"/>
       </template>
     </div>
   </div>
@@ -51,6 +57,8 @@ import ExpandCriteria from '@/services/enum/ExpandCriteria'
 import getAllEnumValues from '@brdgm/brdgm-commons/src/util/enum/getAllEnumValues'
 import { useStateStore } from '@/store/state'
 import Expansion from '@/services/enum/Expansion'
+import UnitType from '@/services/enum/UnitType'
+import getNextUnitType from '@/util/getNextUnitType'
 
 export default defineComponent({
   name: 'ActionExpand',
@@ -102,6 +110,12 @@ export default defineComponent({
     },
     hasFarmersMarketExpansion() : boolean {
       return this.state.setup.expansions.includes(Expansion.INDUSTRIA_FARMERS_MARKET)
+    },
+    unitTypes() : UnitType[] {
+      const allTypes = getAllEnumValues(UnitType)	
+      const preferredType = getNextUnitType(this.navigationState.preferredUnitType ?? UnitType.SHEEP, this.currentSupportCard?.chooseUnitSteps ?? 0)
+      const preferredIndex = allTypes.indexOf(preferredType)
+      return [...allTypes.slice(preferredIndex), ...allTypes.slice(0, preferredIndex)]
     }
   },
   methods: {
@@ -130,6 +144,13 @@ export default defineComponent({
 }
 .expandCriteriaIcon {
   height: 2rem;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+.unitTypeIcon {
+  width: 1.75rem;
+  height: 1.3rem;
+  object-fit: contain;
 }
 .criteriaList .expandCriteriaIcon {
   height: 1.5rem;

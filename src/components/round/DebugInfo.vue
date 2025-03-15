@@ -4,7 +4,8 @@
     <p class="debug">
       <template v-if="cardDeck.currentCard"><b>card</b>: {{cardDeck.currentCard}}<br/></template>
       <template v-if="cardDeck.currentSupportCard"><b>support</b>: {{cardDeck.currentSupportCard}}<br/></template>
-      <b>deck</b>: {{cardDeck.toPersistence()}}
+      <b>deck</b>: {{cardDeck.toPersistence()}}<br/>
+      <b>unitType</b>: {{navigationState.preferredUnitType}}
     </p>
   </div>
 </template>

@@ -19,10 +19,12 @@ import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import NavigationState from '@/util/NavigationState'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
-import { useStateStore } from '@/store/state'
+import { BotPersistence, useStateStore } from '@/store/state'
 import getPlayerOrder from '@/util/getPlayerOrder'
 import CardDeck from '@/services/CardDeck'
 import SideBar from '@/components/round/SideBar.vue'
+import UnitType from '@/services/enum/UnitType'
+import getPreviousTurns from '@/util/getPreviousTurns'
 
 export default defineComponent({
   name: 'RoundScoring',
@@ -58,15 +60,20 @@ export default defineComponent({
         // prepare next round with new player order
         const playerOrder = getPlayerOrder(this.state, this.round)
         const nextRound = this.round + 1
-        const initialCardDeck : CardDeck[] = []
+        const initialBotPersistence : BotPersistence[] = []
         for (let bot = 1; bot<=this.botCount; bot++) {
-          initialCardDeck.push(CardDeck.new(nextRound))
+          const previousTurns = getPreviousTurns({state:this.state, round:this.round,turn:0,bot})
+          const lastTurn = previousTurns[previousTurns.length-1]
+          initialBotPersistence.push({
+            cardDeck: CardDeck.new(nextRound).toPersistence(),
+            preferredUnitType: lastTurn?.botPersistence?.preferredUnitType || UnitType.SHEEP
+          })          
         }
         this.state.storeRound({
           round: nextRound,
           playerOrder,
           turns: [],
-          initialCardDeck: initialCardDeck.map(cardDeck => cardDeck.toPersistence())
+          initialBotPersistence
         })
         this.router.push(`/round/${this.round+1}/preparation`)
       }
