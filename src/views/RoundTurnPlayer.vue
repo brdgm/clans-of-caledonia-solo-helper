@@ -1,4 +1,5 @@
 <template>
+  <SideBar :navigationState="navigationState"/>
   <h1>{{t('player.player', {player}, playerCount)}}</h1>
 
   <p class="mt-4" v-html="t('roundTurnPlayer.execute')"></p>
@@ -33,12 +34,14 @@ import FooterButtons from '@/components/structure/FooterButtons.vue'
 import { useStateStore } from '@/store/state'
 import RouteCalculator from '@/services/RouteCalculator'
 import ModalDialog from '@brdgm/brdgm-commons/src/components/structure/ModalDialog.vue'
+import SideBar from '@/components/round/SideBar.vue'
 
 export default defineComponent({
   name: 'RoundTurnPlayer',
   components: {
     FooterButtons,
-    ModalDialog
+    ModalDialog,
+    SideBar
   },
   setup() {
     const { t } = useI18n()

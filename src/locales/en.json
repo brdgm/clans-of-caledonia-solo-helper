@@ -98,6 +98,10 @@
       "info": "Move your Turn order token and receive the Pass bonus money."
     }
   },
+  "sideBar": {
+    "round": "Round {round}",
+    "turn": "Turn {turn}"
+  },
   "player": {
     "player": "Player | Player {player}",
     "bot": "Automa | Automa {bot}"

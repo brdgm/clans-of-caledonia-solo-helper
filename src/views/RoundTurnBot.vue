@@ -1,4 +1,5 @@
 <template>
+  <SideBar :navigationState="navigationState"/>
   <h1>{{t('player.bot', {bot}, botCount)}}</h1>
 
   <BotTurn v-if="navigationState.cardDeck?.currentCard"
@@ -7,6 +8,8 @@
   <button class="btn btn-primary btn-lg mt-4" @click="next()">
     {{t('action.next')}}
   </button>
+
+  <DebugInfo :navigationState="navigationState"/>
 
   <FooterButtons :backButtonRouteTo="backButtonRouteTo" endGameButtonType="abortGame"/>
 </template>
@@ -20,12 +23,16 @@ import FooterButtons from '@/components/structure/FooterButtons.vue'
 import RouteCalculator from '@/services/RouteCalculator'
 import { useStateStore } from '@/store/state'
 import BotTurn from '@/components/round/BotTurn.vue'
+import SideBar from '@/components/round/SideBar.vue'
+import DebugInfo from '@/components/round/DebugInfo.vue'
 
 export default defineComponent({
   name: 'RoundTurnBot',
   components: {
     FooterButtons,
-    BotTurn
+    BotTurn,
+    SideBar,
+    DebugInfo
   },
   setup() {
     const { t } = useI18n()
