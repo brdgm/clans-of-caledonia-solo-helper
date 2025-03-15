@@ -1,23 +1,22 @@
 <template>
   <h1>{{t('player.player', {player}, playerCount)}}</h1>
 
-  <p class="mt-4" v-html="t('playerTurn.text')"></p>
+  <p class="mt-4" v-html="t('roundTurnPlayer.execute')"></p>
 
   <button class="btn btn-primary btn-lg mt-4" tag="button" @click="next">
     {{t('action.next')}}
   </button>
   <button class="btn btn-outline-danger btn-lg mt-4 ms-2" data-bs-toggle="modal" data-bs-target="#passModal">
-    {{t('action.pass')}}
+    {{t('roundTurnPlayer.pass.title')}}
   </button>
 
-  <ModalDialog id="passModal" :title="t('action.pass')">
+  <ModalDialog id="passModal" :title="t('roundTurnPlayer.pass.title')">
     <template #body>
-      <p v-html="t('playerTurn.passConfirm')"></p>
-      <p v-if="round == 6" v-html="t('playerTurn.passInfoRound6')"></p>
-      <p v-else v-html="t('playerTurn.passInfo')"></p>
+      <p v-html="t('roundTurnPlayer.pass.confirm')"></p>
+      <p v-html="t('roundTurnPlayer.pass.info')"></p>
     </template>
     <template #footer>
-      <button class="btn btn-danger" @click="pass" data-bs-dismiss="modal">{{t('action.pass')}}</button>
+      <button class="btn btn-danger" @click="pass" data-bs-dismiss="modal">{{t('roundTurnPlayer.pass.title')}}</button>
       <button class="btn btn-secondary" data-bs-dismiss="modal">{{t('action.cancel')}}</button>
     </template>
   </ModalDialog>
