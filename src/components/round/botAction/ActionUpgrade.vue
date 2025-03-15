@@ -10,6 +10,9 @@
     </template>
     <template #rules>
       <p v-html="t('botAction.upgrade.rules')"></p>
+      <hr/>
+      <h5>{{t('botAction.port-bonus.title')}}</h5>
+      <p v-html="t('botAction.port-bonus.rules')"></p>
     </template>
   </ActionBox>
 </template>

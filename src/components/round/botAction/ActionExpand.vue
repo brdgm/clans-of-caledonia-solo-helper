@@ -18,68 +18,69 @@
       </div>
     </template>
     <template #rules>
-      <p>Automa will try to expand in the highlighted map modules. It chooses a space that best fits this criteria:</p>
+      <p v-html="t('botAction.expand.rulesSpace.expand')"></p>
       <ol class="criteriaList">
         <li v-for="expandCriteria of expandCriteria" :key="expandCriteria">
           <AppIcon type="expand-criteria" :name="expandCriteria" class="expandCriteriaIcon"/>
           <template v-if="isSettlementsCriteria(expandCriteria)">
-            <span><b>Max Settlements:</b> A space to maximize its number of Settlements:</span>
+            <span v-html="t('botAction.expand.rulesSpace.settlements')"></span>
             <ol type="a">
-              <li>It tries to connect two groups of Settlements that were disconnected.</li>
-              <li>It tries to add a new Settlement to a group of Settlements.</li>
+              <li v-html="t('botAction.expand.rulesSpace.settlementsConnect')"></li>
+              <li v-html="t('botAction.expand.rulesSpace.settlementsNew')"></li>
             </ol>
           </template>
           <template v-if="isCostsCriteria(expandCriteria)">
-            <span><b>Min Costs:</b> The cheapest space.</span>
+            <span v-html="t('botAction.expand.rulesSpace.costs')"></span>
           </template>
           <template v-if="isNeighborhoodCriteria(expandCriteria)">
-            <template v-if="true"> <!-- v-if="hasFarmersMarketExpansion" -->
-              <span><b>Max Neighbourhood Bonus / Farmers Market:</b> Space where it would buy/sell the most Goods through the Neighbourhood bonus or Farmers Markets.</span>
+            <template v-if="hasFarmersMarketExpansion">
+              <span v-html="t('botAction.expand.rulesSpace.neighborhoodFarmersMarket')"></span>
             </template>
-            <hr/>
-            <template v-if="true"> <!-- v-else -->
-              <span><b>Max Neighbourhood Bonus:</b> Space where it would buy the most Goods through the Neighbourhood bonus.</span>
+            <template v-else>
+              <span v-html="t('botAction.expand.rulesSpace.neighborhood')"></span>
             </template>
           </template>
           <template v-if="isPortCriteria(expandCriteria)">
-            <span><b>Port tile:</b> Space that would get it into reach of a Port tile.</span>
+            <span v-html="t('botAction.expand.rulesSpace.port')"></span>
           </template>
         </li>
       </ol>
-      <p>Pick a unit:</p>
+      <p v-html="t('botAction.expand.rulesUnit.title')"></p>
       <ol>
-        <li>If multiple unit types are possible, pick in the order of preference as shown above.</li>
-        <li>If multiple types of workers are possible, pick in this order:</li>
+        <li v-html="t('botAction.expand.rulesUnit.unitPreference')"></li>
+        <li v-html="t('botAction.expand.rulesUnit.workerPreference')"></li>
         <ol type="a">
-          <li>Upgraded workers</li>
-          <li v-for="workerType of workerTypes" :key="workerType">{{workerType}}</li>
+          <li v-html="t('botAction.expand.rulesUnit.upgradedWorkers')"></li>
+          <li v-for="workerType of workerTypes" :key="workerType">{{t(`workerType.${workerType}`)}}</li>
         </ol>
       </ol>
-      <p>The Automa pays the unit + space cost and places the chosen unit on the chosen space.</p>
+      <p v-html="t('botAction.expand.rulesUnit.payUnitHex')"></p>
       <hr/>
-      <h5>Neighbourhood Bonus</h5>
-      <p>As normal, the Automa cannot place Merchants on both “buy” and “sell” for the same Good. Thus, it will ignore the Neighbourhood bonus for Goods it cannot resolve. Unlike in the Trade action, the Automa can sell a Good of a type it has already sold this round.</p>
-      <p>When the Automa expands on a space where it would be able to use the Neighbourhood bonus to buy Goods, it buys a number of Goods based on the price brackets the Goods are in:</p>
+      <h5>{{t('botAction.expand.rulesNeighborhood.title')}}</h5>
+      <p v-html="t('botAction.expand.rulesNeighborhood.restrictions')"></p>
+      <p v-html="t('botAction.expand.rulesNeighborhood.buyGoods')"></p>
       <ul>
-        <li>Lower price bracket: the Automa buys up to 4 units of that Good (depending on the number of available Merchants.)</li>
-        <li>Medium price bracket: the Automa buys up to 2 units of that Good (depending on the number of available Merchants.)</li>
-        <li>Upper price bracket: the Automa doesn’t buy.</li>
+        <li v-html="t('botAction.expand.rulesNeighborhood.buyGoodsLower')"></li>
+        <li v-html="t('botAction.expand.rulesNeighborhood.buyGoodsMedium')"></li>
+        <li v-html="t('botAction.expand.rulesNeighborhood.buyGoodsUpper')"></li>
       </ul>
-      <p>The Automa earns <b>£3 per merchant</b> it places on the market via Neighbourhood bonus.</p>
+      <p v-html="t('botAction.expand.rulesNeighborhood.earnMoney')"></p>
       <hr/>
-      <h5>Farmers Market</h5>
-      <p>As normal, the Automa cannot place Merchants on both “buy” and “sell” for the same Good. Thus, it will ignore the Farmers market for Goods it cannot resolve. Unlike in the Trade action, the Automa can buy a Good of a type it has already bought this round.</p>
-      <p>When the Automa expands on a space where it would be able to use the Farmers market to sell Goods, it sells Goods based on the price brackets the Goods are in:</p>
-      <ul>
-        <li>Lower price bracket: the Automa doesn’t sell.</li>
-        <li>Medium price bracket: the Automa sells up to 2 units of that Good (depending on the number of available Merchants.)</li>
-        <li>Upper price bracket: the Automa sells up to 4 units of that Good (depending on the number of available Merchants.)</li>
-      </ul>
-      <p>It chooses the Good whose Price marker is highest. If several Goods qualify, use the Price die to choose randomly.</p>
-      <p>The Automa earns <b>£3 per merchant</b> it places on the market via Farmers market.</p>
-      <hr/>
-      <h5>Claim a Port Bonus</h5>
-      <p>The Automa always claims a Port bonus as soon as it becomes available in its reach. When it does, it places its marker on the Port and receives <b>£10</b> instead of the depicted Port bonus.</p>
+      <template v-if="hasFarmersMarketExpansion">
+        <h5>{{t('botAction.expand.rulesFarmersMarket.title')}}</h5>
+        <p v-html="t('botAction.expand.rulesFarmersMarket.restrictions')"></p>
+        <p v-html="t('botAction.expand.rulesFarmersMarket.sellGoods')"></p>
+        <ul>
+          <li v-html="t('botAction.expand.rulesFarmersMarket.sellGoodsLower')"></li>
+          <li v-html="t('botAction.expand.rulesFarmersMarket.sellGoodsMedium')"></li>
+          <li v-html="t('botAction.expand.rulesFarmersMarket.sellGoodsUpper')"></li>
+        </ul>
+        <p v-html="t('botAction.expand.rulesFarmersMarket.tiebreaker')"></p>
+        <p v-html="t('botAction.expand.rulesFarmersMarket.earnMoney')"></p>
+        <hr/>
+      </template>
+      <h5>{{t('botAction.port-bonus.title')}}</h5>
+      <p v-html="t('botAction.port-bonus.rules')"></p>
     </template>
   </ActionBox>
 </template>
