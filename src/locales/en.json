@@ -88,7 +88,9 @@
     }
   },
   "roundPreparation": {
-    "title": "Preparation"
+    "title": "Preparation",
+    "execute": "Execute the preparation phase.",
+    "botMoney": "Automa <b>receives £10</b>."
   },
   "roundTurnPlayer": {
     "execute": "Please execute your turn - or pass.",
@@ -102,6 +104,24 @@
     "notPossible": "Not Possible",
     "skipTurn": "Automa skips this turn.",
     "passInfo": "Automa passes: It moves the Turn order token and receives the Pass bonus money"
+  },
+  "roundProduction": {
+    "title": "Production",
+    "execute": "Execute the production phase.",
+    "bot": {
+      "workers": "Automa receives <b>money from Workers</b> as normal.",
+      "goodsIncome": "Automa never gains any Basic or Processed goods, but instead receives <b>£5 per income icon</b> shown.",
+      "noProductionChain": "It does not need Cows nor Fields to gain income from Cheese dairies, Bakeries, and Distilleries."
+    }
+  },
+  "roundScoring": {
+    "title": "Scoring",
+    "execute": "Execute the scoring phase.",
+    "botNoScoring": "Automa does not score any Glory for Scoring tiles.",
+    "lastRoundGlory": "Last round: Automa scores <b>{glory} Glory</b>."
+  },
+  "endOfGame": {
+    "title": "End of Game"
   },
   "sideBar": {
     "round": "Round {round}",
@@ -126,7 +146,6 @@
     "startGame": "Start Game",
     "next": "Next",
     "pass": "Pass",
-    "nextRound": "Next Round",
     "abortGame": "Abort Game",
     "abortGameConfirm": "Aborting the running game - are you sure?",
     "endGame": "End Game",

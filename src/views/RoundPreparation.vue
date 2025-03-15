@@ -1,7 +1,10 @@
 <template>
+  <SideBar :navigationState="navigationState"/>
   <h1>{{t('roundPreparation.title')}}</h1>
 
-  <p>...</p>
+  <p class="mt-4" v-html="t('roundPreparation.execute')"></p>
+
+  <p v-html="t('roundPreparation.botMoney')"></p>
 
   <router-link :to="nextButtonRouteTo" class="btn btn-primary btn-lg mt-4">
     {{t('action.next')}}
@@ -18,11 +21,13 @@ import { useStateStore } from '@/store/state'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
 import NavigationState from '@/util/NavigationState'
 import RouteCalculator from '@/services/RouteCalculator'
+import SideBar from '@/components/round/SideBar.vue'
 
 export default defineComponent({
   name: 'RoundPreparation',
   components: {
-    FooterButtons
+    FooterButtons,
+    SideBar
   },
   setup() {
     const { t } = useI18n()
@@ -34,12 +39,12 @@ export default defineComponent({
 
     const routeCalculator = new RouteCalculator({round})
 
-    return { t, state, round, routeCalculator }
+    return { t, state, round, navigationState, routeCalculator }
   },
   computed: {
     backButtonRouteTo() : string {
       if (this.round > 1) {
-        return `/round/${this.round-1}/end`
+        return `/round/${this.round-1}/scoring`
       }
       return ''
     },
