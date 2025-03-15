@@ -18,14 +18,16 @@ const state = mockState({playerCount:1, botCount:2,
       mockTurn({round:1,turn:2,bot:1,cardDeck:cardDeck(2,undefined,[3,4],[1])}),
       mockTurn({round:1,turn:2,bot:2,cardDeck:cardDeck(7,undefined,[1,8],[3]),pass:true}),
       mockTurn({round:1,turn:3,bot:1,cardDeck:cardDeck(3,undefined,[4],[1,2]),pass:true})
+    ], initialCardDeck: [
+      cardDeck(undefined,undefined,[1,2,3,4],[])
     ]})
   ]
 })
 
 describe('util/NavigationState', () => {
   it('getCardDeck', () => {
-    expect(navigationState({round:'1',turn:'1',bot:'1'}).cardDeck?.toPersistence().pile.length)
-        .to.eq(13, 'round1-turn1-bot1')
+    expect(navigationState({round:'1',turn:'1',bot:'1'}).cardDeck?.toPersistence())
+        .to.eql(cardDeck(1,undefined,[2,3,4],[]), 'round1-turn1-bot1')
     expect(navigationState({round:'1',turn:'1',bot:'2'}).cardDeck?.toPersistence().pile.length)
         .to.eq(13, 'round1-turn1-bot2')
     expect(navigationState({round:'1',turn:'2',bot:'1'}).cardDeck?.toPersistence())

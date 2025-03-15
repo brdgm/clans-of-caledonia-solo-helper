@@ -111,6 +111,7 @@ import BotStartingWorkers from '@/components/setup/BotStartingWorkers.vue'
 import getDifficultyLevelSettings, { DifficultyLevelSettings } from '@/util/getDifficultyLevelSettings'
 import { useRouter } from 'vue-router'
 import RouteCalculator from '@/services/RouteCalculator'
+import CardDeck from '@/services/CardDeck'
 
 export default defineComponent({
   name: 'SetupBot',
@@ -155,20 +156,23 @@ export default defineComponent({
   methods: {
     startGame() : void {
       this.state.resetGame()
-      // prepare first round with initial player order
       const { playerCount, botCount } = this.state.setup.playerSetup
+      const round = 1
+      // prepare first round with initial player order
       const playerOrder : PlayerOrder[] = []
+      const initialCardDeck : CardDeck[] = []
       for (let player = 1; player<=playerCount; player++) {
         playerOrder.push({ player })
       }
       for (let bot = 1; bot<=botCount; bot++) {
         playerOrder.push({ bot })
+        initialCardDeck.push(CardDeck.new(round))
       }
-      const round = 1
       this.state.storeRound({
         round,
         playerOrder,
-        turns: []
+        turns: [],
+        initialCardDeck: initialCardDeck.map(cardDeck => cardDeck.toPersistence())
       })
       // start first round
       const routeCalculator = new RouteCalculator({round})

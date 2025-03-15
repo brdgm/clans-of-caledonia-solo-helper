@@ -39,6 +39,7 @@ export default class NavigationState {
 }
 
 function getCardDeck(state:State, round:number, turn:number, bot:number) : CardDeck {
+  // get card deck from previous turn
   const previousTurns = getPreviousTurns({state, round, turn, bot})
   for (let i=previousTurns.length-1; i>=0; i--) {
     const previousTurn = previousTurns[i]
@@ -46,5 +47,11 @@ function getCardDeck(state:State, round:number, turn:number, bot:number) : CardD
       return CardDeck.fromPersistence(previousTurn.cardDeck)
     }
   }
+  // get initial card deck prepared for this round
+  const initialCardDeck = (state.rounds.find(item => item.round == round)?.initialCardDeck ?? [])[bot - 1]
+  if (initialCardDeck) {
+    return CardDeck.fromPersistence(initialCardDeck)
+  }
+  // last resort: create new card deck
   return CardDeck.new(round)
 }

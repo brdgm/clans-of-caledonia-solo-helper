@@ -4,6 +4,7 @@ import DifficultyLevel from '@/services/enum/DifficultyLevel'
 import PlayerColor from '@/services/enum/PlayerColor'
 import Expansion from '@/services/enum/Expansion'
 import toggleArrayItem from '@brdgm/brdgm-commons/src/util/array/toggleArrayItem'
+import CardDeck from '@/services/CardDeck'
 
 export const useStateStore = defineStore(`${name}.state`, {
   state: () => {
@@ -69,6 +70,7 @@ export interface Round {
   round: number
   playerOrder: PlayerOrder[]
   turns: RoundTurn[]
+  initialCardDeck: CardDeckPersistence[]
 }
 export interface PlayerOrder {
   player?: number

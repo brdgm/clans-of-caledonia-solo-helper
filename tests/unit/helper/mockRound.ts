@@ -1,10 +1,11 @@
-import { PlayerOrder, Round, RoundTurn } from '@/store/state'
+import { CardDeckPersistence, PlayerOrder, Round, RoundTurn } from '@/store/state'
 
 export default function (params?: MockRoundParams) : Round {
   const round : Round = {
     round: params?.round ?? 1,
     playerOrder: params?.playerOrder ?? [{bot:1},{player:1}],
-    turns: params?.turns ?? []
+    turns: params?.turns ?? [],
+    initialCardDeck: params?.initialCardDeck ?? []
   }
   // renumber turnOrderIndex
   let previousTurn = 0
@@ -23,4 +24,5 @@ export interface MockRoundParams {
   round? : number
   playerOrder? : PlayerOrder[]
   turns? : RoundTurn[]
+  initialCardDeck?: CardDeckPersistence[]
 }
