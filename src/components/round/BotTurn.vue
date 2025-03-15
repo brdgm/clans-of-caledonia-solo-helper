@@ -17,7 +17,7 @@
     </button>
   </template>
   <template v-else>
-    <p>{{currentAction}}</p>
+    <BotAction :action="currentAction" :currentCard="currentCard" :currentSupportCard="currentSupportCard" :navigationState="navigationState"/>
 
     <button class="btn btn-success btn-lg mt-4 me-2" @click="executed()">
       {{t('roundTurnBot.executed')}}
@@ -27,7 +27,6 @@
       {{t('roundTurnBot.notPossible')}}
     </button>
   </template>
-
 </template>
 
 <script lang="ts">
@@ -39,11 +38,13 @@ import { PropType } from 'vue'
 import Card from '@/services/Card'
 import Action from '@/services/enum/Action'
 import AppIcon from '../structure/AppIcon.vue'
+import BotAction from './BotAction.vue'
 
 export default defineComponent({
   name: 'BotTurn',
   components: {
-    AppIcon
+    AppIcon,
+    BotAction
   },
   emits: ['executed', 'notPossible', 'pass'],
   setup(props) {

@@ -123,6 +123,23 @@
   "endOfGame": {
     "title": "End of Game"
   },
+  "botAction": {
+    "expand": {
+      "title": "Expand"
+    },
+    "export-contract": {
+      "title": "Export Contract"
+    },
+    "technology-upgrade": {
+      "title": "Technology Upgrade"
+    },
+    "trade": {
+      "title": "Trade"
+    },
+    "upgrade": {
+      "title": "Upgrade"
+    }
+  },
   "sideBar": {
     "round": "Round {round}",
     "turn": "Turn {turn}"
