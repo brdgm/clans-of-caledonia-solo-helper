@@ -29,7 +29,7 @@
     <p>
       Gain <MoneyIcon :value="1"/> per <AppIcon type="upgrade-type" name="merchant" class="merchantIcon me-1"/> placed.
     </p>
-    <p class="small fst-italic">Adjusts the Price markers as normal. Automa does not gain any more money even when selling a good and also does not pay any money when buying a good. Action is not possible when Automa has no merchant left, or has already traded all types of Goods.</p>
+    <p>Adjusts the Price markers as normal. Automa does not gain any more money even when selling a good and also does not pay any money when buying a good. Action is not possible when Automa has no merchant left, or has already traded all types of Goods.</p>
   </div>
 </template>
 

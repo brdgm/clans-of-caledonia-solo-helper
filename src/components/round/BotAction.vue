@@ -82,11 +82,6 @@ export default defineComponent({
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     border-top: 0;
-    overflow-y: auto;
-    max-height: 500px;
-    @media (max-width: 600px) {
-      max-height: 300px;
-    }
   }
 }
 .actionIcon {

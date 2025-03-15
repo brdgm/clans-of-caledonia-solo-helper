@@ -1,6 +1,6 @@
 import Action from './enum/Action'
 import ExpandCriteria from './enum/ExpandCriteria'
-import MapSector from './enum/MapModule'
+import MapModule from './enum/MapModule'
 import UpgradeType from './enum/UpgradeType'
 
 export default interface Card {
@@ -11,5 +11,5 @@ export default interface Card {
   expandCriteria: ExpandCriteria[]
   upgradeType: UpgradeType
   chooseUnitSteps: number
-  mapSectors: MapSector[]
+  mapModules: MapModule[]
 }

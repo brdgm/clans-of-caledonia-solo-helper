@@ -25,6 +25,7 @@ import BotTurn from '@/components/round/BotTurn.vue'
 import SideBar from '@/components/round/SideBar.vue'
 import DebugInfo from '@/components/round/DebugInfo.vue'
 import PlayerColorDisplay from '@/components/structure/PlayerColorDisplay.vue'
+import Action from '@/services/enum/Action'
 
 export default defineComponent({
   name: 'RoundTurnBot',
@@ -63,6 +64,11 @@ export default defineComponent({
       this.nextWithPassed(true)
     },
     nextWithPassed(passed : boolean) : void {
+      // ensure support card is drawn if the chose action, or one of the skipped ones, demanded one
+      const possibleActions = (this.navigationState.cardDeck?.currentCard?.actions ?? []).slice(0, this.navigationState.action + 1)
+      if (possibleActions.includes(Action.UPGRADE) || possibleActions.includes(Action.EXPAND)) {
+        this.navigationState.cardDeck?.drawSupport()
+      }
       this.state.storeRoundTurn({
         round:this.navigationState.round,
         turn:this.navigationState.turn,

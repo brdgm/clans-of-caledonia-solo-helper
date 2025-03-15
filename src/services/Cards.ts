@@ -13,7 +13,7 @@ const cards : Card[] = [
     expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.COSTS, ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 1,
-    mapSectors: [MapSector.A]
+    mapModules: [MapSector.A]
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const cards : Card[] = [
     expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.COSTS, ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 2,
-    mapSectors: [MapSector.B]
+    mapModules: [MapSector.B]
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ const cards : Card[] = [
     expandCriteria: [ExpandCriteria.COSTS, ExpandCriteria.PORT, ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 3,
-    mapSectors: [MapSector.C]
+    mapModules: [MapSector.C]
   },
   {
     id: 4,
@@ -40,7 +40,7 @@ const cards : Card[] = [
     expandCriteria: [ExpandCriteria.COSTS, ExpandCriteria.PORT, ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 4,
-    mapSectors: [MapSector.D]
+    mapModules: [MapSector.D]
   },
   {
     id: 5,
@@ -49,7 +49,7 @@ const cards : Card[] = [
     expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.COSTS, ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 5,
-    mapSectors: [MapSector.A]
+    mapModules: [MapSector.A]
   },
   {
     id: 6,
@@ -58,7 +58,7 @@ const cards : Card[] = [
     expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.COSTS, ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 6,
-    mapSectors: [MapSector.B]
+    mapModules: [MapSector.B]
   },
   {
     id: 7,
@@ -67,7 +67,7 @@ const cards : Card[] = [
     expandCriteria: [ExpandCriteria.NEIGHBORHOOD, ExpandCriteria.PORT, ExpandCriteria.COSTS, ExpandCriteria.SETTLEMENTS],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 7,
-    mapSectors: [MapSector.C]
+    mapModules: [MapSector.C]
   },
   {
     id: 8,
@@ -76,7 +76,7 @@ const cards : Card[] = [
     expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD, ExpandCriteria.COSTS],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 1,
-    mapSectors: [MapSector.D]
+    mapModules: [MapSector.D]
   },
   {
     id: 9,
@@ -85,7 +85,7 @@ const cards : Card[] = [
     expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD, ExpandCriteria.COSTS],
     upgradeType: UpgradeType.SHIP_LEVEL,
     chooseUnitSteps: 2,
-    mapSectors: [MapSector.A, MapSector.B]
+    mapModules: [MapSector.A, MapSector.B]
   },
   {
     id: 10,
@@ -95,7 +95,7 @@ const cards : Card[] = [
     expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.SETTLEMENTS, ExpandCriteria.COSTS, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.SHIP_LEVEL,
     chooseUnitSteps: 3,
-    mapSectors: [MapSector.B]
+    mapModules: [MapSector.B]
   },
   {
     id: 11,
@@ -105,7 +105,7 @@ const cards : Card[] = [
     expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.SETTLEMENTS, ExpandCriteria.COSTS, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.SHIP_LEVEL,
     chooseUnitSteps: 4,
-    mapSectors: [MapSector.C]
+    mapModules: [MapSector.C]
   },
   {
     id: 12,
@@ -115,7 +115,7 @@ const cards : Card[] = [
     expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD, ExpandCriteria.COSTS],
     upgradeType: UpgradeType.SHIP_LEVEL,
     chooseUnitSteps: 5,
-    mapSectors: [MapSector.D]
+    mapModules: [MapSector.D]
   },
   {
     id: 13,
@@ -125,7 +125,7 @@ const cards : Card[] = [
     expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.SETTLEMENTS, ExpandCriteria.COSTS, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.SHIP_LEVEL,
     chooseUnitSteps: 6,
-    mapSectors: [MapSector.A]
+    mapModules: [MapSector.A]
   },
   {
     id: 14,
@@ -134,7 +134,7 @@ const cards : Card[] = [
     expandCriteria: [ExpandCriteria.NEIGHBORHOOD, ExpandCriteria.PORT, ExpandCriteria.COSTS, ExpandCriteria.SETTLEMENTS],
     upgradeType: UpgradeType.SHIP_LEVEL,
     chooseUnitSteps: 7,
-    mapSectors: [MapSector.D, MapSector.C]
+    mapModules: [MapSector.D, MapSector.C]
   },
   {
     id: 15,
@@ -143,7 +143,7 @@ const cards : Card[] = [
     expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.SETTLEMENTS, ExpandCriteria.COSTS, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.SHIP_LEVEL,
     chooseUnitSteps: 1,
-    mapSectors: [MapSector.A, MapSector.C]
+    mapModules: [MapSector.A, MapSector.C]
   },
   {
     id: 16,
@@ -152,7 +152,7 @@ const cards : Card[] = [
     expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.SETTLEMENTS, ExpandCriteria.COSTS, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.SHIP_LEVEL,
     chooseUnitSteps: 2,
-    mapSectors: [MapSector.B, MapSector.D]
+    mapModules: [MapSector.B, MapSector.D]
   },
   {
     id: 17,
@@ -161,7 +161,7 @@ const cards : Card[] = [
     expandCriteria: [ExpandCriteria.COSTS, ExpandCriteria.SETTLEMENTS, ExpandCriteria.PORT, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 3,
-    mapSectors: [MapSector.A, MapSector.D]
+    mapModules: [MapSector.A, MapSector.D]
   },
   {
     id: 18,
@@ -170,7 +170,7 @@ const cards : Card[] = [
     expandCriteria: [ExpandCriteria.COSTS, ExpandCriteria.SETTLEMENTS, ExpandCriteria.PORT, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 4,
-    mapSectors: [MapSector.B, MapSector.C]
+    mapModules: [MapSector.B, MapSector.C]
   },
   {
     id: 19,
@@ -179,7 +179,7 @@ const cards : Card[] = [
     expandCriteria: [ExpandCriteria.SETTLEMENTS, ExpandCriteria.COSTS, ExpandCriteria.PORT, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 5,
-    mapSectors: [MapSector.A, MapSector.B]
+    mapModules: [MapSector.A, MapSector.B]
   },
   {
     id: 20,
@@ -188,7 +188,7 @@ const cards : Card[] = [
     expandCriteria: [ExpandCriteria.SETTLEMENTS, ExpandCriteria.COSTS, ExpandCriteria.PORT, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 6,
-    mapSectors: [MapSector.D, MapSector.C]
+    mapModules: [MapSector.D, MapSector.C]
   },
   {
     id: 21,
@@ -197,7 +197,7 @@ const cards : Card[] = [
     expandCriteria: [ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD, ExpandCriteria.COSTS, ExpandCriteria.PORT],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 7,
-    mapSectors: [MapSector.A, MapSector.C]
+    mapModules: [MapSector.A, MapSector.C]
   },
   {
     id: 22,
@@ -206,7 +206,7 @@ const cards : Card[] = [
     expandCriteria: [ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD, ExpandCriteria.COSTS, ExpandCriteria.PORT],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 1,
-    mapSectors: [MapSector.B, MapSector.D]
+    mapModules: [MapSector.B, MapSector.D]
   },
 ]
 

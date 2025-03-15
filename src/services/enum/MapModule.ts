@@ -4,7 +4,7 @@
 enum MapModule {
   A = 'a',
   B = 'b',
-  C = 'c',
-  D = 'd'
+  D = 'd',
+  C = 'c'
 }
 export default MapModule
