@@ -1,6 +1,8 @@
 <template>
   <SideBar :navigationState="navigationState"/>
-  <h1>{{t('player.player', {player}, playerCount)}}</h1>
+  <h1>
+    <PlayerColorDisplay :playerColor="navigationState.playerColor" class="me-1"/>{{t('player.player', {player}, playerCount)}}
+  </h1>
 
   <p class="mt-4" v-html="t('roundTurnPlayer.execute')"></p>
 
@@ -35,12 +37,14 @@ import { useStateStore } from '@/store/state'
 import RouteCalculator from '@/services/RouteCalculator'
 import ModalDialog from '@brdgm/brdgm-commons/src/components/structure/ModalDialog.vue'
 import SideBar from '@/components/round/SideBar.vue'
+import PlayerColorDisplay from '@/components/structure/PlayerColorDisplay.vue'
 
 export default defineComponent({
   name: 'RoundTurnPlayer',
   components: {
     FooterButtons,
     ModalDialog,
+    PlayerColorDisplay,
     SideBar
   },
   setup() {

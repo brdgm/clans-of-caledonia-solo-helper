@@ -4,6 +4,7 @@ import { RouteLocation } from 'vue-router'
 import CardDeck from '@/services/CardDeck'
 import getIntRouteParam from '@brdgm/brdgm-commons/src/util/router/getIntRouteParam'
 import getPreviousTurns from './getPreviousTurns'
+import PlayerColor from '@/services/enum/PlayerColor'
 
 export default class NavigationState {
 
@@ -16,6 +17,7 @@ export default class NavigationState {
   readonly action : number
   readonly player : number
   readonly bot : number
+  readonly playerColor : PlayerColor
   readonly cardDeck? : CardDeck
 
   constructor(route: RouteLocation, state: State) {    
@@ -30,6 +32,7 @@ export default class NavigationState {
     this.action = getIntRouteParam(route, 'action')
     this.player = getIntRouteParam(route, 'player')
     this.bot = getIntRouteParam(route, 'bot')
+    this.playerColor = getPlayerColor(this.player, this.bot, setup.playerSetup.playerCount, setup.playerSetup.playerColors)
 
     if (this.bot > 0) {
       // card deck: draw next card for bot
@@ -56,4 +59,15 @@ function getCardDeck(state:State, round:number, turn:number, bot:number) : CardD
   }
   // last resort: create new card deck
   return CardDeck.new(round)
+}
+
+function getPlayerColor(player : number, bot : number, playerCount : number, playerColors : PlayerColor[]) : PlayerColor {
+  let playerColor
+  if (player > 0) {
+    playerColor = playerColors[player - 1]
+  }
+  if (bot > 0) {
+    playerColor = playerColors[playerCount + bot - 1]
+  }
+  return playerColor ?? PlayerColor.RED
 }

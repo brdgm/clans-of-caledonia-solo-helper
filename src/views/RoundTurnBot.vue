@@ -1,6 +1,8 @@
 <template>
   <SideBar :navigationState="navigationState"/>
-  <h1>{{t('player.bot', {bot}, botCount)}}</h1>
+  <h1>
+    <PlayerColorDisplay :playerColor="navigationState.playerColor" class="me-1"/>{{t('player.bot', {bot}, botCount)}}
+  </h1>
 
   <BotTurn v-if="navigationState.cardDeck?.currentCard"
        :navigationState="navigationState" :currentCard="navigationState.cardDeck?.currentCard"
@@ -22,11 +24,13 @@ import { useStateStore } from '@/store/state'
 import BotTurn from '@/components/round/BotTurn.vue'
 import SideBar from '@/components/round/SideBar.vue'
 import DebugInfo from '@/components/round/DebugInfo.vue'
+import PlayerColorDisplay from '@/components/structure/PlayerColorDisplay.vue'
 
 export default defineComponent({
   name: 'RoundTurnBot',
   components: {
     FooterButtons,
+    PlayerColorDisplay,
     BotTurn,
     SideBar,
     DebugInfo
