@@ -59,4 +59,32 @@ describe('services/CardDeck', () => {
     expect(deck.discard.length, 'pile').to.eq(0)
   })
 
+  it('drawAndRemove', () => {
+    const deck = CardDeck.fromPersistence({pile:[10,2,11,3],discard:[]})
+
+    deck.draw()
+    expect(deck.currentCard?.id, 'currentCard').to.eq(10)
+    expect(deck.currentSupportCard?.id, 'currentSupportCard').to.undefined
+    expect(deck.pile.length, 'pile').to.eq(3)
+    expect(deck.discard.length, 'pile').to.eq(0)
+
+    deck.draw()
+    expect(deck.currentCard?.id, 'currentCard').to.eq(2)
+    expect(deck.currentSupportCard?.id, 'currentSupportCard').to.undefined
+    expect(deck.pile.length, 'pile').to.eq(2)
+    expect(deck.discard.length, 'pile').to.eq(0)  // card 10 as action card is removed
+
+    deck.drawSupport()
+    expect(deck.currentCard?.id, 'currentCard').to.eq(2)
+    expect(deck.currentSupportCard?.id, 'currentSupportCard').to.eq(11)
+    expect(deck.pile.length, 'pile').to.eq(1)
+    expect(deck.discard.length, 'pile').to.eq(0)
+
+    deck.draw()
+    expect(deck.currentCard?.id, 'currentCard').to.eq(3)
+    expect(deck.currentSupportCard?.id, 'currentSupportCard').to.undefined
+    expect(deck.pile.length, 'pile').to.eq(0)
+    expect(deck.discard.length, 'pile').to.eq(2)  // card 11 as support card is not removed
+  })
+
 })

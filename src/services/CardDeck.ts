@@ -44,7 +44,10 @@ export default class CardDeck {
   public draw() : void {
     // discard current cards
     if (this._current.value) {
-      this._discard.value.unshift(this._current.value)
+      // action card: remove card if it is marked as such
+      if (!this._current.value.removeCard) {
+        this._discard.value.unshift(this._current.value)
+      }
       this._current.value = undefined
     }
     if (this._currentSupport.value) {
