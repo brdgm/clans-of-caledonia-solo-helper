@@ -127,8 +127,11 @@
     "expand": {
       "title": "Expand"
     },
-    "export-contract": {
-      "title": "Export Contract"
+    "export-contract-fulfill": {
+      "title": "Fulfill Export Contract"
+    },
+    "export-contract-take": {
+      "title": "Take Export Contract"
     },
     "technology-upgrade": {
       "title": "Technology Upgrade"

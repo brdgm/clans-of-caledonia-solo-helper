@@ -9,7 +9,7 @@ const cards : Card[] = [
   {
     id: 1,
     round: 1,
-    actions: [Action.TECHNOLOGY_UPGRADE, Action.EXPAND, Action.EXPORT_CONTRACT],
+    actions: [Action.TECHNOLOGY_UPGRADE, Action.EXPAND, Action.EXPORT_CONTRACT_FULFILL, Action.EXPORT_CONTRACT_TAKE],
     expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.COSTS, ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 1,
@@ -18,7 +18,7 @@ const cards : Card[] = [
   {
     id: 2,
     round: 1,
-    actions: [Action.TECHNOLOGY_UPGRADE, Action.EXPAND, Action.EXPORT_CONTRACT],
+    actions: [Action.TECHNOLOGY_UPGRADE, Action.EXPAND, Action.EXPORT_CONTRACT_FULFILL, Action.EXPORT_CONTRACT_TAKE],
     expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.COSTS, ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 2,
@@ -27,7 +27,7 @@ const cards : Card[] = [
   {
     id: 3,
     round: 1,
-    actions: [Action.TRADE, Action.EXPORT_CONTRACT, Action.EXPAND],
+    actions: [Action.TRADE, Action.EXPORT_CONTRACT_FULFILL, Action.EXPORT_CONTRACT_TAKE, Action.EXPAND],
     expandCriteria: [ExpandCriteria.COSTS, ExpandCriteria.PORT, ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 3,
@@ -36,7 +36,7 @@ const cards : Card[] = [
   {
     id: 4,
     round: 1,
-    actions: [Action.TRADE, Action.EXPORT_CONTRACT, Action.EXPAND],
+    actions: [Action.TRADE, Action.EXPORT_CONTRACT_FULFILL, Action.EXPORT_CONTRACT_TAKE, Action.EXPAND],
     expandCriteria: [ExpandCriteria.COSTS, ExpandCriteria.PORT, ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 4,
@@ -45,7 +45,7 @@ const cards : Card[] = [
   {
     id: 5,
     round: 1,
-    actions: [Action.TECHNOLOGY_UPGRADE, Action.EXPAND, Action.EXPORT_CONTRACT, Action.TRADE],
+    actions: [Action.TECHNOLOGY_UPGRADE, Action.EXPAND, Action.EXPORT_CONTRACT_FULFILL, Action.EXPORT_CONTRACT_TAKE, Action.TRADE],
     expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.COSTS, ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 5,
@@ -54,7 +54,7 @@ const cards : Card[] = [
   {
     id: 6,
     round: 1,
-    actions: [Action.TECHNOLOGY_UPGRADE, Action.EXPAND, Action.EXPORT_CONTRACT, Action.TRADE],
+    actions: [Action.TECHNOLOGY_UPGRADE, Action.EXPAND, Action.EXPORT_CONTRACT_FULFILL, Action.EXPORT_CONTRACT_TAKE, Action.TRADE],
     expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.COSTS, ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 6,
@@ -63,7 +63,7 @@ const cards : Card[] = [
   {
     id: 7,
     round: 1,
-    actions: [Action.UPGRADE, Action.EXPORT_CONTRACT, Action.EXPAND, Action.TRADE],
+    actions: [Action.UPGRADE, Action.EXPORT_CONTRACT_FULFILL, Action.EXPORT_CONTRACT_TAKE, Action.EXPAND, Action.TRADE],
     expandCriteria: [ExpandCriteria.NEIGHBORHOOD, ExpandCriteria.PORT, ExpandCriteria.COSTS, ExpandCriteria.SETTLEMENTS],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 7,
@@ -72,7 +72,7 @@ const cards : Card[] = [
   {
     id: 8,
     round: 1,
-    actions: [Action.EXPORT_CONTRACT, Action.EXPAND, Action.UPGRADE, Action.TRADE],
+    actions: [Action.EXPORT_CONTRACT_FULFILL, Action.EXPORT_CONTRACT_TAKE, Action.EXPAND, Action.UPGRADE, Action.TRADE],
     expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD, ExpandCriteria.COSTS],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 1,
@@ -81,7 +81,7 @@ const cards : Card[] = [
   {
     id: 9,
     round: 1,
-    actions: [Action.EXPORT_CONTRACT, Action.EXPAND, Action.TRADE, Action.UPGRADE],
+    actions: [Action.EXPORT_CONTRACT_FULFILL, Action.EXPORT_CONTRACT_TAKE, Action.EXPAND, Action.TRADE, Action.UPGRADE],
     expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD, ExpandCriteria.COSTS],
     upgradeType: UpgradeType.SHIP_LEVEL,
     chooseUnitSteps: 2,
@@ -130,7 +130,7 @@ const cards : Card[] = [
   {
     id: 14,
     round: 1,
-    actions: [Action.EXPAND, Action.EXPORT_CONTRACT, Action.UPGRADE, Action.TRADE],
+    actions: [Action.EXPAND, Action.EXPORT_CONTRACT_FULFILL, Action.EXPORT_CONTRACT_TAKE, Action.UPGRADE, Action.TRADE],
     expandCriteria: [ExpandCriteria.NEIGHBORHOOD, ExpandCriteria.PORT, ExpandCriteria.COSTS, ExpandCriteria.SETTLEMENTS],
     upgradeType: UpgradeType.SHIP_LEVEL,
     chooseUnitSteps: 7,
@@ -139,7 +139,7 @@ const cards : Card[] = [
   {
     id: 15,
     round: 2,
-    actions: [Action.EXPORT_CONTRACT, Action.EXPAND, Action.TRADE, Action.UPGRADE],
+    actions: [Action.EXPORT_CONTRACT_FULFILL, Action.EXPORT_CONTRACT_TAKE, Action.EXPAND, Action.TRADE, Action.UPGRADE],
     expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.SETTLEMENTS, ExpandCriteria.COSTS, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.SHIP_LEVEL,
     chooseUnitSteps: 1,
@@ -148,7 +148,7 @@ const cards : Card[] = [
   {
     id: 16,
     round: 2,
-    actions: [Action.TRADE, Action.EXPORT_CONTRACT, Action.EXPAND, Action.UPGRADE],
+    actions: [Action.TRADE, Action.EXPORT_CONTRACT_FULFILL, Action.EXPORT_CONTRACT_TAKE, Action.EXPAND, Action.UPGRADE],
     expandCriteria: [ExpandCriteria.PORT, ExpandCriteria.SETTLEMENTS, ExpandCriteria.COSTS, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.SHIP_LEVEL,
     chooseUnitSteps: 2,
@@ -157,7 +157,7 @@ const cards : Card[] = [
   {
     id: 17,
     round: 3,
-    actions: [Action.UPGRADE, Action.EXPORT_CONTRACT, Action.EXPAND, Action.TRADE],
+    actions: [Action.UPGRADE, Action.EXPORT_CONTRACT_FULFILL, Action.EXPORT_CONTRACT_TAKE, Action.EXPAND, Action.TRADE],
     expandCriteria: [ExpandCriteria.COSTS, ExpandCriteria.SETTLEMENTS, ExpandCriteria.PORT, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 3,
@@ -175,7 +175,7 @@ const cards : Card[] = [
   {
     id: 19,
     round: 4,
-    actions: [Action.EXPORT_CONTRACT, Action.EXPAND, Action.TRADE],
+    actions: [Action.EXPORT_CONTRACT_FULFILL, Action.EXPORT_CONTRACT_TAKE, Action.EXPAND, Action.TRADE],
     expandCriteria: [ExpandCriteria.SETTLEMENTS, ExpandCriteria.COSTS, ExpandCriteria.PORT, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 5,
@@ -184,7 +184,7 @@ const cards : Card[] = [
   {
     id: 20,
     round: 4,
-    actions: [Action.TRADE, Action.EXPORT_CONTRACT, Action.EXPAND],
+    actions: [Action.TRADE, Action.EXPORT_CONTRACT_FULFILL, Action.EXPORT_CONTRACT_TAKE, Action.EXPAND],
     expandCriteria: [ExpandCriteria.SETTLEMENTS, ExpandCriteria.COSTS, ExpandCriteria.PORT, ExpandCriteria.NEIGHBORHOOD],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 6,
@@ -193,7 +193,7 @@ const cards : Card[] = [
   {
     id: 21,
     round: 5,
-    actions: [Action.EXPORT_CONTRACT, Action.EXPAND, Action.TRADE],
+    actions: [Action.EXPORT_CONTRACT_FULFILL, Action.EXPORT_CONTRACT_TAKE, Action.EXPAND, Action.TRADE],
     expandCriteria: [ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD, ExpandCriteria.COSTS, ExpandCriteria.PORT],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 7,
@@ -202,7 +202,7 @@ const cards : Card[] = [
   {
     id: 22,
     round: 5,
-    actions: [Action.TRADE, Action.EXPORT_CONTRACT, Action.EXPAND],
+    actions: [Action.TRADE, Action.EXPORT_CONTRACT_FULFILL, Action.EXPORT_CONTRACT_TAKE, Action.EXPAND],
     expandCriteria: [ExpandCriteria.SETTLEMENTS, ExpandCriteria.NEIGHBORHOOD, ExpandCriteria.COSTS, ExpandCriteria.PORT],
     upgradeType: UpgradeType.MERCHANT,
     chooseUnitSteps: 1,

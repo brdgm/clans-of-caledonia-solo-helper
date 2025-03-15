@@ -26,7 +26,9 @@
     </div>
   </div>
   <div class="mt-3">
-    <p>Automa gains <b>exactly £1 per Merchant</b> placed.</p>
+    <p>
+      Gain <MoneyIcon :value="1"/> per <AppIcon type="upgrade-type" name="merchant" class="merchantIcon me-1"/> placed.
+    </p>
     <p class="small fst-italic">Adjusts the Price markers as normal. Automa does not gain any more money even when selling a good and also does not pay any money when buying a good. Action is not possible when Automa has no merchant left, or has already traded all types of Goods.</p>
   </div>
 </template>
@@ -44,12 +46,14 @@ import rollDice from '@brdgm/brdgm-commons/src/util/random/rollDice'
 import { ref } from 'vue'
 import Good from '@/services/enum/Good'
 import MerchantAction from '@/services/enum/MerchantAction'
+import MoneyIcon from '@/components/structure/MoneyIcon.vue'
 
 export default defineComponent({
   name: 'ActionTrade',
   inheritAttrs: false,
   components: {
-    AppIcon
+    AppIcon,
+    MoneyIcon
   },
   setup() {
     const { t } = useI18n()
@@ -87,9 +91,6 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.actionIcon {
-  width: 3rem;
-}
 .goodIcon {
   width: 3rem;
   height: 3rem;

@@ -23,7 +23,8 @@ import Card from '@/services/Card'
 import Action from '@/services/enum/Action'
 import AppIcon from '../structure/AppIcon.vue'
 import ActionExpand from './botAction/ActionExpand.vue'
-import ActionExportContract from './botAction/ActionExportContract.vue'
+import ActionExportContractFulfill from './botAction/ActionExportContractFulfill.vue'
+import ActionExportContractTake from './botAction/ActionExportContractTake.vue'
 import ActionTechnologyUpgrade from './botAction/ActionTechnologyUpgrade.vue'
 import ActionTrade from './botAction/ActionTrade.vue'
 import ActionUpgrade from './botAction/ActionUpgrade.vue'
@@ -33,7 +34,8 @@ export default defineComponent({
   components: {
     AppIcon,
     ActionExpand,
-    ActionExportContract,
+    ActionExportContractFulfill,
+    ActionExportContractTake,
     ActionTechnologyUpgrade,
     ActionTrade,
     ActionUpgrade

@@ -42,7 +42,4 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.actionIcon {
-  width: 3rem;
-}
 </style>
