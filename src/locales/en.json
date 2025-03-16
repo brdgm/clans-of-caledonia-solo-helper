@@ -3,7 +3,7 @@
   "home": {
     "title": "Clans of Caledonia Solo Helper",
     "play1": "Play <a href='https://boardgamegeek.com/boardgame/216132/clans-of-caledonia' target='_blank' rel='noopener'><b>Clans of Caledonia</b></a> against Automa, the solo opponent.",
-    "play2": "This application replaces the Automa cards, and guides you through the game flow. Additionally, it automates the tech card drafting and prosperity card selection.",
+    "play2": "This application replaces the Automa cards, and guides you through the game flow. The modules of the <a href='https://boardgamegeek.com/boardgameexpansion/391913/clans-of-caledonia-industria'' target='_blank' rel='noopener'><b>Clans of Caledonia: Industria</b></a> expansion are supported.",
     "feedback": "Discussion and Feedback:"
   },
   "setup": {
