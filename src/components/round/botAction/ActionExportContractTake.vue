@@ -64,7 +64,6 @@ import Card from '@/services/Card'
 import MoneyIcon from '@/components/structure/MoneyIcon.vue'
 import ActionBox from '../ActionBox.vue'
 import getTakeExportContractMoney from '@/util/getTakeExportContractMoney'
-import { round } from 'lodash'
 
 export default defineComponent({
   name: 'ActionExportContractTake',

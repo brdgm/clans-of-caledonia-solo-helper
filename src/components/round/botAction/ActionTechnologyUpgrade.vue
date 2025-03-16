@@ -21,7 +21,6 @@ import { useI18n } from 'vue-i18n'
 import NavigationState from '@/util/NavigationState'
 import Action from '@/services/enum/Action'
 import Card from '@/services/Card'
-import MoneyIcon from '@/components/structure/MoneyIcon.vue'
 import randomEnum from '@brdgm/brdgm-commons/src/util/random/randomEnum'
 import WorkerType from '@/services/enum/WorkerType'
 import ActionBox from '../ActionBox.vue'
@@ -30,7 +29,6 @@ export default defineComponent({
   name: 'ActionTechnologyUpgrade',
   inheritAttrs: false,
   components: {
-    MoneyIcon,
     ActionBox
   },
   setup() {

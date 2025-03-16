@@ -122,7 +122,10 @@
     "lastRoundGlory": "Last round: Automa scores <b>{glory} Glory</b>."
   },
   "endOfGame": {
-    "title": "End of Game"
+    "title": "End of Game",
+    "difficultyLevel": "Difficulty Level:",
+    "importGoodAmount": "Import Goods",
+    "victoryPoints": "Victory Points"
   },
   "botAction": {
     "expand": {
