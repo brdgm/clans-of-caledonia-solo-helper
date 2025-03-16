@@ -37,7 +37,15 @@
     <div class="col-5 col-lg-3">
       <PlayerColorPicker :model-value="playerColors[playerCount+botColorIndex-1]" @update:model-value="color => playerColorChanged(playerCount+botColorIndex-1, color)"/>
     </div>
-  </div>  
+  </div>
+
+  <div class="row mt-3" v-if="botCount > 1">
+    <div class="col">
+      <div class="alert alert-warning">
+        {{t('setup.players.multiAutomaWarning')}}
+      </div>
+    </div>
+  </div>
 
 </template>
 

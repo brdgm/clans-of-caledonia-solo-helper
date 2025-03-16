@@ -15,6 +15,9 @@
             <AppIcon type="unit-type" :name="unitType" extension="svg" class="unitTypeIcon"/>
           </template>
         </div>
+        <div>
+          <img src="@/assets/player-aid/expand-check-neighborhood.webp" alt="" class="player-aid-check-neighborhood"/>
+        </div>
       </div>
     </template>
     <template #rules>
@@ -58,6 +61,7 @@
       <hr/>
       <h5>{{t('botAction.expand.rulesNeighborhood.title')}}</h5>
       <p v-html="t('botAction.expand.rulesNeighborhood.restrictions')"></p>
+      <img src="@/assets/player-aid/expand-check-neighborhood.webp" alt="" class="player-aid-check-neighborhood rules"/>
       <p v-html="t('botAction.expand.rulesNeighborhood.buyGoods')"></p>
       <img src="@/assets/player-aid/expand-neighborhood-bonus.webp" alt="" class="player-aid-trade"/>
       <ul>
@@ -73,6 +77,7 @@
       <template v-if="hasFarmersMarketExpansion">
         <h5>{{t('botAction.expand.rulesFarmersMarket.title')}}</h5>
         <p v-html="t('botAction.expand.rulesFarmersMarket.restrictions')"></p>
+        <img src="@/assets/player-aid/expand-check-neighborhood.webp" alt="" class="player-aid-check-neighborhood rules"/>
         <p v-html="t('botAction.expand.rulesFarmersMarket.sellGoods')"></p>
         <img src="@/assets/player-aid/expand-farmers-market.webp" alt="" class="player-aid-trade"/>
         <ul>
@@ -245,6 +250,13 @@ export default defineComponent({
     margin-left: 0;
     width: 100%;
     object-fit: contain;
+  }
+}
+.player-aid-check-neighborhood {
+  height: 2.5rem;
+  &.rules {
+    float: left;
+    margin-right: 10px;
   }
 }
 </style>

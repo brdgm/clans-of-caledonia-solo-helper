@@ -25,6 +25,7 @@
           <AppIcon type="export-good" name="mutton" class="goodIcon"/>
           <AppIcon type="export-good" name="beef" class="goodIcon"/>
         </p>
+        <p v-html="t('botAction.export-contract-take.tiebreakerRandom')"></p>
         <p v-if="isLastRound" v-html="t('botAction.export-contract-take.rulesRarest.lastRound')"></p>
       </template>
       <template v-else>
@@ -49,6 +50,7 @@
           <AppIcon type="export-bonus" name="upgrade" class="goodIcon"/>
           <AppIcon type="export-bonus" name="free-hex" class="goodIcon"/>
         </p>
+        <p v-html="t('botAction.export-contract-take.tiebreakerRandom')"></p>
       </template>
     </template>
   </ActionBox>

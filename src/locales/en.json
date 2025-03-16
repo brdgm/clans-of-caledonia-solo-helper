@@ -15,7 +15,8 @@
       "playerColor": "Player Color | Player {index} Color",
       "botCount": "Automa",
       "botCountItem": "{count} Automa | {count} Automas",
-      "botColor": "Automa Color | Automa {index} Color"
+      "botColor": "Automa Color | Automa {index} Color",
+      "multiAutomaWarning": "Playing against multiple Automa is experimental."
     },
     "difficultyLevel": {
       "title": "Difficulty Level",
@@ -181,6 +182,7 @@
       "gainForTaking": "The Automa receives <b>£{amount}</b> for taking an Export contract in round {round}.",
       "payForTaking": "The Automa must pay <b>£{amount}</b> for taking an Export contract in round {round}.",
       "per": "per",
+      "tiebreakerRandom": "If still tied, choose randomly.",
       "rulesCheapest": {
         "prefer": "It will take the <b>cheapest</b> export contract, by counting:",
         "tiebreaker": "If tied, it prefers export contracts with the <b>hightest monetary bonus</b>, including:"
@@ -235,11 +237,11 @@
     "sell": "Sell"
   },
   "difficultyLevel": {
-    "1": "Very Easy",
-    "2": "Easy",
-    "3": "Moderate",
-    "4": "Hard",
-    "5": "Very Hard"
+    "1": "1 - Very Easy",
+    "2": "2 - Easy",
+    "3": "3 - Moderate",
+    "4": "4 - Hard",
+    "5": "5 - Very Hard"
   },
   "notfound": {
     "title": "Not Found"
