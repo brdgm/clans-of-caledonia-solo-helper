@@ -13,13 +13,15 @@ export default class CardDeck {
   private _currentSupport
   private _pile
   private _discard
+  private _removed
 
   private constructor(current: Card|undefined, currentSupport: Card|undefined,
-      pile : Card[], discard : Card[]) {
+      pile : Card[], discard : Card[], removed : Card[]) {
     this._current = ref(current)
     this._currentSupport = ref(currentSupport)
     this._pile = ref(pile)
     this._discard = ref(discard)
+    this._removed = ref(removed)
   }
 
   public get currentCard() : Card|undefined {
@@ -38,6 +40,10 @@ export default class CardDeck {
     return this._discard.value
   }
 
+  public get removed() : readonly Card[] {
+    return this._removed.value
+  }
+
   /**
    * Draws next current card. Discards previously drawn card(s).
    */
@@ -45,7 +51,10 @@ export default class CardDeck {
     // discard current cards
     if (this._current.value) {
       // action card: remove card if it is marked as such
-      if (!this._current.value.removeCard) {
+      if (this._current.value.removeCard) {
+        this._removed.value.unshift(this._current.value)
+      }
+      else {
         this._discard.value.unshift(this._current.value)
       }
       this._current.value = undefined
@@ -93,19 +102,22 @@ export default class CardDeck {
       currentSupport: this._currentSupport.value?.id,
       pile: this._pile.value.map(card => card.id),
       discard: this._discard.value.map(card => card.id),
+      removed: this._removed.value.map(card => card.id)
     }
   }
 
   /**
    * Creates a shuffled new card deck for the given round.
    * @param round Round
+   * @param removed Cards already removed in previous rounds.
    */
-  public static new(round : number) : CardDeck {
-    const cards : Card[] = []
+  public static new(round : number, removed : Card[] = []) : CardDeck {
+    let cards : Card[] = []
     for (let r = 1; r <= round; r++) {
       cards.push(...Cards.getForRound(r))
     }
-    return new CardDeck(undefined, undefined, shuffle(cards), [])
+    cards = cards.filter(card => !removed.includes(card))
+    return new CardDeck(undefined, undefined, shuffle(cards), [], removed)
   }
 
   /**
@@ -116,7 +128,8 @@ export default class CardDeck {
       persistence.current ? Cards.get(persistence.current) : undefined,
       persistence.currentSupport ? Cards.get(persistence.currentSupport) : undefined,
       persistence.pile.map(Cards.get),
-      persistence.discard.map(Cards.get)
+      persistence.discard.map(Cards.get),
+      persistence.removed.map(Cards.get)
     )
   }
 

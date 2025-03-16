@@ -94,4 +94,5 @@ export interface CardDeckPersistence {
   currentSupport?: number
   pile: number[]
   discard: number[]
+  removed: number[]
 }

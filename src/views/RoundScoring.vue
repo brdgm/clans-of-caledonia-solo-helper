@@ -25,6 +25,8 @@ import CardDeck from '@/services/CardDeck'
 import SideBar from '@/components/round/SideBar.vue'
 import UnitType from '@/services/enum/UnitType'
 import getPreviousTurns from '@/util/getPreviousTurns'
+import Cards from '@/services/Cards'
+import { MAX_TURN } from '@/util/getTurnOrder'
 
 export default defineComponent({
   name: 'RoundScoring',
@@ -62,12 +64,14 @@ export default defineComponent({
         const nextRound = this.round + 1
         const initialBotPersistence : BotPersistence[] = []
         for (let bot = 1; bot<=this.botCount; bot++) {
-          const previousTurns = getPreviousTurns({state:this.state, round:this.round,turn:0,bot})
+          const previousTurns = getPreviousTurns({state:this.state, round:this.round,turn:MAX_TURN,bot})
           const lastTurn = previousTurns[previousTurns.length-1]
+          const removedCards = (lastTurn?.botPersistence?.cardDeck.removed ?? []).map(Cards.get)
+          const preferredUnitType = lastTurn?.botPersistence?.preferredUnitType ?? UnitType.SHEEP
           initialBotPersistence.push({
-            cardDeck: CardDeck.new(nextRound).toPersistence(),
-            preferredUnitType: lastTurn?.botPersistence?.preferredUnitType || UnitType.SHEEP
-          })          
+            cardDeck: CardDeck.new(nextRound, removedCards).toPersistence(),
+            preferredUnitType
+          })
         }
         this.state.storeRound({
           round: nextRound,

@@ -1,5 +1,6 @@
 import UnitType from '@/services/enum/UnitType'
 import { CardDeckPersistence, RoundTurn } from '@/store/state'
+import mockCardDeck from './mockCardDeck'
 
 export default function (params?: MockTurnParams) : RoundTurn {
   const turn : RoundTurn = {
@@ -12,7 +13,7 @@ export default function (params?: MockTurnParams) : RoundTurn {
   }
   if (params?.cardDeck || params?.preferredUnitType) {
     turn.botPersistence = {
-      cardDeck: params?.cardDeck ?? { pile: [1,2,3,4], discard: [] },
+      cardDeck: params?.cardDeck ?? mockCardDeck({pile:[1,2,3,4]}).toPersistence(),
       preferredUnitType: params?.preferredUnitType ?? UnitType.SHEEP
     }
   }

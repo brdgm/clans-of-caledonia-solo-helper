@@ -5,7 +5,8 @@ export default function (params?: MockCardDeckParams) : CardDeck {
     current: params?.current,
     currentSupport: params?.currentSupport,
     pile: params?.pile ?? [],
-    discard: params?.discard ?? []
+    discard: params?.discard ?? [],
+    removed: params?.removed ?? []
   })
 }
 
@@ -14,4 +15,5 @@ export interface MockCardDeckParams {
   currentSupport?: number
   pile?: number[]
   discard?: number[]
+  removed?: number[]
 }
