@@ -3,29 +3,25 @@
     <template #summary>
       <div class="tradeOptions">
         <div>
-          <AppIcon type="good" :name="selectedGood" class="goodIcon me-2" />
+          <AppIcon type="good" :name="selectedGood" class="goodIcon me-1" />
           <button class="btn btn-outline-secondary btn-sm" @click="rerollGood()">{{t('botAction.trade.reroll')}}</button>
         </div>
         <div>
-          <AppIcon type="upgrade-type" name="merchant" class="merchantIcon me-1" v-for="i of merchantCount" :key="i"/>
+          <AppIcon name="merchant" class="merchantIcon me-1" v-for="i of merchantCount" :key="i"/>
         </div>
         <div v-html="t('botAction.trade.preferMerchantAction', {merchantAction:t(`merchantAction.${merchantAction}`)})"></div>
+        <div>
+          <AppIcon name="merchant" class="merchantIcon me-1"/>: <MoneyIcon :value="1"/>
+        </div>
       </div>
     </template>
     <template #rules>
       <p v-html="t('botAction.trade.rules.selectGood')"></p>
+      <p><img src="@/assets/player-aid/trade-good-available.webp" alt="" class="player-aid-good"/></p>
       <div>
         <p v-html="t('botAction.trade.rules.priceBracket')"></p>
-        <div class="stockMarketPrice">
-          <div class="merchantAction">
-            <div>{{t('merchantAction.sell')}}</div>
-            <div>{{t(`merchantAction.${merchantAction}`)}}</div>
-            <div>{{t('merchantAction.buy')}}</div>
-          </div>
-          <div>
-            <img src="@/assets/stockmarket-price-bracket.webp" alt=""/>
-          </div>
-        </div>
+        <img v-if="isPreferBuy" src="@/assets/player-aid/trade-prefer-buy.webp" alt="" class="player-aid-stockmarket"/>
+        <img v-else src="@/assets/player-aid/trade-prefer-sell.webp" alt="" class="player-aid-stockmarket"/>
       </div>
       <p class="mt-3" v-html="t('botAction.trade.rules.placeMerchants', {merchantCount})"></p>
       <p v-html="t('botAction.trade.rules.gainMoney')"></p>
@@ -49,13 +45,15 @@ import { ref } from 'vue'
 import Good from '@/services/enum/Good'
 import MerchantAction from '@/services/enum/MerchantAction'
 import ActionBox from '../ActionBox.vue'
+import MoneyIcon from '@/components/structure/MoneyIcon.vue'
 
 export default defineComponent({
   name: 'ActionTrade',
   inheritAttrs: false,
   components: {
     AppIcon,
-    ActionBox
+    ActionBox,
+    MoneyIcon
   },
   setup() {
     const { t } = useI18n()
@@ -84,6 +82,11 @@ export default defineComponent({
       required: true
     }
   },
+  computed: {
+    isPreferBuy() : boolean {
+      return this.merchantAction == MerchantAction.BUY
+    }
+  },
   methods: {
     rerollGood() {
       this.selectedGood = randomEnumDifferentValue(Good, this.selectedGood)
@@ -99,27 +102,18 @@ export default defineComponent({
   object-fit: contain;
 }
 .merchantIcon {
-  width: 1.25rem;
+  width: 1.75rem;
 }
 .tradeOptions {
   display: flex;
-  gap: 15px;
+  gap: 20px;
   flex-wrap: wrap;
   align-items: center;
 }
-.stockMarketPrice {
-  display: flex;
-  .merchantAction {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    div {
-      padding: 10px;
-      font-weight: bold;
-    }
-  }
-  img {
-    height: 10rem;
-  }
+.player-aid-good {
+  width: 150px;
+}
+.player-aid-stockmarket {
+  width: 150px;
 }
 </style>
