@@ -12,7 +12,10 @@
       <p v-html="t('botAction.upgrade.rules')"></p>
       <hr/>
       <h5>{{t('botAction.port-bonus.title')}}</h5>
-      <p v-html="t('botAction.port-bonus.rules')"></p>
+      <p>
+        <span v-html="t('botAction.port-bonus.rules')"/><br/>
+        <AppIcon name="port-claim" class="portClaimIcon"/>: <MoneyIcon :value="10"/>
+      </p>
     </template>
   </ActionBox>
 </template>
@@ -78,5 +81,8 @@ export default defineComponent({
   object-fit: contain;
   margin-left: 5px;
   margin-right: 5px;
+}
+.portClaimIcon {
+  width: 2.5rem;
 }
 </style>

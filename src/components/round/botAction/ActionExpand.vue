@@ -59,28 +59,39 @@
       <h5>{{t('botAction.expand.rulesNeighborhood.title')}}</h5>
       <p v-html="t('botAction.expand.rulesNeighborhood.restrictions')"></p>
       <p v-html="t('botAction.expand.rulesNeighborhood.buyGoods')"></p>
+      <img src="@/assets/player-aid/expand-neighborhood-bonus.webp" alt="" class="player-aid-trade"/>
       <ul>
-        <li v-html="t('botAction.expand.rulesNeighborhood.buyGoodsLower')"></li>
-        <li v-html="t('botAction.expand.rulesNeighborhood.buyGoodsMedium')"></li>
         <li v-html="t('botAction.expand.rulesNeighborhood.buyGoodsUpper')"></li>
+        <li v-html="t('botAction.expand.rulesNeighborhood.buyGoodsMedium')"></li>
+        <li v-html="t('botAction.expand.rulesNeighborhood.buyGoodsLower')"></li>
       </ul>
-      <p v-html="t('botAction.expand.rulesNeighborhood.earnMoney')"></p>
+      <p>
+        <span v-html="t('botAction.expand.rulesNeighborhood.earnMoney')"/><br/>
+        <AppIcon name="merchant" class="merchantIcon me-1"/>: <MoneyIcon :value="3"/>
+      </p>
       <hr/>
       <template v-if="hasFarmersMarketExpansion">
         <h5>{{t('botAction.expand.rulesFarmersMarket.title')}}</h5>
         <p v-html="t('botAction.expand.rulesFarmersMarket.restrictions')"></p>
         <p v-html="t('botAction.expand.rulesFarmersMarket.sellGoods')"></p>
+        <img src="@/assets/player-aid/expand-farmers-market.webp" alt="" class="player-aid-trade"/>
         <ul>
-          <li v-html="t('botAction.expand.rulesFarmersMarket.sellGoodsLower')"></li>
-          <li v-html="t('botAction.expand.rulesFarmersMarket.sellGoodsMedium')"></li>
           <li v-html="t('botAction.expand.rulesFarmersMarket.sellGoodsUpper')"></li>
+          <li v-html="t('botAction.expand.rulesFarmersMarket.sellGoodsMedium')"></li>
+          <li v-html="t('botAction.expand.rulesFarmersMarket.sellGoodsLower')"></li>
         </ul>
         <p v-html="t('botAction.expand.rulesFarmersMarket.tiebreaker')"></p>
-        <p v-html="t('botAction.expand.rulesFarmersMarket.earnMoney')"></p>
+        <p>
+          <span v-html="t('botAction.expand.rulesFarmersMarket.earnMoney')"/><br/>
+          <AppIcon name="merchant" class="merchantIcon me-1"/>: <MoneyIcon :value="3"/>
+        </p>
         <hr/>
       </template>
       <h5>{{t('botAction.port-bonus.title')}}</h5>
-      <p v-html="t('botAction.port-bonus.rules')"></p>
+      <p>
+        <span v-html="t('botAction.port-bonus.rules')"/><br/>
+        <AppIcon name="port-claim" class="portClaimIcon"/>: <MoneyIcon :value="10"/>
+      </p>
     </template>
   </ActionBox>
 </template>
@@ -103,6 +114,7 @@ import getNextUnitType from '@/util/getNextUnitType'
 import randomEnum from '@brdgm/brdgm-commons/src/util/random/randomEnum'
 import WorkerType from '@/services/enum/WorkerType'
 import ActionBox from '../ActionBox.vue'
+import MoneyIcon from '@/components/structure/MoneyIcon.vue'
 
 export default defineComponent({
   name: 'ActionExpand',
@@ -110,7 +122,8 @@ export default defineComponent({
   components: {
     MapModules,
     AppIcon,
-    ActionBox
+    ActionBox,
+    MoneyIcon
   },
   setup() {
     const { t } = useI18n()
@@ -216,5 +229,22 @@ export default defineComponent({
 }
 .criteriaList > li {
   margin-bottom: 10px;
+}
+.merchantIcon {
+  width: 1.75rem;
+}
+.portClaimIcon {
+  width: 2.5rem;
+}
+.player-aid-trade {
+  height: 150px;
+  float: right;
+  margin-left: 10px;
+  @media (max-width: 500px) {
+    float: none;
+    margin-left: 0;
+    width: 100%;
+    object-fit: contain;
+  }
 }
 </style>
