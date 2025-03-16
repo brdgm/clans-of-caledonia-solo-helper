@@ -96,14 +96,14 @@
     "execute": "Please execute your turn - or pass.",
     "pass": {
       "confirm": "Do you want to pass?",
-      "info": "Move your Turn order token and receive the Pass bonus money."
+      "info": "Move your Turn order token and receive <b>£{amount}</b> Pass bonus money."
     }
   },
   "roundTurnBot": {
     "executed": "Action Completed",
     "notPossible": "Not Possible",
     "skipTurn": "Automa skips this turn.",
-    "passInfo": "Automa passes: It moves the Turn order token and receives the Pass bonus money",
+    "passInfo": "Automa passes: It moves the Turn order token and receives <b>£{amount}</b> Pass bonus money",
     "rules": "Rules"
   },
   "roundProduction": {

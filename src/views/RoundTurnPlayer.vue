@@ -16,7 +16,7 @@
   <ModalDialog id="passModal" :title="t('action.pass')">
     <template #body>
       <p v-html="t('roundTurnPlayer.pass.confirm')"></p>
-      <p v-html="t('roundTurnPlayer.pass.info')"></p>
+      <p v-html="t('roundTurnPlayer.pass.info', {amount:passBonusMoney})"></p>
     </template>
     <template #footer>
       <button class="btn btn-danger" @click="pass" data-bs-dismiss="modal">{{t('action.pass')}}</button>
@@ -38,6 +38,7 @@ import RouteCalculator from '@/services/RouteCalculator'
 import ModalDialog from '@brdgm/brdgm-commons/src/components/structure/ModalDialog.vue'
 import SideBar from '@/components/round/SideBar.vue'
 import PlayerColorDisplay from '@/components/structure/PlayerColorDisplay.vue'
+import getPassBonusMoney from '@/util/getPassBonusMoney'
 
 export default defineComponent({
   name: 'RoundTurnPlayer',
@@ -57,11 +58,14 @@ export default defineComponent({
     const { round, turn, turnOrderIndex, player, playerCount } = navigationState
     const routeCalculator = new RouteCalculator({round, turn, turnOrderIndex, player})
 
-    return { t, router, navigationState, state, routeCalculator, round, turn, player, playerCount }
+    return { t, router, navigationState, state, routeCalculator, round, turn, turnOrderIndex, player, playerCount }
   },
   computed: {
     backButtonRouteTo() : string {
       return this.routeCalculator.getBackRouteTo(this.state)
+    },
+    passBonusMoney() : number {
+      return getPassBonusMoney(this.state, this.round, this.turn, this.turnOrderIndex)
     }
   },
   methods: {

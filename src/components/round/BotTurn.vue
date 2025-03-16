@@ -10,7 +10,7 @@
     </button>
   </template>
   <template v-else-if="isPass">
-    <p class="mt-4" v-html="t('roundTurnBot.passInfo', {botName:t('player.bot', {bot}, botCount)})"></p>
+    <p class="mt-4" v-html="t('roundTurnBot.passInfo', {amount:passBonusMoney})"></p>
 
     <button class="btn btn-primary btn-lg mt-4 me-2" @click="pass()">
       {{t('action.pass')}}
@@ -39,6 +39,7 @@ import Card from '@/services/Card'
 import Action from '@/services/enum/Action'
 import AppIcon from '../structure/AppIcon.vue'
 import BotAction from './BotAction.vue'
+import getPassBonusMoney from '@/util/getPassBonusMoney'
 
 export default defineComponent({
   name: 'BotTurn',
@@ -82,6 +83,10 @@ export default defineComponent({
     },
     currentSupportCard() : Card|undefined {
       return this.navigationState.cardDeck?.currentSupportCard
+    },
+    passBonusMoney() : number {
+      const { round, turn, turnOrderIndex } = this.navigationState
+      return getPassBonusMoney(this.state, round, turn, turnOrderIndex)
     }
   },
   methods: {
