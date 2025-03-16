@@ -1,7 +1,7 @@
 <template>
 
   <div class="float-end m-2 w-25">
-    <a href="https://boardgamegeek.com/boardgame/356883/clans-of-caledonia" target="_blank" rel="noopener">
+    <a href="https://boardgamegeek.com/boardgame/216132/clans-of-caledonia" target="_blank" rel="noopener">
       <img src="../assets/game-clans-of-caledonia.webp" class="rounded shadow w-100 mb-3" alt=""/>
     </a>
   </div>

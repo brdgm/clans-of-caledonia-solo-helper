@@ -26,7 +26,7 @@
 
   <ModalDialog id="creditsModal" :title="t('footer.credits')">
     <template #body>
-      <h4><a href="https://boardgamegeek.com/image/7618191/clans-of-caledonia" target="_blank" rel="noopener">{{t('gameTitle')}}</a></h4>
+      <h4><a href="https://boardgamegeek.com/boardgame/216132/clans-of-caledonia" target="_blank" rel="noopener">{{t('gameTitle')}}</a></h4>
       <dl>
         <dt>Game design</dt>
         <dd>Juma Al-JouJou</dd>
