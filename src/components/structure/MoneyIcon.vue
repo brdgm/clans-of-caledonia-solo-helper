@@ -49,8 +49,9 @@ export default defineComponent({
     align-items: center;
     justify-content: center;
     padding-bottom: 0.15rem;
+    text-shadow:1px 1px 3px yellow, -1px -1px 3px yellow;
     &.pay {
-      color: darkred;
+      color: #c72c31;
     }
   }
 }

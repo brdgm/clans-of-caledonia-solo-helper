@@ -2,6 +2,7 @@
   <ActionBox>
     <template #summary>
       <p v-html="t('botAction.export-contract-fulfill.summary')"></p>
+      <img src="@/assets/player-aid/export-contract-fulfill.webp" alt="" class="player-aid"/>
     </template>
     <template #rules>
       <p v-html="t('botAction.export-contract-fulfill.pay')"></p>
@@ -73,6 +74,9 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+.player-aid {
+  width: 240px;
+}
 .goodIcon {
   width: 2.5rem;
   height: 2.5rem;

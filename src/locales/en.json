@@ -167,17 +167,16 @@
     "export-contract-fulfill": {
       "title": "Fulfill Export Contract",
       "summary": "If the Automa <b>has an Export contract</b>, it will try to fulfill it.",
-      "pay": "It has to pay:",
-      "bonus": "It will gain any money bonus, and additionally:",
+      "pay": "The Automa must pay £5 for each Wool and £10 for each Processed good and unit of Meat to fulfill its Export contract.",
+      "bonus": "The Automa gains money as normal from imported Goods (the £1 bonus on the Scoring track) and any bonus money shown on the Export contract itself. If the Export contract has Bonus upgrades or a free space expand bonus, the Automa gains £5 for each of these instead of receiving them.",
       "per": "per"
     },
     "export-contract-take": {
       "title": "Take Export Contract",
       "get": "If the Automa <b>has no Export contract</b>, it will get one.",
       "getLastRound": "If the Automa <b>has no Export contract</b>, it will get one and <b>fulfill it immediately</b>.",
-      "preferCheapest": "It prefers the <b>cheapest</b> export contract.",
-      "preferRarest": "It prefers contracts with the <b>rarest import Good</b>.",
-      "payForTaking": "The Automa receives or must <b>pay money for taking</b> an Export contract as normal depending on the current round.",
+      "gainForTaking": "The Automa receives <b>£{amount}</b> for taking an Export contract in round {round}.",
+      "payForTaking": "The Automa must pay <b>£{amount}</b> for taking an Export contract in round {round}.",
       "per": "per",
       "rulesCheapest": {
         "prefer": "It will take the <b>cheapest</b> export contract, by counting:",
@@ -191,7 +190,6 @@
     },
     "technology-upgrade": {
       "title": "Technology Upgrade",
-      "summary": "Upgrade if Automa has <b>3 or more workers</b> of the same type.",
       "fullRule": "If the Automa has 3 or more Workers of the same type deployed and not upgraded, then it must pay <b>£10</b> to upgrade this Worker technology by flipping the Technology tile on its player board.",
       "tiebreaker": "If both Worker types fit this criterion, chose in this order:"
     },

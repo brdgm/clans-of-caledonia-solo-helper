@@ -3,11 +3,12 @@
     <template #summary>
       <p v-if="isLastRound" v-html="t('botAction.export-contract-take.getLastRound')"></p>
       <p v-else v-html="t('botAction.export-contract-take.get')"></p>
-      <p v-if="isLastTwoRounds" v-html="t('botAction.export-contract-take.preferRarest')"></p>
-      <p v-else v-html="t('botAction.export-contract-take.preferCheapest')"></p>
+      <img v-if="isLastTwoRounds" src="@/assets/player-aid/export-contract-take-round-4-5.webp" alt="" class="player-aid"/>
+      <img v-else src="@/assets/player-aid/export-contract-take-round-1-3.webp" alt="" class="player-aid"/>
     </template>
     <template #rules>
-      <p v-html="t('botAction.export-contract-take.payForTaking')"></p>
+      <p v-if="moneyForExportContract > 0" v-html="t('botAction.export-contract-take.gainForTaking', {amount:moneyForExportContract,round})"></p>
+      <p v-else-if="moneyForExportContract < 0" v-html="t('botAction.export-contract-take.payForTaking', {amount:-moneyForExportContract,round})"></p>
       <template v-if="isLastTwoRounds">
         <p v-html="t('botAction.export-contract-take.rulesRarest.prefer')"></p>
         <p v-html="t('botAction.export-contract-take.rulesRarest.tiebreaker')"></p>
@@ -62,6 +63,8 @@ import Action from '@/services/enum/Action'
 import Card from '@/services/Card'
 import MoneyIcon from '@/components/structure/MoneyIcon.vue'
 import ActionBox from '../ActionBox.vue'
+import getTakeExportContractMoney from '@/util/getTakeExportContractMoney'
+import { round } from 'lodash'
 
 export default defineComponent({
   name: 'ActionExportContractTake',
@@ -94,17 +97,26 @@ export default defineComponent({
     }
   },
   computed: {
+    round() : number {
+      return this.navigationState.round
+    },
     isLastTwoRounds() : boolean {
-      return this.navigationState.round >= 4
+      return this.round >= 4
     },
     isLastRound() : boolean {
-      return this.navigationState.round == 5
+      return this.round == 5
+    },
+    moneyForExportContract() : number {
+      return getTakeExportContractMoney(this.round)
     }
   }
 })
 </script>
 
 <style lang="scss" scoped>
+.player-aid {
+  width: 200px;
+}
 .goodIcon {
   width: 2.5rem;
   height: 2.5rem;

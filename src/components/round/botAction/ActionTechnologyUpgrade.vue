@@ -1,10 +1,7 @@
 <template>
   <ActionBox>
     <template #summary>
-      <p>
-        <MoneyIcon :value="10" pay class="me-1"/>
-        <span v-html="t('botAction.technology-upgrade.summary')"></span>
-      </p>
+      <img src="@/assets/player-aid/technology-upgrade.webp" alt="" class="player-aid"/>
     </template>
     <template #rules>
       <p v-html="t('botAction.technology-upgrade.fullRule')"></p>
@@ -73,4 +70,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+.player-aid {
+  width: 90px;
+}
 </style>
