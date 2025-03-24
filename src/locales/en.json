@@ -129,6 +129,7 @@
     "victoryPoints": "Victory Points"
   },
   "botAction": {
+    "randomized": "The displayed rule is randomized.",
     "expand": {
       "title": "Expand",
       "tooltip": {

@@ -19,7 +19,7 @@
       <p v-html="t('botAction.trade.rules.selectGood')"></p>
       <p><img src="@/assets/player-aid/trade-good-available.webp" alt="" class="player-aid-good"/></p>
       <div>
-        <p v-html="t('botAction.trade.rules.priceBracket')"></p>
+        <p><span v-html="t('botAction.trade.rules.priceBracket')"></span><RandomizedIcon/></p>
         <img v-if="isPreferBuy" src="@/assets/player-aid/trade-prefer-buy.webp" alt="" class="player-aid-stockmarket"/>
         <img v-else src="@/assets/player-aid/trade-prefer-sell.webp" alt="" class="player-aid-stockmarket"/>
       </div>
@@ -46,6 +46,7 @@ import Good from '@/services/enum/Good'
 import MerchantAction from '@/services/enum/MerchantAction'
 import ActionBox from '../ActionBox.vue'
 import MoneyIcon from '@/components/structure/MoneyIcon.vue'
+import RandomizedIcon from '@/components/structure/RandomizedIcon.vue'
 
 export default defineComponent({
   name: 'ActionTrade',
@@ -53,7 +54,8 @@ export default defineComponent({
   components: {
     AppIcon,
     ActionBox,
-    MoneyIcon
+    MoneyIcon,
+    RandomizedIcon
   },
   setup() {
     const { t } = useI18n()

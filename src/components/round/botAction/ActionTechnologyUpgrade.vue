@@ -5,7 +5,7 @@
     </template>
     <template #rules>
       <p v-html="t('botAction.technology-upgrade.fullRule')"></p>
-      <p v-html="t('botAction.technology-upgrade.tiebreaker')"></p>
+      <p><span v-html="t('botAction.technology-upgrade.tiebreaker')"></span><RandomizedIcon/></p>
       <ul>
         <li v-for="workerType in workerTypes" :key="workerType">
           {{t(`workerType.${workerType}`)}}
@@ -24,12 +24,14 @@ import Card from '@/services/Card'
 import randomEnum from '@brdgm/brdgm-commons/src/util/random/randomEnum'
 import WorkerType from '@/services/enum/WorkerType'
 import ActionBox from '../ActionBox.vue'
+import RandomizedIcon from '@/components/structure/RandomizedIcon.vue'
 
 export default defineComponent({
   name: 'ActionTechnologyUpgrade',
   inheritAttrs: false,
   components: {
-    ActionBox
+    ActionBox,
+    RandomizedIcon
   },
   setup() {
     const { t } = useI18n()

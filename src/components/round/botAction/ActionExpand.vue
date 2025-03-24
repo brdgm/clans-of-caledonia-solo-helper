@@ -2,7 +2,7 @@
   <ActionBox>
     <template #summary>
       <div class="expandSelection">
-        <MapModules :mapModules="mapModules"  data-bs-toggle="tooltip" data-bs-custom-class="action-help-tooltip" :data-bs-title="t('botAction.expand.tooltip.mapModules')"/>
+        <MapModules :mapModules="mapModules" data-bs-toggle="tooltip" data-bs-custom-class="action-help-tooltip" :data-bs-title="t('botAction.expand.tooltip.mapModules')"/>
         <div data-bs-toggle="tooltip" data-bs-custom-class="action-help-tooltip" :data-bs-title="t('botAction.expand.tooltip.criteria')">
           <template v-for="(expandCriteria,index) of expandCriteria" :key="expandCriteria">
             <span v-if="index > 0">＞</span>
@@ -51,7 +51,7 @@
       <p v-html="t('botAction.expand.rulesUnit.title')"></p>
       <ol>
         <li v-html="t('botAction.expand.rulesUnit.unitPreference')"></li>
-        <li v-html="t('botAction.expand.rulesUnit.workerPreference')"></li>
+        <li><span v-html="t('botAction.expand.rulesUnit.workerPreference')"></span><RandomizedIcon/></li>
         <ol type="a">
           <li v-html="t('botAction.expand.rulesUnit.upgradedWorkers')"></li>
           <li v-for="workerType of workerTypes" :key="workerType">{{t(`workerType.${workerType}`)}}</li>
@@ -120,6 +120,7 @@ import randomEnum from '@brdgm/brdgm-commons/src/util/random/randomEnum'
 import WorkerType from '@/services/enum/WorkerType'
 import ActionBox from '../ActionBox.vue'
 import MoneyIcon from '@/components/structure/MoneyIcon.vue'
+import RandomizedIcon from '@/components/structure/RandomizedIcon.vue'
 
 export default defineComponent({
   name: 'ActionExpand',
@@ -128,7 +129,8 @@ export default defineComponent({
     MapModules,
     AppIcon,
     ActionBox,
-    MoneyIcon
+    MoneyIcon,
+    RandomizedIcon
   },
   setup() {
     const { t } = useI18n()
