@@ -7,7 +7,7 @@
       <li v-html="t('setupBot.setup.setupGame', {playerCount:state.getTotalPlayerCount()})"></li>
       <li v-html="t('setupBot.setup.playerBoard')"></li>
       <ul>
-        <li v-html="t('setupBot.setup.shipLevel', {level:difficultySettings.shipLevel})"></li>
+        <li v-html="t('setupBot.setup.shipLevel')"></li>
         <li v-html="t('setupBot.setup.money', {startingMoney:difficultySettings.startingMoney})"></li>
       </ul>
       <li v-html="t('setupBot.setup.clansSelection', {clanCount:state.setup.playerSetup.playerCount + 1})"></li>

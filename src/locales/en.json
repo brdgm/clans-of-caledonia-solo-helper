@@ -37,7 +37,7 @@
       "title": "Game Board",
       "setupGame": "Setup the game as usual for {playerCount} players.",
       "playerBoard": "<b>Player board</b>: Prepare a player board with all components for Automa.",
-      "shipLevel": "Set shipping to <b>level {level}</b>.",
+      "shipLevel": "Automa starts with <b>+2 shipping</b> (1-loch shipping).",
       "money": "Automa receives <b>£{startingMoney}</b>.",
       "clansSelection": "<b>Clans selection</b>: the Automa doesn’t have a Clan. You choose between {clanCount} pairs of Clan tiles and Starting tiles.",
       "farmersMarket2Players": "<b>Farmers market</b>: Place 2 Farmers markets in the map modules A & C or B & D.",
