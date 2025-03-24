@@ -4,44 +4,7 @@
       <tbody>
         <tr>
           <th scope="col">
-            <h5 class="mt-1">{{t('endOfGame.importGoodAmount')}}</h5>
-          </th>
-          <th v-for="player in playerCount" :key="player" scope="col">
-            <PlayerColorDisplay :playerColor="playerColors[player-1]" class="playerIcon"/>
-            <span>{{t('player.player', {player:player}, playerCount)}}</span>
-          </th>
-          <th v-for="bot in botCount" :key="bot" scope="col">
-            <PlayerColorDisplay :playerColor="playerColors[playerCount+bot-1]" class="playerIcon"/>
-            <span>{{t('player.bot', {bot:bot}, botCount)}}</span>
-          </th>
-        </tr>
-        <tr>
-          <th scope="row">
-            <AppIcon type="final-scoring" name="cotton" class="iconSquare"/>
-          </th>
-          <td v-for="index in playerCount+botCount" :key="index">
-            <input type="number" min="0" max="20" step="1" v-model="cottonAmount[index-1]" @focus="inputSelectAll"/>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">
-            <AppIcon type="final-scoring" name="tobacco" class="iconSquare"/>
-          </th>
-          <td v-for="index in playerCount+botCount" :key="index">
-            <input type="number" min="0" max="20" step="1" v-model="tobaccoAmount[index-1]" @focus="inputSelectAll"/>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">
-            <AppIcon type="final-scoring" name="sugar-cane" class="iconSquare"/>
-          </th>
-          <td v-for="index in playerCount+botCount" :key="index">
-            <input type="number" min="0" max="20" step="1" v-model="sugarCaneAmount[index-1]" @focus="inputSelectAll"/>
-          </td>
-        </tr>
-        <tr>
-          <th scope="col">
-            <h5 class="mt-1">{{t('endOfGame.victoryPoints')}}</h5>
+            <h5 class="mt-1">{{t('endOfGame.finalScoring')}}</h5>
           </th>
           <th v-for="player in playerCount" :key="player" scope="col">
             <PlayerColorDisplay :playerColor="playerColors[player-1]" class="playerIcon"/>
@@ -56,11 +19,8 @@
           <th scope="row">
             <AppIcon type="final-scoring" name="glory" class="iconSquare"/>
           </th>
-          <td v-for="index in playerCount" :key="index">
-            <input type="number" min="0" max="20" step="1" v-model="glory[index-1]" @focus="inputSelectAll"/>
-          </td>
-          <td v-for="index in botCount" :key="index">
-            {{toNumber(glory[index-1+playerCount])}}
+          <td v-for="index in playerCount+botCount" :key="index">
+            {{toNumber(gloryVP[index-1])}}
           </td>
         </tr>
         <tr>
@@ -68,7 +28,7 @@
             <AppIcon type="final-scoring" name="good-standard" class="iconSquare"/>
           </th>
           <td v-for="index in playerCount" :key="index">
-            <input type="number" min="0" max="20" step="1" v-model="goodStandard[index-1]" @focus="inputSelectAll"/>
+            {{toNumber(goodStandardVP[index-1])}}
           </td>
           <td v-for="index in botCount" :key="index"></td>
         </tr>
@@ -77,16 +37,16 @@
             2 x <AppIcon type="final-scoring" name="good-processed" class="iconSquare"/>
           </th>
           <td v-for="index in playerCount" :key="index">
-            <input type="number" min="0" max="20" step="1" v-model="goodProcessed[index-1]" @focus="inputSelectAll"/>
+            {{toNumber(goodProcessedVP[index-1])}}
           </td>
           <td v-for="index in botCount" :key="index"></td>
         </tr>
         <tr>
           <th scope="row">
-            <AppIcon type="final-scoring" name="money" class="icon"/>
+            <MoneyIcon :value="10"/>=1 / <MoneyIcon :value="5"/>=1
           </th>
           <td v-for="index in playerCount+botCount" :key="index">
-            <input type="number" min="0" max="20" step="1" v-model="money[index-1]" @focus="inputSelectAll"/>
+            {{toNumber(moneyVP[index-1])}}
           </td>
         </tr>
         <tr>
@@ -94,7 +54,7 @@
             <AppIcon type="final-scoring" name="hops" class="iconSquare"/>
           </th>
           <td v-for="index in playerCount+botCount" :key="index">
-            <input type="number" min="0" max="20" step="1" v-model="hops[index-1]" @focus="inputSelectAll"/>
+            {{toNumber(hopsVP[index-1])}}
           </td>
         </tr>
         <tr>
@@ -102,7 +62,7 @@
             {{cottonValue}} x <AppIcon type="final-scoring" name="cotton" class="iconSquare"/>
           </th>
           <td v-for="index in playerCount+botCount" :key="index">
-            {{ toNumber(cottonAmount[index-1]) * cottonValue }}
+            {{ toNumber(amount.cotton[index-1]) * cottonValue }}
           </td>
         </tr>
         <tr>
@@ -110,7 +70,7 @@
             {{tobaccoValue}} x <AppIcon type="final-scoring" name="tobacco" class="iconSquare"/>
           </th>
           <td v-for="index in playerCount+botCount" :key="index">
-            {{ toNumber(tobaccoAmount[index-1]) * tobaccoValue }}
+            {{ toNumber(amount.tobacco[index-1]) * tobaccoValue }}
           </td>
         </tr>
         <tr>
@@ -118,23 +78,23 @@
             {{sugarCaneValue}} x <AppIcon type="final-scoring" name="sugar-cane" class="iconSquare"/>
           </th>
           <td v-for="index in playerCount+botCount" :key="index">
-            {{ toNumber(sugarCaneAmount[index-1]) * sugarCaneValue }}
+            {{ toNumber(amount.sugarCane[index-1]) * sugarCaneValue }}
           </td>
         </tr>
         <tr>
           <th scope="row">
-            <AppIcon type="final-scoring" name="export" class="icon"/>
+            <AppIcon type="final-scoring" name="export-contract-max" class="icon"/>
           </th>
           <td v-for="index in playerCount+botCount" :key="index">
-            <input type="number" min="0" max="20" step="1" v-model="exportScore[index-1]" @focus="inputSelectAll"/>
+            {{toNumber(exportContractVP[index-1])}}
           </td>
         </tr>
         <tr>
           <th scope="row">
-            <AppIcon type="final-scoring" name="settlement" class="icon"/>
+            <AppIcon type="final-scoring" name="settlement-max" class="icon"/>
           </th>
           <td v-for="index in playerCount+botCount" :key="index">
-            <input type="number" min="0" max="20" step="1" v-model="settlements[index-1]" @focus="inputSelectAll"/>
+            {{toNumber(settlementVP[index-1])}}
           </td>
         </tr>
         <tr v-if="hasAwards">
@@ -142,7 +102,7 @@
             <AppIcon type="final-scoring" name="award" class="icon"/>
           </th>
           <td v-for="index in playerCount" :key="index">
-            <input type="number" min="0" max="20" step="1" v-model="award[index-1]" @focus="inputSelectAll"/>
+            {{toNumber(awardVP[index-1])}}
           </td>
           <td v-for="index in botCount" :key="index"></td>
         </tr>
@@ -151,7 +111,7 @@
             <AppIcon type="final-scoring" name="milestone" class="icon"/>
           </th>
           <td v-for="index in playerCount" :key="index">
-            <input type="number" min="0" max="20" step="1" v-model="milestone[index-1]" @focus="inputSelectAll"/>
+            {{toNumber(milestoneVP[index-1])}}
           </td>
           <td v-for="index in botCount" :key="index"></td>
         </tr>
@@ -159,11 +119,8 @@
           <th scope="row">
             <AppIcon type="final-scoring" name="train-delivery" class="icon"/>
           </th>
-          <td v-for="index in playerCount" :key="index">
-            <input type="number" min="0" max="20" step="1" v-model="trainDelivery[index-1]" @focus="inputSelectAll"/>
-          </td>
-          <td v-for="index in botCount" :key="index">
-            {{toNumber(trainDelivery[index-1+playerCount])}}
+          <td v-for="index in playerCount+botCount" :key="index">
+            {{toNumber(trainDeliveryVP[index-1])}}
           </td>
         </tr>
         <tr>
@@ -180,58 +137,158 @@
 </template>
 
 <script lang="ts">
-import { useStateStore } from '@/store/state'
-import { defineComponent } from 'vue'
+import { useStateStore, FinalScoringAmount } from '@/store/state'
+import { defineComponent, PropType } from 'vue'
 import { useI18n } from 'vue-i18n'
 import AppIcon from '../structure/AppIcon.vue'
 import PlayerColorDisplay from '../structure/PlayerColorDisplay.vue'
 import ImportGood from '@/services/enum/ImportGood'
 import getAllEnumValues from '@brdgm/brdgm-commons/src/util/enum/getAllEnumValues'
 import Expansion from '@/services/enum/Expansion'
-import { ref } from 'vue'
 import getDifficultyLevelSettings from '@/util/getDifficultyLevelSettings'
+import MoneyIcon from '../structure/MoneyIcon.vue'
 
 export default defineComponent({
   name: 'FinalScoring',
   components: {
     PlayerColorDisplay,
-    AppIcon
+    AppIcon,
+    MoneyIcon
   },
   setup() {
     const { t } = useI18n()
     const state = useStateStore()
 
     const { playerCount, botCount, playerColors } = state.setup.playerSetup
-
-    const glory = ref([] as number[])
-    const goodStandard = ref([] as number[])
-    const goodProcessed = ref([] as number[])
-    const money = ref([] as number[])
-    const hops = ref([] as number[])
-    const cottonAmount = ref([] as number[])
-    const tobaccoAmount = ref([] as number[])
-    const sugarCaneAmount = ref([] as number[])
-    const exportScore = ref([] as number[])
-    const settlements = ref([] as number[])
-    const award = ref([] as number[])
-    const milestone = ref([] as number[])
-    const trainDelivery = ref([] as number[])
-
     const difficultySettings = getDifficultyLevelSettings(state.setup.difficultyLevel)
-    for (let i=playerCount; i<playerCount+botCount; i++) {
-      glory.value[i] = difficultySettings.round5VP
-      if (state.setup.expansions.includes(Expansion.INDUSTRIA_TRAIN)) {
-        trainDelivery.value[i] = difficultySettings.round5VPTrain
-      }
-    }
 
-    return { t, state, playerCount, botCount, playerColors,
-      glory, goodStandard, goodProcessed, money,
-      hops,  cottonAmount, tobaccoAmount, sugarCaneAmount,
-      exportScore, settlements, award, milestone, trainDelivery
+    return { t, state, playerCount, botCount, playerColors, difficultySettings }
+  },
+  props: {
+    amount: {
+      type: Object as PropType<FinalScoringAmount>,
+      required: true
     }
   },
   computed: {
+    gloryVP() : number[] {
+      const result = [...this.amount.glory]
+      for (let i=this.playerCount; i<this.playerCount+this.botCount; i++) {
+        result[i] = this.difficultySettings.round5VP
+      }
+      return result
+    },
+    goodStandardVP() : number[] {
+      return this.amount.goodStandard
+    },
+    goodProcessedVP() : number[] {
+      return this.amount.goodProcessed.map(amount => this.toNumber(amount) * 2)
+    },
+    moneyVP() : number [] {
+      const result = []
+      for (let i=0; i<this.playerCount; i++) {
+        result[i] = Math.floor(this.toNumber(this.amount.money[i]) / 10)
+      }
+      for (let i=this.playerCount; i<this.playerCount+this.botCount; i++) {
+        result[i] = Math.floor(this.toNumber(this.amount.money[i]) / 5)
+      }
+      return result
+    },
+    hopsVP() : number[] {
+      return this.amount.hops
+    },
+    exportContractVP() : number[] {
+      const amounts = this.amount.exportContract
+      const firstPlaceAmount = Math.max(...amounts)
+      const secondPlaceAmount = Math.max(...amounts.filter(amount => amount < firstPlaceAmount))
+      const firstPlaceCount = amounts.filter(amount => amount == firstPlaceAmount).length
+      const secondPlaceCount = amounts.filter(amount => amount == secondPlaceAmount).length
+      const result : number[] = []
+      if (this.playerCount + this.botCount == 2) {
+        // player vs automa scoring
+        for (let i=0; i<this.playerCount+this.botCount; i++) {
+          if (amounts[i] == firstPlaceAmount) {
+            result[i] = Math.floor(8 / firstPlaceCount)
+          }
+          else if (amounts[i] == firstPlaceAmount - 1) {
+            result[i] = 4
+          }
+          else {
+            result[i] = 0
+          }
+        }
+      }
+      else {
+        // 3-4 player scoring
+        for (let i=0; i<this.playerCount+this.botCount; i++) {
+          if (amounts[i] == firstPlaceAmount) {
+            result[i] = Math.floor(12 / firstPlaceCount)
+          }
+          else if (amounts[i] == secondPlaceAmount) {
+            result[i] = Math.floor(6 / secondPlaceCount)
+          }
+          else {
+            result[i] = 0
+          }
+        }
+      }
+      return result
+    },
+    settlementVP() : number[] {
+      const amounts = this.amount.settlement
+      const firstPlaceAmount = Math.max(...amounts)
+      const secondPlaceAmount = Math.max(...amounts.filter(amount => amount < firstPlaceAmount))
+      const thirdPlaceAmount = Math.max(...amounts.filter(amount => amount < secondPlaceAmount))
+      const firstPlaceCount = amounts.filter(amount => amount == firstPlaceAmount).length
+      const secondPlaceCount = amounts.filter(amount => amount == secondPlaceAmount).length
+      const thirdPlaceCount = amounts.filter(amount => amount == thirdPlaceAmount).length
+      const result : number[] = []
+      if (this.playerCount + this.botCount == 2) {
+        // player vs automa scoring
+        for (let i=0; i<this.playerCount+this.botCount; i++) {
+          if (amounts[i] == firstPlaceAmount) {
+            result[i] = Math.floor(12 / firstPlaceCount)
+          }
+          else if (amounts[i] == firstPlaceAmount - 1 || amounts[i] == firstPlaceAmount - 2) {
+            result[i] = 6
+          }
+          else {
+            result[i] = 0
+          }
+        }
+      }
+      else {
+        // 3-4 player scoring
+        for (let i=0; i<this.playerCount+this.botCount; i++) {
+          if (amounts[i] == firstPlaceAmount) {
+            result[i] = Math.floor(18 / firstPlaceCount)
+          }
+          else if (amounts[i] == secondPlaceAmount) {
+            result[i] = Math.floor(12 / secondPlaceCount)
+          }
+          else if (amounts[i] == thirdPlaceAmount) {
+            result[i] = Math.floor(6 / thirdPlaceCount)
+          }
+          else {
+            result[i] = 0
+          }
+        }
+      }
+      return result
+    },
+    awardVP() : number[] {
+      return this.amount.awardVP
+    },
+    milestoneVP() : number[] {
+      return this.amount.milestoneVP
+    },
+    trainDeliveryVP() : number[] {
+      const result = [...this.amount.trainDeliveryVP]
+      for (let i=this.playerCount; i<this.playerCount+this.botCount; i++) {
+        result[i] = this.difficultySettings.round5VPTrain
+      }
+      return result
+    },
     hasAwards() : boolean {
       return this.state.setup.expansions.includes(Expansion.INDUSTRIA_AWARD)
     },
@@ -263,28 +320,24 @@ export default defineComponent({
     totalVP() : number[] {
       const result = []
       for (let i=0; i<this.playerCount+this.botCount; i++) {
-        result[i] = this.toNumber(this.glory[i])
-            + this.toNumber(this.goodStandard[i])
-            + this.toNumber(this.goodProcessed[i])
-            + this.toNumber(this.money[i])
-            + this.toNumber(this.hops[i])
-            + (this.toNumber(this.cottonAmount[i]) * this.toNumber(this.cottonValue))
-            + (this.toNumber(this.tobaccoAmount[i]) * this.toNumber(this.tobaccoValue))
-            + (this.toNumber(this.sugarCaneAmount[i]) * this.toNumber(this.sugarCaneValue))
-            + this.toNumber(this.exportScore[i])
-            + this.toNumber(this.settlements[i])
-            + this.toNumber(this.award[i])
-            + this.toNumber(this.milestone[i])
-            + this.toNumber(this.trainDelivery[i])
+        result[i] = this.toNumber(this.gloryVP[i])
+            + this.toNumber(this.goodStandardVP[i])
+            + this.toNumber(this.goodProcessedVP[i])
+            + this.toNumber(this.moneyVP[i])
+            + this.toNumber(this.hopsVP[i])
+            + (this.toNumber(this.amount.cotton[i]) * this.toNumber(this.cottonValue))
+            + (this.toNumber(this.amount.tobacco[i]) * this.toNumber(this.tobaccoValue))
+            + (this.toNumber(this.amount.sugarCane[i]) * this.toNumber(this.sugarCaneValue))
+            + this.toNumber(this.exportContractVP[i])
+            + this.toNumber(this.settlementVP[i])
+            + this.toNumber(this.awardVP[i])
+            + this.toNumber(this.milestoneVP[i])
+            + this.toNumber(this.trainDeliveryVP[i])
       }
       return result
     }
   },
   methods: {
-    inputSelectAll(event: Event) : void {
-      const input = event.target as HTMLInputElement
-      input.select()
-    },
     toNumber(value? : number) {
       if (typeof value == 'string') {
         return 0
@@ -298,9 +351,9 @@ export default defineComponent({
     },
     getAmount(importGood : ImportGood) {
       switch (importGood) {
-        case ImportGood.COTTON: return this.sumAmounts(this.cottonAmount)
-        case ImportGood.TOBACCO: return this.sumAmounts(this.tobaccoAmount)
-        case ImportGood.SUGAR_CANE: return this.sumAmounts(this.sugarCaneAmount)
+        case ImportGood.COTTON: return this.sumAmounts(this.amount.cotton)
+        case ImportGood.TOBACCO: return this.sumAmounts(this.amount.tobacco)
+        case ImportGood.SUGAR_CANE: return this.sumAmounts(this.amount.sugarCane)
         default: return 0
       }
     },
@@ -348,8 +401,5 @@ tr:nth-child(even) {
 th {
   white-space: nowrap;
   vertical-align: middle;
-}
-input {
-  width: 5rem;
 }
 </style>

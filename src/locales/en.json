@@ -122,11 +122,15 @@
     "botNoScoring": "Automa does not score any Glory for Scoring tiles.",
     "lastRoundGlory": "Last round: Automa scores <b>{glory} Glory</b>."
   },
+  "endOfGameAmounts": {
+    "title": "End of Game: Amounts",
+    "amounts": "Number of:",
+    "victoryPoints": "Victory Points:"
+  },
   "endOfGame": {
     "title": "End of Game",
-    "difficultyLevel": "Difficulty Level:",
-    "importGoodAmount": "Import Goods",
-    "victoryPoints": "Victory Points"
+    "finalScoring": "Final Scoring",
+    "difficultyLevel": "Difficulty Level:"
   },
   "botAction": {
     "randomized": "The displayed rule is randomized.",

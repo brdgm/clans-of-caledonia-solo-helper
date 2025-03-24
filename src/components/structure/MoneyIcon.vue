@@ -1,7 +1,7 @@
 <template>
   <div class="money">
     <AppIcon name="money" class="icon"/>
-    <span class="value" :class="{pay}">{{value}}</span>
+    <span class="value" :class="{pay}" v-if="value">{{value}}</span>
   </div>
 </template>
 

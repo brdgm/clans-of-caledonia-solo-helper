@@ -10,6 +10,7 @@ import RoundTurnPlayer from '@/views/RoundTurnPlayer.vue'
 import RoundTurnBot from '@/views/RoundTurnBot.vue'
 import RoundProduction from '@/views/RoundProduction.vue'
 import RoundScoring from '@/views/RoundScoring.vue'
+import EndOfGameAmounts from '@/views/EndOfGameAmounts.vue'
 import EndOfGame from '@/views/EndOfGame.vue'
 
 const LOCALSTORAGE_KEY = `${name}.route`
@@ -59,6 +60,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/round/:round/scoring',
     name: 'RoundScoring',
     component: RoundScoring
+  },
+  {
+    path: '/endOfGameAmounts',
+    name: 'EndOfGameAmounts',
+    component: EndOfGameAmounts
   },
   {
     path: '/endOfGame',

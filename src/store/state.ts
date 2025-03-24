@@ -29,6 +29,7 @@ export const useStateStore = defineStore(`${name}.state`, {
     },
     resetGame() : void {
       this.rounds = []
+      this.finalScoringAmount = undefined
     },
     setupToggleExpansion(expansion: Expansion) : void {
       toggleArrayItem(this.setup.expansions, expansion)
@@ -54,6 +55,7 @@ export interface State {
   baseFontSize: number
   setup: Setup
   rounds: Round[]
+  finalScoringAmount?: FinalScoringAmount
 }
 export interface Setup {
   expansions: Expansion[]
@@ -95,4 +97,19 @@ export interface CardDeckPersistence {
   pile: number[]
   discard: number[]
   removed: number[]
+}
+export interface FinalScoringAmount {
+  glory: number[]
+  cotton: number[]
+  tobacco: number[]
+  sugarCane: number[]
+  goodStandard: number[]
+  goodProcessed: number[]
+  money: number[]
+  hops: number[]
+  exportContract: number[]
+  settlement: number[]
+  awardVP: number[]
+  milestoneVP: number[]
+  trainDeliveryVP: number[]
 }
