@@ -2,20 +2,20 @@
   <ActionBox>
     <template #summary>
       <div class="expandSelection">
-        <MapModules :mapModules="mapModules"/>
-        <div>
+        <MapModules :mapModules="mapModules"  data-bs-toggle="tooltip" data-bs-custom-class="action-help-tooltip" :data-bs-title="t('botAction.expand.tooltip.mapModules')"/>
+        <div data-bs-toggle="tooltip" data-bs-custom-class="action-help-tooltip" :data-bs-title="t('botAction.expand.tooltip.criteria')">
           <template v-for="(expandCriteria,index) of expandCriteria" :key="expandCriteria">
             <span v-if="index > 0">＞</span>
             <AppIcon type="expand-criteria" :name="expandCriteria" class="expandCriteriaIcon"/>
           </template>
         </div>
-        <div>
+        <div data-bs-toggle="tooltip" data-bs-custom-class="action-help-tooltip" :data-bs-title="t('botAction.expand.tooltip.unitPreference')">
           <template v-for="(unitType,index) of unitTypes" :key="unitType">
             <span v-if="index > 0">＞</span>
             <AppIcon type="unit-type" :name="unitType" extension="svg" class="unitTypeIcon"/>
           </template>
         </div>
-        <div>
+        <div data-bs-toggle="tooltip" data-bs-custom-class="action-help-tooltip" :data-bs-title="t(`botAction.expand.tooltip.neighborhood${hasFarmersMarketExpansion ? 'FarmersMarket' : ''}`)">
           <img src="@/assets/player-aid/expand-check-neighborhood.webp" alt="" class="player-aid-check-neighborhood"/>
         </div>
       </div>

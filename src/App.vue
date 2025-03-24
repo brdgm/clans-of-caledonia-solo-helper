@@ -2,7 +2,7 @@
   <AppHeader :title="t('gameTitle')" @set-locale="setLocale($event.language)"/>
 
   <div id="content-container" class="container-fluid mt-5 mb-5">
-    <router-view :key="$route.fullPath"/>
+    <router-view :key="route.fullPath"/>
   </div>
 
   <AppFooter :build-number="buildNumber" :credits-label="t('footer.credits')" credits-modal-id="creditsModal" zoom-enabled
@@ -64,6 +64,7 @@ import showModal, { showModalIfExist } from '@brdgm/brdgm-commons/src/util/modal
 import { version, description } from '@/../package.json'
 import { registerSW } from 'virtual:pwa-register'
 import onRegisteredSWCheckForUpdate from '@brdgm/brdgm-commons/src/util/serviceWorker/onRegisteredSWCheckForUpdate'
+import { useRoute } from 'vue-router'
 
 export default defineComponent({
   name: 'App',
@@ -78,6 +79,7 @@ export default defineComponent({
       useScope: 'global'
     })
     const state = useStateStore()
+    const route = useRoute()
 
     // handle PWA updates with prompt if a new version is detected, check regularly for a new version
     const checkForNewVersionsIntervalSeconds = 1 * 60 * 60
@@ -93,7 +95,7 @@ export default defineComponent({
 
     locale.value = state.language
 
-    return { t, state, locale, updateServiceWorker }
+    return { t, state, route, locale, updateServiceWorker }
   },
   data() {
     return {
@@ -154,5 +156,10 @@ a.rule {
   text-decoration-line: underline;
   text-decoration-style: dotted;
   color: #333;
+}
+
+.tooltip.action-help-tooltip {
+  --bs-tooltip-bg: green;
+  --bs-tooltip-color: var(--bs-white);
 }
 </style>

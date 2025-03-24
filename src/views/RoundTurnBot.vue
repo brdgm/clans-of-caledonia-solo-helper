@@ -28,6 +28,7 @@ import PlayerColorDisplay from '@/components/structure/PlayerColorDisplay.vue'
 import Action from '@/services/enum/Action'
 import getNextUnitType from '@/util/getNextUnitType'
 import UnitType from '@/services/enum/UnitType'
+import { Tooltip } from 'bootstrap'
 
 export default defineComponent({
   name: 'RoundTurnBot',
@@ -92,6 +93,9 @@ export default defineComponent({
       })
       this.router.push(this.routeCalculator.getNextRouteTo(this.state))
     }
+  },
+  mounted() {
+    document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(tooltipTriggerEl => new Tooltip(tooltipTriggerEl))
   }
 })
 </script>

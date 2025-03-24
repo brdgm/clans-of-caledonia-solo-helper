@@ -131,14 +131,21 @@
   "botAction": {
     "expand": {
       "title": "Expand",
+      "tooltip": {
+        "mapModules": "Expand in these map modules",
+        "criteria": "Expand criteria order",
+        "unitPreference": "Unit preference order",
+        "neighborhood": "Check if Automa can use a Neighbourhood bonus",
+        "neighborhoodFarmersMarket": "Check if Automa can use a Neighbourhood bonus or Farmers market"
+      },
       "rulesSpace": {
         "expand": "Automa will try to expand in the highlighted map modules. It chooses a space that best fits this criteria:",
         "settlements": "<b>Max Settlements:</b> Automa deploys onto a space that adds the most to the number of connected Settlements in the cluster in which the Automa expands.:",
         "settlementsConnect": "It tries to connect two groups of Settlements that were disconnected.",
         "settlementsNew": "It tries to add a new Settlement to a group of Settlements.",
         "costs": "<b>Min Costs:</b> Automa deploys onto a space with the lowest cost.",
-        "neighborhood": "<b>Max Neighbourhood Bonus:</b> Automa maximises revenue from Neighborhood bonus market.",
-        "neighborhoodFarmersMarket": "<b>Max Neighbourhood Bonus / Farmers Market:</b> Automa maximises revenue from Neighborhood bonus or Farmers market.",
+        "neighborhood": "<b>Max Neighbourhood Bonus:</b> Automa maximises revenue from Neighbourhood bonus market.",
+        "neighborhoodFarmersMarket": "<b>Max Neighbourhood Bonus / Farmers Market:</b> Automa maximises revenue from Neighbourhood bonus or Farmers market.",
         "port": "<b>Port tile:</b> Automa deploys onto a space within reach of a Port tile."
       },
       "rulesUnit": {
