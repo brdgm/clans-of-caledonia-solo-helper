@@ -147,6 +147,7 @@ import getAllEnumValues from '@brdgm/brdgm-commons/src/util/enum/getAllEnumValue
 import Expansion from '@/services/enum/Expansion'
 import getDifficultyLevelSettings from '@/util/getDifficultyLevelSettings'
 import MoneyIcon from '../structure/MoneyIcon.vue'
+import toNumber from '@brdgm/brdgm-commons/src/util/form/toNumber'
 
 export default defineComponent({
   name: 'FinalScoring',
@@ -182,15 +183,15 @@ export default defineComponent({
       return this.amount.goodStandard
     },
     goodProcessedVP() : number[] {
-      return this.amount.goodProcessed.map(amount => this.toNumber(amount) * 2)
+      return this.amount.goodProcessed.map(amount => toNumber(amount) * 2)
     },
     moneyVP() : number [] {
       const result = []
       for (let i=0; i<this.playerCount; i++) {
-        result[i] = Math.floor(this.toNumber(this.amount.money[i]) / 10)
+        result[i] = Math.floor(toNumber(this.amount.money[i]) / 10)
       }
       for (let i=this.playerCount; i<this.playerCount+this.botCount; i++) {
-        result[i] = Math.floor(this.toNumber(this.amount.money[i]) / 5)
+        result[i] = Math.floor(toNumber(this.amount.money[i]) / 5)
       }
       return result
     },
@@ -320,34 +321,27 @@ export default defineComponent({
     totalVP() : number[] {
       const result = []
       for (let i=0; i<this.playerCount+this.botCount; i++) {
-        result[i] = this.toNumber(this.gloryVP[i])
-            + this.toNumber(this.goodStandardVP[i])
-            + this.toNumber(this.goodProcessedVP[i])
-            + this.toNumber(this.moneyVP[i])
-            + this.toNumber(this.hopsVP[i])
-            + (this.toNumber(this.amount.cotton[i]) * this.toNumber(this.cottonValue))
-            + (this.toNumber(this.amount.tobacco[i]) * this.toNumber(this.tobaccoValue))
-            + (this.toNumber(this.amount.sugarCane[i]) * this.toNumber(this.sugarCaneValue))
-            + this.toNumber(this.exportContractVP[i])
-            + this.toNumber(this.settlementVP[i])
-            + this.toNumber(this.awardVP[i])
-            + this.toNumber(this.milestoneVP[i])
-            + this.toNumber(this.trainDeliveryVP[i])
+        result[i] = toNumber(this.gloryVP[i])
+            + toNumber(this.goodStandardVP[i])
+            + toNumber(this.goodProcessedVP[i])
+            + toNumber(this.moneyVP[i])
+            + toNumber(this.hopsVP[i])
+            + (toNumber(this.amount.cotton[i]) * toNumber(this.cottonValue))
+            + (toNumber(this.amount.tobacco[i]) * toNumber(this.tobaccoValue))
+            + (toNumber(this.amount.sugarCane[i]) * toNumber(this.sugarCaneValue))
+            + toNumber(this.exportContractVP[i])
+            + toNumber(this.settlementVP[i])
+            + toNumber(this.awardVP[i])
+            + toNumber(this.milestoneVP[i])
+            + toNumber(this.trainDeliveryVP[i])
       }
       return result
     }
   },
   methods: {
-    toNumber(value? : number) {
-      if (typeof value == 'string') {
-        return 0
-      }
-      else {
-        return value ?? 0
-      }
-    },
+    toNumber,
     sumAmounts(amounts : number[]) {
-      return amounts.reduce((sum, amount) => sum + this.toNumber(amount), 0)
+      return amounts.reduce((sum, amount) => sum + toNumber(amount), 0)
     },
     getAmount(importGood : ImportGood) {
       switch (importGood) {

@@ -195,14 +195,6 @@ export default defineComponent({
     },
   },
   methods: {
-    toNumber(value? : number) {
-      if (typeof value == 'string') {
-        return 0
-      }
-      else {
-        return value ?? 0
-      }
-    },
     next() : void {
       this.state.finalScoringAmount = this.amount
       this.router.push('/endOfGame')
