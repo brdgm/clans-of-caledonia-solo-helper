@@ -56,7 +56,7 @@ export default defineComponent({
   methods: {
     next() : void {
       if (this.isLastRound) {
-        this.router.push(`/endOfGameAmounts`)
+        this.router.push('/endOfGameAmounts')
       }
       else {
         // prepare next round with new player order
