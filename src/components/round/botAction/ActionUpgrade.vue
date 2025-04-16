@@ -45,7 +45,7 @@ export default defineComponent({
   },
   props: {
     action: {
-      type: Object as PropType<Action>,
+      type: String as PropType<Action>,
       required: true
     },
     currentCard: {
