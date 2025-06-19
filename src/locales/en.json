@@ -3,7 +3,7 @@
   "home": {
     "title": "Clans of Caledonia Solo Helper",
     "play1": "Play <a href='https://boardgamegeek.com/boardgame/216132/clans-of-caledonia' target='_blank' rel='noopener'><b>Clans of Caledonia</b></a> against Automa, the solo opponent.",
-    "play2": "This application replaces the Automa cards, and guides you through the game flow. The modules of the <a href='https://boardgamegeek.com/boardgameexpansion/391913/clans-of-caledonia-industria'' target='_blank' rel='noopener'><b>Clans of Caledonia: Industria</b></a> expansion are supported. You can play against one or multiple Automas.",
+    "play2": "This application replaces the Automa cards, and guides you through the game flow. The modules of the <a href='https://boardgamegeek.com/boardgameexpansion/391913/clans-of-caledonia-industria' target='_blank' rel='noopener'><b>Clans of Caledonia: Industria</b></a> expansion are supported. You can play against one or multiple Automas.",
     "feedback": "Discussion and Feedback:"
   },
   "setup": {
@@ -39,7 +39,7 @@
       "playerBoard": "<b>Player board</b>: Prepare a player board with all components for Automa.",
       "shipLevel": "Automa starts with <b>+2 shipping</b> (1-loch shipping).",
       "money": "Automa receives <b>£{startingMoney}</b>.",
-      "clansSelection": "<b>Clans selection</b>: the Automa doesn’t have a Clan. You choose between {clanCount} pairs of Clan tiles and Starting tiles.",
+      "clansSelection": "<b>Clans selection</b>: The Automa doesn’t have a Clan. You choose between {clanCount} pairs of Clan tiles and Starting tiles.",
       "farmersMarket2Players": "<b>Farmers market</b>: Place 2 Farmers markets in the map modules A & C or B & D.",
       "farmersMarket": "<b>Farmers market</b>: Place {playerCount} Farmers markets in {playerCount} different map modules.",
       "farmersMarketWorkerPlacement": "When you place your own starting Workers, there must be at least 2 hexes in between your starting Worker and any Farmers market.",
@@ -57,13 +57,13 @@
         },
         "payCosts": "The Automa <b>pays the cost</b> for placing these Workers, using its starting money."
       },
-      "turnOrder": "<b>Turn order</b>: the Automa is last in round 1. The following rounds are in usual Passing order."
+      "turnOrder": "<b>Turn order</b>: The Automa is last in round 1. The following rounds are in usual Passing order."
     },
     "award": {
       "title": "Award",
       "drawCard": "Draw one Automa Award card and place it below the 5th Scoring tile.",
-      "scoringDifferent": "The way you score the Awards in the Automa mode is different from how you would normally score them.",
       "conditions": "The conditions are the same as in the multiplayer Award tiles.",
+      "scoringDifferent": "The way you score the Awards in the Automa mode is different from how you would normally score them.",
       "scoring": "Depending on how much you have of the respective item, you score 4VP, 0VP or even lose 4VP.",
       "multipleHumanPlayers": {
         "awardTiles": "Multiple human players: Use the Award tiles as in a standard multiplayer game.",
@@ -104,7 +104,7 @@
     "executed": "Action Completed",
     "notPossible": "Not Possible",
     "skipTurn": "Automa skips this turn.",
-    "passInfo": "Automa passes: It receives <b>£{amount}</b> Pass bonus money",
+    "passInfo": "Automa passes: It receives <b>£{amount}</b> Pass bonus money.",
     "rules": "Rules"
   },
   "roundProduction": {
@@ -145,7 +145,7 @@
       },
       "rulesSpace": {
         "expand": "Automa will try to expand in the highlighted map modules. It chooses a space that best fits this criteria:",
-        "settlements": "<b>Max Settlements:</b> Automa deploys onto a space that adds the most to the number of connected Settlements in the cluster in which the Automa expands.:",
+        "settlements": "<b>Max Settlements:</b> Automa deploys onto a space that adds the most to the number of connected Settlements in the cluster in which the Automa expands:",
         "settlementsConnect": "It tries to connect two groups of Settlements that were disconnected.",
         "settlementsNew": "It tries to add a new Settlement to a group of Settlements.",
         "costs": "<b>Min Costs:</b> Automa deploys onto a space with the lowest cost.",
@@ -164,19 +164,20 @@
         "title": "Neighbourhood Bonus",
         "restrictions": "As normal, the Automa cannot place Merchants on both “buy” and “sell” for the same Good. Thus, it will ignore the Neighbourhood bonus for Goods it cannot resolve. Unlike in the Trade action, the Automa can sell a Good of a type it has already sold this round.",
         "buyGoods": "When the Automa expands on a space where it would be able to use the Neighbourhood bonus to buy Goods, it buys a number of Goods based on the price brackets the Goods are in:",
-        "buyGoodsLower": "Lower price bracket: the Automa buys up to 4 units of that Good (depending on the number of available Merchants.)",
-        "buyGoodsMedium": "Medium price bracket: the Automa buys up to 2 units of that Good (depending on the number of available Merchants.)",
         "buyGoodsUpper": "Upper price bracket: the Automa doesn’t buy.",
+        "buyGoodsMedium": "Medium price bracket: the Automa buys up to 2 units of that Good (depending on the number of available Merchants.)",
+        "buyGoodsLower": "Lower price bracket: the Automa buys up to 4 units of that Good (depending on the number of available Merchants.)",
+        "tiebreaker": "If the Automa can buy several types of Goods, it buys the Good whose Price marker is lowest on the Market track. If several Goods still qualify, choose randomly.",
         "earnMoney": "The Automa earns <b>£3 per merchant</b> it places on the market via Neighbourhood bonus."
       },
       "rulesFarmersMarket": {
         "title": "Farmers Market",
         "restrictions": "As normal, the Automa cannot place Merchants on both “buy” and “sell” for the same Good. Thus, it will ignore the Farmers market for Goods it cannot resolve. Unlike in the Trade action, the Automa can buy a Good of a type it has already bought this round.",
         "sellGoods": "When the Automa expands on a space where it would be able to use the Farmers market to sell Goods, it sells Goods based on the price brackets the Goods are in:",
-        "sellGoodsLower": "Lower price bracket: the Automa doesn’t sell.",
-        "sellGoodsMedium": "Medium price bracket: the Automa sells up to 2 units of that Good (depending on the number of available Merchants.)",
         "sellGoodsUpper": "Upper price bracket: the Automa sells up to 4 units of that Good (depending on the number of available Merchants.)",
-        "tiebreaker": "It chooses the Good whose Price marker is highest. If several Goods qualify, use the Price die to choose randomly.",
+        "sellGoodsMedium": "Medium price bracket: the Automa sells up to 2 units of that Good (depending on the number of available Merchants.)",
+        "sellGoodsLower": "Lower price bracket: the Automa doesn’t sell.",
+        "tiebreaker": "If the Automa can sell several types of Goods, it sells the Good whose Price marker is highest on the Market track. If several Goods still qualify, choose randomly.",
         "earnMoney": "The Automa earns <b>£3 per merchant</b> it places on the market via Farmers market."
       }
     },
@@ -217,8 +218,8 @@
       "rules": {
         "selectGood": "If Automa has already traded the displayed good this round, reroll to choose a different one.",
         "priceBracket": "Depending on the <b>current</b> price bracket of that good, choose:",
-        "placeMerchants": "Place up to <b>{merchantCount} merchants</b>.",
-        "gainMoney": "Gain <b>£1 per Merchant</b> placed.",
+        "placeMerchants": "Automa places up to <b>{merchantCount} merchants</b>.",
+        "gainMoney": "Automa gains <b>£1 per Merchant</b> placed.",
         "adjustPriceMarkers": "Adjusts the Price markers as normal. Automa does not gain any more money even when selling a good and also does not pay any money when buying a good.",
         "notPossible": "Action is not possible when Automa has no merchant left, or has already traded all types of Goods."
       }

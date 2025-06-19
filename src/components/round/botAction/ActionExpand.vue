@@ -69,6 +69,7 @@
         <li v-html="t('botAction.expand.rulesNeighborhood.buyGoodsMedium')"></li>
         <li v-html="t('botAction.expand.rulesNeighborhood.buyGoodsLower')"></li>
       </ul>
+        <p v-html="t('botAction.expand.rulesNeighborhood.tiebreaker')"></p>
       <p>
         <span v-html="t('botAction.expand.rulesNeighborhood.earnMoney')"/><br/>
         <AppIcon name="merchant" class="merchantIcon me-1"/>: <MoneyIcon :value="3"/>

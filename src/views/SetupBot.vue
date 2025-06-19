@@ -42,8 +42,8 @@
         <template v-if="playerCount == 1">
           <li v-html="t('setupBot.award.drawCard')"></li>
           <ul>
-            <li v-html="t('setupBot.award.scoringDifferent')"></li>
             <li v-html="t('setupBot.award.conditions')"></li>
+            <li v-html="t('setupBot.award.scoringDifferent')"></li>
             <li v-html="t('setupBot.award.scoring')"></li>
           </ul>
         </template>
