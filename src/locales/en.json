@@ -1,0 +1,285 @@
+{
+  "gameTitle": "Clans of Caledonia",
+  "home": {
+    "title": "Clans of Caledonia Solo Helper",
+    "play1": "Play <a href='https://boardgamegeek.com/boardgame/216132/clans-of-caledonia' target='_blank' rel='noopener'><b>Clans of Caledonia</b></a> against Automa, the solo opponent.",
+    "play2": "This application replaces the Automa cards, and guides you through the game flow. The modules of the <a href='https://boardgamegeek.com/boardgameexpansion/391913/clans-of-caledonia-industria' target='_blank' rel='noopener'><b>Clans of Caledonia: Industria</b></a> expansion are supported. You can play against one or multiple Automas.",
+    "feedback": "Discussion and Feedback:"
+  },
+  "setup": {
+    "title": "Setup Game",
+    "players": {
+      "title": "Player",
+      "playerCount": "Human Players",
+      "playerCountItem": "{count} Player | {count} Players",
+      "playerColor": "Player Color | Player {index} Color",
+      "botCount": "Automa",
+      "botCountItem": "{count} Automa | {count} Automas",
+      "botColor": "Automa Color | Automa {index} Color",
+      "multiAutomaWarning": "Playing against multiple Automa is experimental."
+    },
+    "difficultyLevel": {
+      "title": "Difficulty Level",
+      "easy": "Easy",
+      "hard": "Hard"
+    },
+    "expansions": {
+      "title": "Expansions",
+      "intro": "If you own the Industria expansion, you can use all new material with the Automa. The three modules listed here have an effect on the Automa gameplay.",
+      "industria-farmers-market": "Industria: Farmers markets",
+      "industria-award": "Industria: Award",
+      "industria-train": "Industria: Train module"
+    }
+  },
+  "setupBot": {
+    "title": "Setup Automa",
+    "setup": {
+      "title": "Game Board",
+      "setupGame": "Setup the game as usual for {playerCount} players.",
+      "playerBoard": "<b>Player board</b>: Prepare a player board with all components for Automa.",
+      "shipLevel": "Automa starts with <b>+2 shipping</b> (1-loch shipping).",
+      "money": "Automa receives <b>£{startingMoney}</b>.",
+      "clansSelection": "<b>Clans selection</b>: The Automa doesn’t have a Clan. You choose between {clanCount} pairs of Clan tiles and Starting tiles.",
+      "farmersMarket2Players": "<b>Farmers market</b>: Place 2 Farmers markets in the map modules A & C or B & D.",
+      "farmersMarket": "<b>Farmers market</b>: Place {playerCount} Farmers markets in {playerCount} different map modules.",
+      "farmersMarketWorkerPlacement": "When you place your own starting Workers, there must be at least 2 hexes in between your starting Worker and any Farmers market.",
+      "farmersMarketWorkerPlacementBot": "This does not apply to the Automa starting Workers.",
+      "botStartingWorkers": {
+        "title": "<b>Automa starting Workers</b>: The Automa places <b>4</b> of its Workers before you deploy your Workers. The Automa places 1 Worker in each map module:",
+        "port": "Worker {worker} on map module <b>{mapModule}</b>: Nearest to the <b>Port tile</b>",
+        "loch": "Worker {worker} on map module <b>{mapModule}</b>: Nearest to the <b>central loch</b>",
+        "tieBreaker": {
+          "title": "Choose a hex in this order of priority:",
+          "price": "Hex with cost £1 or £2",
+          "port": "If nearest to port tile, it prefers the hex that gets it into reach of a Port tile",
+          "cheapest": "The cheapest hex",
+          "random": "Choose randomly"
+        },
+        "payCosts": "The Automa <b>pays the cost</b> for placing these Workers, using its starting money."
+      },
+      "turnOrder": "<b>Turn order</b>: The Automa is last in round 1. The following rounds are in usual Passing order."
+    },
+    "award": {
+      "title": "Award",
+      "drawCard": "Draw one Automa Award card and place it below the 5th Scoring tile.",
+      "conditions": "The conditions are the same as in the multiplayer Award tiles.",
+      "scoringDifferent": "The way you score the Awards in the Automa mode is different from how you would normally score them.",
+      "scoring": "Depending on how much you have of the respective item, you score 4VP, 0VP or even lose 4VP.",
+      "multipleHumanPlayers": {
+        "awardTiles": "Multiple human players: Use the Award tiles as in a standard multiplayer game.",
+        "playerCount": "Disregarding the Automa when determining player count.",
+        "botDoesNotParticipate": "The Automa does not participate in the Award scoring."
+      }
+    },
+    "train": {
+      "title": "Train module",
+      "setup": "Instead of using the standard Milestones, use the Automa milestone cards for the Train map and place them on the matching Milestone areas of the Train map.",
+      "noActions": "The Automa doesn’t perform any Actions related to the Train map.",
+      "playerDeliver": "When you deliver to a location, discard its <b>Delivery bonus</b> tile. <b>This means you can deliver to each location once only.</b>",
+      "twoHumanPlayersSetup": "2 human players: Use the 2-player side of the Train map and play the Train module as a standard 2-player game.",
+      "threeHumanPlayersSetup": "3 human players: Use the 3-4 player side of the Train map and play it as a standard 3-player game."
+    },
+    "ruleChanges": {
+      "title": "Rule Changes for Automa",
+      "moneyNoGoods": "The Automa manages money, <b>but never has goods in its stock.</b>",
+      "contracts": "It can fulfill contracts, but uses money for fulfilling instead of goods.",
+      "merchants": "It always gains a monetary bonus when performing the trade action or using the neighbourhood bonus or farmers market.",
+      "production": "In the Production phase, it gets additional money instead of goods.",
+      "noScoringPhase": "The Automa skips the scoring phase but gains a fixed amount of glory per difficulty level at the end of the game."
+    }
+  },
+  "roundPreparation": {
+    "title": "Preparation",
+    "execute": "Execute the preparation phase.",
+    "botMoney": "Automa <b>receives £10</b>."
+  },
+  "roundTurnPlayer": {
+    "execute": "Please execute your turn - or pass.",
+    "pass": {
+      "confirm": "Do you want to pass?",
+      "info": "Receive <b>£{amount}</b> Pass bonus money."
+    }
+  },
+  "roundTurnBot": {
+    "executed": "Action Completed",
+    "notPossible": "Not Possible",
+    "skipTurn": "Automa skips this turn.",
+    "passInfo": "Automa passes: It receives <b>£{amount}</b> Pass bonus money.",
+    "rules": "Rules"
+  },
+  "roundProduction": {
+    "title": "Production",
+    "execute": "Execute the production phase.",
+    "bot": {
+      "workers": "Automa receives <b>money from Workers</b> as normal.",
+      "goodsIncome": "Automa never gains any Basic or Processed goods, but instead receives <b>£5 per income icon</b> shown.",
+      "noProductionChain": "It does not need Cows nor Fields to gain income from Cheese dairies, Bakeries, and Distilleries."
+    }
+  },
+  "roundScoring": {
+    "title": "Scoring",
+    "execute": "Execute the scoring phase.",
+    "botNoScoring": "Automa does not score any Glory for Scoring tiles.",
+    "lastRoundGlory": "Last round: Automa scores <b>{glory} Glory</b>."
+  },
+  "endOfGameAmounts": {
+    "title": "End of Game: Amounts",
+    "amounts": "Number of:",
+    "victoryPoints": "Victory Points:"
+  },
+  "endOfGame": {
+    "title": "End of Game",
+    "finalScoring": "Final Scoring",
+    "difficultyLevel": "Difficulty Level:"
+  },
+  "botAction": {
+    "randomized": "The displayed rule is randomized.",
+    "expand": {
+      "title": "Expand",
+      "tooltip": {
+        "mapModules": "Expand in these map modules",
+        "criteria": "Expand criteria order",
+        "unitPreference": "Unit preference order",
+        "neighborhood": "Check if Automa can use a Neighbourhood bonus",
+        "neighborhoodFarmersMarket": "Check if Automa can use a Neighbourhood bonus or Farmers market"
+      },
+      "rulesSpace": {
+        "expand": "Automa will try to expand in the highlighted map modules. It chooses a space that best fits this criteria:",
+        "settlements": "<b>Max Settlements:</b> Automa deploys onto a space that adds the most to the number of connected Settlements in the cluster in which the Automa expands:",
+        "settlementsConnect": "It tries to connect two groups of Settlements that were disconnected.",
+        "settlementsNew": "It tries to add a new Settlement to a group of Settlements.",
+        "costs": "<b>Min Costs:</b> Automa deploys onto a space with the lowest cost.",
+        "neighborhood": "<b>Max Neighbourhood Bonus:</b> Automa maximises revenue from Neighbourhood bonus market.",
+        "neighborhoodFarmersMarket": "<b>Max Neighbourhood Bonus / Farmers Market:</b> Automa maximises revenue from Neighbourhood bonus or Farmers market.",
+        "port": "<b>Port tile:</b> Automa deploys onto a space within reach of a Port tile."
+      },
+      "rulesUnit": {
+        "title": "Pick a unit:",
+        "unitPreference": "If multiple unit types are possible, pick in the order of preference as shown above.",
+        "workerPreference": "If multiple types of workers are possible, pick in this order:",
+        "upgradedWorkers": "Upgraded workers",
+        "payUnitHex": "The Automa pays the unit + space cost and places the chosen unit on the chosen space."
+      },
+      "rulesNeighborhood": {
+        "title": "Neighbourhood Bonus",
+        "restrictions": "As normal, the Automa cannot place Merchants on both “buy” and “sell” for the same Good. Thus, it will ignore the Neighbourhood bonus for Goods it cannot resolve. Unlike in the Trade action, the Automa can sell a Good of a type it has already sold this round.",
+        "buyGoods": "When the Automa expands on a space where it would be able to use the Neighbourhood bonus to buy Goods, it buys a number of Goods based on the price brackets the Goods are in:",
+        "buyGoodsUpper": "Upper price bracket: the Automa doesn’t buy.",
+        "buyGoodsMedium": "Medium price bracket: the Automa buys up to 2 units of that Good (depending on the number of available Merchants.)",
+        "buyGoodsLower": "Lower price bracket: the Automa buys up to 4 units of that Good (depending on the number of available Merchants.)",
+        "tiebreaker": "If the Automa can buy several types of Goods, it buys the Good whose Price marker is lowest on the Market track. If several Goods still qualify, choose randomly.",
+        "earnMoney": "The Automa earns <b>£3 per merchant</b> it places on the market via Neighbourhood bonus."
+      },
+      "rulesFarmersMarket": {
+        "title": "Farmers Market",
+        "restrictions": "As normal, the Automa cannot place Merchants on both “buy” and “sell” for the same Good. Thus, it will ignore the Farmers market for Goods it cannot resolve. Unlike in the Trade action, the Automa can buy a Good of a type it has already bought this round.",
+        "sellGoods": "When the Automa expands on a space where it would be able to use the Farmers market to sell Goods, it sells Goods based on the price brackets the Goods are in:",
+        "sellGoodsUpper": "Upper price bracket: the Automa sells up to 4 units of that Good (depending on the number of available Merchants.)",
+        "sellGoodsMedium": "Medium price bracket: the Automa sells up to 2 units of that Good (depending on the number of available Merchants.)",
+        "sellGoodsLower": "Lower price bracket: the Automa doesn’t sell.",
+        "tiebreaker": "If the Automa can sell several types of Goods, it sells the Good whose Price marker is highest on the Market track. If several Goods still qualify, choose randomly.",
+        "earnMoney": "The Automa earns <b>£3 per merchant</b> it places on the market via Farmers market."
+      }
+    },
+    "export-contract-fulfill": {
+      "title": "Fulfill Export Contract",
+      "summary": "If the Automa <b>has an Export contract</b>, it will try to fulfill it.",
+      "pay": "The Automa must pay £5 for each Wool and £10 for each Processed good and unit of Meat to fulfill its Export contract.",
+      "bonus": "The Automa gains money as normal from imported Goods (the £1 bonus on the Scoring track) and any bonus money shown on the Export contract itself. If the Export contract has Bonus upgrades or a free space expand bonus, the Automa gains £5 for each of these instead of receiving them.",
+      "per": "per"
+    },
+    "export-contract-take": {
+      "title": "Take Export Contract",
+      "get": "If the Automa <b>has no Export contract</b>, it will get one.",
+      "getLastRound": "If the Automa <b>has no Export contract</b>, it will get one and <b>fulfill it immediately</b>.",
+      "gainForTaking": "The Automa receives <b>£{amount}</b> for taking an Export contract in round {round}.",
+      "payForTaking": "The Automa must pay <b>£{amount}</b> for taking an Export contract in round {round}.",
+      "per": "per",
+      "tiebreakerRandom": "If still tied, choose randomly.",
+      "rulesCheapest": {
+        "prefer": "It will take the <b>cheapest</b> export contract, by counting:",
+        "tiebreaker": "If tied, it prefers export contracts with the <b>hightest monetary bonus</b>, including:"
+      },
+      "rulesRarest": {
+        "prefer": "It will prefer export contracts whose <b>import Good is rarest</b> on the Scoring track - treat any Export contract on a human player’s Export box as fulfilled for this purpose.",
+        "tiebreaker": "If tied, will take the <b>most expensive</b> export contract, by counting:",
+        "lastRound": "<b>Last Round:</b> The Automa <b>immediately fulfills</b> an Export contract after taking it. Therefore, it only considers Export contracts it can afford (£15 to take + fulfillment cost) and selects the one it can complete that best fits the criteria above."
+      }
+    },
+    "technology-upgrade": {
+      "title": "Technology Upgrade",
+      "fullRule": "If the Automa has 3 or more Workers of the same type deployed and not upgraded, then it must pay <b>£10</b> to upgrade this Worker technology by flipping the Technology tile on its player board.",
+      "tiebreaker": "If both Worker types fit this criterion, chose in this order:"
+    },
+    "trade": {
+      "title": "Trade",
+      "preferMerchantAction": "Prefer: <b>{merchantAction}</b>.",
+      "reroll": "Reroll",
+      "rules": {
+        "selectGood": "If Automa has already traded the displayed good this round, reroll to choose a different one.",
+        "priceBracket": "Depending on the <b>current</b> price bracket of that good, choose:",
+        "placeMerchants": "Automa places up to <b>{merchantCount} merchants</b>.",
+        "gainMoney": "Automa gains <b>£1 per Merchant</b> placed.",
+        "adjustPriceMarkers": "Adjusts the Price markers as normal. Automa does not gain any more money even when selling a good and also does not pay any money when buying a good.",
+        "notPossible": "Action is not possible when Automa has no merchant left, or has already traded all types of Goods."
+      }
+    },
+    "upgrade": {
+      "title": "Upgrade",
+      "rules": "Automa must spend <b>£4</b> to upgrade Merchants or Shipping, if not fully upgraded yet. Order of preference see above."
+    },
+    "port-bonus": {
+      "title": "Claim a Port Bonus",
+      "rules": "The Automa always claims a Port bonus as soon as it becomes available in its reach. When it does, it places its marker on the Port and receives <b>£10</b> instead of the depicted Port bonus."
+    }
+  },
+  "sideBar": {
+    "round": "Round {round}",
+    "turn": "Turn {turn}"
+  },
+  "player": {
+    "player": "Player | Player {player}",
+    "bot": "Automa | Automa {bot}"
+  },
+  "workerType": {
+    "woodcutter": "Woodcutter",
+    "miner": "Miner"
+  },
+  "merchantAction": {
+    "buy": "Buy",
+    "sell": "Sell"
+  },
+  "difficultyLevel": {
+    "1": "1 - Very Easy",
+    "2": "2 - Easy",
+    "3": "3 - Moderate",
+    "4": "4 - Hard",
+    "5": "5 - Very Hard"
+  },
+  "notfound": {
+    "title": "Not Found"
+  },
+  "action": {
+    "playGame": "Play Game",
+    "startGame": "Start Game",
+    "next": "Next",
+    "pass": "Pass",
+    "abortGame": "Abort Game",
+    "abortGameConfirm": "Aborting the running game - are you sure?",
+    "endGame": "End Game",
+    "endGameConfirm": "End this game and return to home screen - are you sure?",
+    "cancel": "Cancel",
+    "backToHome": "Back to Home",
+    "back": "Back",
+    "close": "Close",
+    "ok": "OK",
+    "reset": "Reset"
+  },
+  "footer": {
+    "credits": "Credits"
+  },
+  "serviceWorkerUpdatedRefresh": {
+    "title": "Refresh Application",
+    "notice": "The application was updated - do you want to refresh to use the latest version?"
+  }
+}

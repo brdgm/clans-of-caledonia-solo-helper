@@ -1,0 +1,285 @@
+{
+  "gameTitle": "Clans of Caledonia",
+  "home": {
+    "title": "Clans of Caledonia Solo Helper",
+    "play1": "Spiele <a href='https://boardgamegeek.com/boardgame/216132/clans-of-caledonia' target='_blank' rel='noopener'><b>Clans of Caledonia</b></a> gegen Automa, die Solo-Gegnerin.",
+    "play2": "Diese Applikation ersetzt die Solo-Karten und leitet dich durch das Spiel. Die Module der <a href='https://boardgamegeek.com/boardgameexpansion/391913/clans-of-caledonia-industria' target='_blank' rel='noopener'><b>Clans of Caledonia: Industria</b></a>-Erweiterung werden unterstützt. Du kannst gegen mehrere Automas spielen.",
+    "feedback": "Discussion and Feedback:"
+  },
+  "setup": {
+    "title": "Spielaufbau",
+    "players": {
+      "title": "Spieler",
+      "playerCount": "Menschliche Spieler",
+      "playerCountItem": "{count} Spieler | {count} Spieler",
+      "playerColor": "Spielfarbe | Spielfarbe {index}",
+      "botCount": "Automa",
+      "botCountItem": "{count} Automa | {count} Automas",
+      "botColor": "Automa-Farbe | Automa-Farbe {index}",
+      "multiAutomaWarning": "Das Spielen gegen mehrere Automas ist experimentell."
+    },
+    "difficultyLevel": {
+      "title": "Schwierigkeitsgrad",
+      "easy": "Leicht",
+      "hard": "Schwer"
+    },
+    "expansions": {
+      "title": "Erweiterungen",
+      "intro": "Wenn du die Industria-Erweiterung besitzt, kannst du alles neue Material verwenden. Die drei Module die hier aufgeführt sind haben einfluss auf das Verhalten der Automa.",
+      "industria-farmers-market": "Industria: Bauernmärkte",
+      "industria-award": "Industria: Auszeichnungen",
+      "industria-train": "Industria: Zugmodul"
+    }
+  },
+  "setupBot": {
+    "title": "Automa-Vorbereitung",
+    "setup": {
+      "title": "Spielbrett",
+      "setupGame": "Bereite das Spiel wie üblich für {playerCount} Personen vor.",
+      "playerBoard": "<b>Spielertableau</b>: Bereite ein Spielertableau mit allen Komponenten für die Automa vor.",
+      "shipLevel": "Die Automa startet mit <b>+2 Schifffahrt</b> (1-Loch-Schifffahrt)).",
+      "money": "Die Automa erhält <b>£{startingMoney}</b>.",
+      "clansSelection": "<b>Clanauswahl</b>: Die Automa hat keinen Clan. Du wählst aus {clanCount} Paaren von Clan und Startplättchen aus.",
+      "farmersMarket2Players": "<b>Bauernmärkte</b>: Platziere 2 Bauernmärkte in den Spielplanmodulen A & C oder B & D.",
+      "farmersMarket": "<b>Bauernmärkte</b>: Platziere {playerCount} Bauernmärkte in {playerCount} verschiedenen Spielplanmodulen.",
+      "farmersMarketWorkerPlacement": "Wenn du deine eigenen Startarbeiter einsetzt, müssen zwischen ihnen und einem Bauernmarkt mindestens zwei Felder frei sein.",
+      "farmersMarketWorkerPlacementBot": "Gilt nicht für die Automa-Startarbeiter.",
+      "botStartingWorkers": {
+        "title": "<b>Automa Startarbeiter</b>: Die Automa platziert <b>4</b> ihrer Arbeiter bevor du deine Arbeiter platzierst. Die Automa platziert 1 Arbeiter in jedem Spielplanmodul:",
+        "port": "Arbeiter {worker} auf Spielplanmodul <b>{mapModule}</b>: Am nächsten zum <b>Hafen</b>",
+        "loch": "Arbeiter {worker} auf Spielplanmodul <b>{mapModule}</b>: Am nächsten zum <b>zentralen Loch</b>",
+        "tieBreaker": {
+          "title": "Wähle das Feld in nach folgenden Kriterien in der Reihenfolge ihrer Priorität aus:",
+          "price": "Maximale Feldkosten von £2",
+          "port": "(nur für Häfen) Innerhalb der Schifffahrtsreichweite des Hafens",
+          "cheapest": "Günstigste Feldkosten",
+          "random": "Zufällige Auswahl"
+        },
+        "payCosts": "Die Automa <b>bezahlt die Kosten</b> für das Platzieren dieser Arbeiter wie gewohnt von ihrem Startgeld."
+      },
+      "turnOrder": "<b>Zugreihenfolge</b>: Die Automa ist in Runde 1 als Letzte an der Reihe. Die folgenden Runden erfolgen in der gewohnten Passreihenfolge."
+    },
+    "award": {
+      "title": "Auszeichnungen",
+      "drawCard": "Ziehe 1 zufälliges Auszeichnungsplättchen und legt es unter das 5. Wertungsplättchen.",
+      "conditions": "Die Ziele auf diesen Karten sind identisch mit den Auszeichnungsplättchen für Mehrpersonenpartien.",
+      "scoringDifferent": "Die Auszeichnungsplättchen werden anders gewertet als in Mehrpersonenpartien.",
+      "scoring": "Du prüfst, wie gut du das Ziel auf der Karte erreicht hast, um 4 SP oder 0 SP zu erzielen oder sogar 4 SP zu verlieren.",
+      "multipleHumanPlayers": {
+        "awardTiles": "Mehrere menschliche Spieler: Verwende die Auszeichnungsplättchen wie in einer Mehrpersonenpartie.",
+        "playerCount": "Ignoriere die Automa bei der Bestimmung der Personenzahl.",
+        "botDoesNotParticipate": "Die Automa nimmt nicht an der Wertung der Auszeichnung teil."
+      }
+    },
+    "train": {
+      "title": "Zugmodul",
+      "setup": "Anstelle der normalen Meilensteine werden die Meilensteinkarten der Automa auf die entsprechenden Meilensteinfelder des Zugtableaus gelegt.",
+      "noActions": "Die Automa hat keine Züge und führt keine Aktionen in Bezug auf das Zugtableau aus.",
+      "playerDeliver": "Nachdem du an einen Ort geliefert und den Lieferbonus erhalten hast, legst du das <b>Lieferbonusplättchen</b> ab. <b>Das bedeutet, dass du jeden Ort nur einmal beliefern kannst.</b>",
+      "twoHumanPlayersSetup": "2 menschliche Spieler: Verwendet die 2-Personen-Seite des Zugtableaus und spielt das Zugmodul wie in einer normalen 2-Personen-Partie.",
+      "threeHumanPlayersSetup": "3 menschliche Spieler: Verwendet die Seite für 3–4 Personen des Zugtableaus und spielt das Zugmodul wie in einer normalen 3-Personen-Partie."
+    },
+    "ruleChanges": {
+      "title": "Regeländerungen für die Automa",
+      "moneyNoGoods": "Die Automa verwaltet Geld, hat aber <b>niemals Waren im Vorrat<b/>.",
+      "contracts": "Sie kann Aufträge erfüllen, verwendet dafür jedoch Geld anstelle von Waren.",
+      "merchants": "Sie erhält immer einen festen Geldbonus, wenn sie die Handelsaktion ausführt oder den Nachbarschaftsbonus oder den Bauernmarkt nutzt.",
+      "production": "In der Produktionsphase erhält sie zusätzliches Geld anstelle von Waren.",
+      "noScoringPhase": "Die Automa überspringt die Wertungsphase, erhält aber am Ende des Spiels einen festen Ruhmwert je nach Schwierigkeitsstufe."
+    }
+  },
+  "roundPreparation": {
+    "title": "Vorbereitung",
+    "execute": "Führe die Vorbereitungsphase aus.",
+    "botMoney": "Automa <b>erhält £10</b>."
+  },
+  "roundTurnPlayer": {
+    "execute": "Führe deinen Zug aus - oder passe.",
+    "pass": {
+      "confirm": "Willst du passen?",
+      "info": "Erhalte <b>£{amount}</b> Passbonus."
+    }
+  },
+  "roundTurnBot": {
+    "executed": "Aktion ausgeführt",
+    "notPossible": "Nicht möglich",
+    "skipTurn": "Automa überspringt diesen Zug.",
+    "passInfo": "Automa passt: Sie erhält <b>£{amount}</b> Passbonus.",
+    "rules": "Regeln"
+  },
+  "roundProduction": {
+    "title": "Produktion",
+    "execute": "Führe die Produktionsphase aus.",
+    "bot": {
+      "workers": "Die Automa erhält wie gewohnt <b>Geld von den Arbeitern</b>.",
+      "goodsIncome": "Die Automa erhält niemals Grundwaren oder verarbeitete Waren, sondern stattdessen <b>£5 pro angezeigtem Einkommenssymbol</b>.",
+      "noProductionChain": "Die Automa benötigt weder Rinder noch Äcker, um Einkommen aus Käsereien, Bäckereien und Destillerien zu erzielen."
+    }
+  },
+  "roundScoring": {
+    "title": "Wertung",
+    "execute": "Führ die Wertungsphase durch.",
+    "botNoScoring": "Die Automa erhält keinen Ruhm für Wertungsplättchen.",
+    "lastRoundGlory": "Letzte Runde: Automa erhält <b>{glory} Ruhm</b>."
+  },
+  "endOfGameAmounts": {
+    "title": "End of Game: Amounts",
+    "amounts": "Anzahl:",
+    "victoryPoints": "Siegpunkte:"
+  },
+  "endOfGame": {
+    "title": "Spielende",
+    "finalScoring": "Endabrechnung",
+    "difficultyLevel": "Schwierigkeitsgrad:"
+  },
+  "botAction": {
+    "randomized": "Die angezeigte Regel ist durch Zufall bestimmt.",
+    "expand": {
+      "title": "Expandieren",
+      "tooltip": {
+        "mapModules": "Expandiere in diese Spielplanmodule",
+        "criteria": "Reihenfolge der Expansionskriterien",
+        "unitPreference": "Reihenfolge der bevorzugten Einheitstypen",
+        "neighborhood": "Prüfe, ob die Automa einen Nachbarschaftsbonus nutzen kann",
+        "neighborhoodFarmersMarket": "Prüfe, ob die Automa einen Nachbarschaftsbonus oder Bauernmarkt nutzen kann"
+      },
+      "rulesSpace": {
+        "expand": "Die Automa versucht, auf den grün markierten Spielplanmodulen zu expandieren. Sie wählt das Feld, das am besten diesen Kriterien entspricht:",
+        "settlements": "<b>Maximale Siedlungen:</b> Die Automa wählt ein Feld, um die Anzahl ihrer Siedlungen zu maximieren:",
+        "settlementsConnect": "Sie versucht, zwei getrennte Siedlungsgruppen miteinander zu verbinden.",
+        "settlementsNew": "Sie versucht, eine neue Siedlung zu einer Gruppe verbundener Siedlungen hinzuzufügen.",
+        "costs": "<b>Minimale Kosten:</b> Die Automa wählt das günstigste Feld, auf dem sie eine Einheit platzieren kann.",
+        "neighborhood": "<b>Maximaler Nachbarschaftsbonus:</b> Die Automa wählt ein Feld aus, auf dem sie durch den Nachbarschaftsbonus die meisten Waren handeln kann.",
+        "neighborhoodFarmersMarket": "<b>Maximaler Nachbarschaftsbonus/Bauernmärkte:</b> Die Automa wählt ein Feld aus, auf dem sie durch den Nachbarschaftsbonus oder den Bauernmarkt die meisten Waren handeln kann.",
+        "port": "<b>Hafenplättchen:</b> Die Automa wählt ein Feld, das sie in Reichweite eines Hafenplättchens bringt, das sie in den angegebenen Spielplanmodulen noch nicht genutzt hat."
+      },
+      "rulesUnit": {
+        "title": "Einheit auswählen:",
+        "unitPreference": "Wenn mehrere Einheitentypen in Frage kommen, wählt sie eine Einheit in der Priorität wie oben angegeben.",
+        "workerPreference": "Wenn mehrere Typen von Arbeitern in Frage kommen, wählt sie in dieser Reihenfolge:",
+        "upgradedWorkers": "Verbesserte Arbeiter",
+        "payUnitHex": "Die Automa bezahlt die Kosten für das Feld und die Einheit und platziert sie auf dem gewählten Feld."
+      },
+      "rulesNeighborhood": {
+        "title": "Nachbarschaftsbonus",
+        "restrictions": "Wie üblich, kann die Automa keine Händler sowohl auf „Kaufen“ als auch auf „Verkaufen“ für dieselbe Ware setzen. Daher ignoriert sie den Nachbarschaftsbonus für Waren, die sie nicht mehr entsprechend handeln kann.",
+        "buyGoods": "Wenn die Automa auf ein Feld expandiert, auf dem sie den Nachbarschaftsbonus zum Kauf von Waren nutzen könnte, kauft sie eine Anzahl von Waren basierend auf den Preisspannen, in denen sich die Waren befinden:",
+        "buyGoodsUpper": "Obere Preisspanne: Die Automa kauft nicht.",
+        "buyGoodsMedium": "Mittlere Preisspanne: Die Automa kauft bis zu 2 Einheiten dieser Ware (abhängig von der Anzahl der verfügbaren Händler).",
+        "buyGoodsLower": "Niedrige Preisspanne: Die Automa kauft bis zu 4 Einheiten dieser Ware (abhängig von der Anzahl der verfügbaren Händler).",
+        "tiebreaker": "Wenn die Automa mehrere Warensorten kaufen kann, kauft sie diejenige, deren Preismarker auf der Marktleiste am niedrigsten ist. Wenn immer noch mehrere Waren in Frage kommen, wähle eine zufällig aus.",
+        "earnMoney": "Die Automa verdient genau <b>£3 pro Händler</b>, wenn sie über den Nachbarschaftsbonus handelt."
+      },
+      "rulesFarmersMarket": {
+        "title": "Bauernmarkt",
+        "restrictions": "Wie üblich, kann die Automa keine Händler sowohl auf „Kaufen“ als auch auf „Verkaufen“ für dieselbe Ware setzen. Daher ignoriert sie den Bauernmarkt für Waren, die sie nicht mehr entsprechend handeln kann.",
+        "sellGoods": "Wenn die Automa auf ein Feld expandiert, auf dem sie den Bauernmarkt zum Verkauf von Waren nutzen könnte, verkauft sie Waren basierend auf den Preisspannen, in denen sich die Waren befinden:",
+        "sellGoodsUpper": "Obere Preisspanne: Die Automa verkauft bis zu 4 Einheiten dieser Ware (abhängig von der Anzahl der verfügbaren Händler).",
+        "sellGoodsMedium": "Mittlere Preisspanne: Die Automa verkauft bis zu 2 Einheiten dieser Ware (abhängig von der Anzahl der verfügbaren Händler).",
+        "sellGoodsLower": "Niedrigere Preisspanne: Die Automa verkauft nicht.",
+        "tiebreaker": "Wenn mehrere Waren in Frage kommen, wähle zuerst die, deren Preismarker am höchsten steht, und danach nach dem Zufallsprinzip.",
+        "earnMoney": "Die Automa verdient genau <b>£3 pro Händler</b>, wenn sie über Bauernmärkte handelt."
+      }
+    },
+    "export-contract-fulfill": {
+      "title": "Exportauftrag erfüllen",
+      "summary": "Wenn die Automa <b>einen Exportauftrag hat</b>, versucht sie, diesen zu erfüllen.",
+      "pay": "Die Automa muss £5 für jede Wolle und £10 für jede verarbeitete Ware und jedes Fleisch bezahlen, um ihren Exportauftrag zu erfüllen.",
+      "bonus": "Die Automa erhält wie gewohnt Geld für importierte Waren (den Bonus von £1 auf der Exporttableauleiste) und alle auf dem Exportauftrag selbst angegebenen Boni. Wenn der Exportauftrag Bonus-Upgrades oder ein kostenloses Feld enthält, erhält die Automa für jeden dieser Boni £5, anstatt den Bonus zu nutzen.",
+      "per": "pro"
+    },
+    "export-contract-take": {
+      "title": "Exportauftrag nehmen",
+      "get": "Wenn die Automa <b>keinen Exportauftrag hat</b>, versucht sie einen zu nehmen.",
+      "getLastRound": "If the Automa <b>has no Export contract</b>, it will get one and <b>fulfill it immediately</b>.",
+      "gainForTaking": "Die Automa erhält <b>£{amount}</b> für das Nehmen eines Exportauftrags in Runde {round}.",
+      "payForTaking": "Die Automa muss <b>£{amount}</b> für das Nehmen eines Exportauftrags in Runde {round} zahlen.",
+      "per": "pro",
+      "tiebreakerRandom": "Bei erneutem Gleichstand wird zufällig ausgewählt.",
+      "rulesCheapest": {
+        "prefer": "Sie nimmt den <b>billigsten</b> Exportauftrag, unter Berücksichtigung von:",
+        "tiebreaker": "Bei Gleichstand entscheidet der Exportauftrag mit dem <b>höchsten monetären Gesamtbonus</b>:"
+      },
+      "rulesRarest": {
+        "prefer": "Sie bevorzugt den Exportauftrag, dessen <b>importierte Ware auf der Exporttableauleiste am seltensten ist</b> – alle Exportaufträge in den Exportkisten der menschlichen Personen gelten für diesen Zweck als erfüllt.",
+        "tiebreaker": "Bei Gleichstand entscheidet der <b>teuerste</b> zu erfüllende Exportauftrag, unter Berücksichtigung von:",
+        "lastRound": "<b>Letzte Runde:</b> Die Automa <b>erfüllt einen Exportauftrag sofort</b>, nachdem sie ihn genommen hat. Daher berücksichtigt sie in Runde 5 nur Exportaufträge, die sie direkt erfüllen kann (£15 für die Annahme + Erfüllungskosten). Sie wählt aus den Exportaufträgen, die sie sofort erfüllen kann, gemäß den oben aufgelisteten Prioritäten."
+      }
+    },
+    "technology-upgrade": {
+      "title": "Technologie verbessern",
+      "fullRule": "Wenn die Automa 3 oder mehr Arbeiter desselben Typs platziert und noch nicht verbessert hat, zahlt sie <b>£10</b>, um die Technologie dieses Arbeiters zu verbessern, indem sie das Technologie-Plättchen auf ihrem Spielertableau umdreht.",
+      "tiebreaker": "Wenn beide Arbeitertypen dieses Kriterium erfüllen, wähle in dieser Reihenfolge:"
+    },
+    "trade": {
+      "title": "Handeln",
+      "preferMerchantAction": "Bevorzugt: <b>{merchantAction}</b>.",
+      "reroll": "Neu wählen",
+      "rules": {
+        "selectGood": "Wenn die Automa die angezeigte Ware bereits gehandelt hat, verwende <i>Neu wählen</i>, bis eine Ware angezeigt wird, die sie in dieser Runde noch nicht gehandelt hat.",
+        "priceBracket": "Wähle je nach <b>Preiskategorie</b> dieser Ware:",
+        "placeMerchants": "Die Automa platziert bis zu <b>{merchantCount} Händler</b>.",
+        "gainMoney": "Die Automa erhält <b>£1 pro platziertem Händler</b>.",
+        "adjustPriceMarkers": "Passe die Preismarker wie gewohnt an. Die Automa erhält weder das tatsächlich auf dem Markttableau angezeigte Geld noch zahlt sie es.",
+        "notPossible": "Die Aktion ist nicht möglich, wenn die Automa über keine Händler mehr verfügt oder schon alle Warensorten gehandelt hat."
+      }
+    },
+    "upgrade": {
+      "title": "Upgrade",
+      "rules": "Die Automa muss <b>£4</b> ausgeben, um einen Händler anzuwerben oder die Schifffahrt zu verbessern. Priorität siehe oben."
+    },
+    "port-bonus": {
+      "title": "Hafenplättchen nutzen",
+      "rules": "Wenn die Automa in Reichweite eines Hafenplättchens gelangt, nutzt sie es sofort. Sie legt sie einen ihrer Hafenmarker neben das Hafenplättchen und erhält sofort £10."
+    }
+  },
+  "sideBar": {
+    "round": "Runde {round}",
+    "turn": "Zug {turn}"
+  },
+  "player": {
+    "player": "Spieler | Spieler {player}",
+    "bot": "Automa | Automa {bot}"
+  },
+  "workerType": {
+    "woodcutter": "Holzfäller",
+    "miner": "Bergarbeiter"
+  },
+  "merchantAction": {
+    "buy": "Kaufen",
+    "sell": "Verkaufen"
+  },
+  "difficultyLevel": {
+    "1": "1 - Sehr leicht",
+    "2": "2 - Leicht",
+    "3": "3 - Mittel",
+    "4": "4 - Schwer",
+    "5": "5 - Sehr schwer"
+  },
+  "notfound": {
+    "title": "Nicht Gefunden"
+  },
+  "action": {
+    "playGame": "Spielen",
+    "startGame": "Spiel starten",
+    "next": "Weiter",
+    "pass": "Passen",
+    "abortGame": "Spiel abbrechen",
+    "abortGameConfirm": "Das aktuelle Spiel wird abgebrochen - bist du sicher?",
+    "endGame": "Spiel beenden",
+    "endGameConfirm": "Dieses Spiel wird beendet - bist du sicher?",
+    "cancel": "Abbrechen",
+    "backToHome": "Zurück zum Anfang",
+    "back": "Zurück",
+    "close": "Schließen",
+    "ok": "OK",
+    "reset": "Zurücksetzen"
+  },
+  "footer": {
+    "credits": "Credits"
+  },
+  "serviceWorkerUpdatedRefresh": {
+    "title": "Applikation neu laden",
+    "notice": "Die Applikation wurde aktualisiert - möchtest du die Seite neu laden um die neueste Version zu nutzen?"
+  }
+}
