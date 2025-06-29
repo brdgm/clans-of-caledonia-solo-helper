@@ -30,6 +30,7 @@ export const useStateStore = defineStore(`${name}.state`, {
     resetGame() : void {
       this.rounds = []
       this.finalScoringAmount = undefined
+      this.gameStatsSend = false
     },
     setupToggleExpansion(expansion: Expansion) : void {
       toggleArrayItem(this.setup.expansions, expansion)
@@ -56,6 +57,7 @@ export interface State {
   setup: Setup
   rounds: Round[]
   finalScoringAmount?: FinalScoringAmount
+  gameStatsSend?: boolean
 }
 export interface Setup {
   expansions: Expansion[]
