@@ -148,6 +148,9 @@ import Expansion from '@/services/enum/Expansion'
 import getDifficultyLevelSettings from '@/util/getDifficultyLevelSettings'
 import MoneyIcon from '../structure/MoneyIcon.vue'
 import toNumber from '@brdgm/brdgm-commons/src/util/form/toNumber'
+import postGameStats from '@brdgm/brdgm-commons/src/util/stats/postGameStats'
+import { version } from '@/../package.json'
+import { State } from '@popperjs/core'
 
 export default defineComponent({
   name: 'FinalScoring',
@@ -358,6 +361,50 @@ export default defineComponent({
         case ImportGood.SUGAR_CANE: return 1
         default: return 0
       }
+    },
+    countPlayerTurnsPerRound(round: number, player: number) : number|undefined {
+      return this.state.rounds.find(r => r.round == round)?.turns.find(t => t.player == player && t.pass)?.turn
+    },
+    countBotTurnsPerRound(round: number, bot: number) : number|undefined {
+      return this.state.rounds.find(r => r.round == round)?.turns.find(t => t.bot == bot && t.pass)?.turn
+    }
+  },
+  mounted() {
+    // send anonymous game stats - max. once per game
+    if (!this.state.gameStatsSend) {
+      const stats : any = {
+        version,
+        expansions: this.state.setup.expansions.join(','),
+        difficultyLevel: this.state.setup.difficultyLevel
+      }
+      for (let index=0; index<this.playerCount+this.botCount; index++) {
+        const isPlayer = index < this.playerCount
+        const suffix = isPlayer ? `_Player${index+1}` : `_Automa${index+1-this.playerCount}`
+        stats[`totalVP${suffix}`] = this.totalVP[index]
+        stats[`gloryVP${suffix}`] = this.gloryVP[index]
+        stats[`cotton${suffix}`] = this.amount.cotton[index]
+        stats[`tobacco${suffix}`] = this.amount.tobacco[index]
+        stats[`sugarCane${suffix}`] = this.amount.sugarCane[index]
+        stats[`goodStandard${suffix}`] = this.amount.goodStandard[index]
+        stats[`goodProcessed${suffix}`] = this.amount.goodProcessed[index]
+        stats[`money${suffix}`] = this.amount.money[index]
+        stats[`hops${suffix}`] = this.amount.hops[index]
+        stats[`exportContract${suffix}`] = this.amount.exportContract[index]
+        stats[`settlement${suffix}`] = this.amount.settlement[index]
+        stats[`awardVP${suffix}`] = this.amount.awardVP[index]
+        stats[`milestoneVP${suffix}`] = this.amount.milestoneVP[index]
+        stats[`trainDeliveryVP${suffix}`] = this.trainDeliveryVP[index]
+        for (let round=1; round<=5; round++) {
+          const turns = isPlayer
+            ? this.countPlayerTurnsPerRound(round, index + 1)
+            : this.countBotTurnsPerRound(round, index - this.playerCount + 1)
+          stats[`turnsRound${round}${suffix}`] = turns
+        }
+      }
+      postGameStats(stats,
+        import.meta.env.VITE_STATS_FORM_URL,
+        import.meta.env.VITE_STATS_FIELD_MAPPING)
+      this.state.gameStatsSend = true
     }
   }
 })
