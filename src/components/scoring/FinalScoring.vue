@@ -150,7 +150,6 @@ import MoneyIcon from '../structure/MoneyIcon.vue'
 import toNumber from '@brdgm/brdgm-commons/src/util/form/toNumber'
 import postGameStats from '@brdgm/brdgm-commons/src/util/stats/postGameStats'
 import { version } from '@/../package.json'
-import { State } from '@popperjs/core'
 
 export default defineComponent({
   name: 'FinalScoring',
@@ -372,7 +371,7 @@ export default defineComponent({
   mounted() {
     // send anonymous game stats - max. once per game
     if (!this.state.gameStatsSend) {
-      const stats : any = {
+      const stats : any = {  // eslint-disable-line @typescript-eslint/no-explicit-any
         version,
         expansions: this.state.setup.expansions.join(','),
         difficultyLevel: this.state.setup.difficultyLevel
