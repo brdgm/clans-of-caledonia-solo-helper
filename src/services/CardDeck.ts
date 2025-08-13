@@ -9,11 +9,11 @@ import { ref } from 'vue'
  */
 export default class CardDeck {
 
-  private _current
-  private _currentSupport
-  private _pile
-  private _discard
-  private _removed
+  private readonly _current
+  private readonly _currentSupport
+  private readonly _pile
+  private readonly _discard
+  private readonly _removed
 
   private constructor(current: Card|undefined, currentSupport: Card|undefined,
       pile : Card[], discard : Card[], removed : Card[]) {

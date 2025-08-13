@@ -32,7 +32,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue'
+import { defineComponent, PropType, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import AppIcon from '@/components/structure/AppIcon.vue'
 import NavigationState from '@/util/NavigationState'
@@ -41,7 +41,6 @@ import Card from '@/services/Card'
 import randomEnum from '@brdgm/brdgm-commons/src/util/random/randomEnum'
 import randomEnumDifferentValue from '@brdgm/brdgm-commons/src/util/random/randomEnumDifferentValue'
 import rollDice from '@brdgm/brdgm-commons/src/util/random/rollDice'
-import { ref } from 'vue'
 import Good from '@/services/enum/Good'
 import MerchantAction from '@/services/enum/MerchantAction'
 import ActionBox from '../ActionBox.vue'
