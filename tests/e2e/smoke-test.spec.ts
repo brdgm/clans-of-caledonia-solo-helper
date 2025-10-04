@@ -13,10 +13,10 @@ test('smoke test', async ({ page }) => {
 
   // play a few turns
   await page.getByRole('button', { name: 'Next' }).click()
-  await page.getByRole('button', { name: 'Action Completed' }).click()
+  await page.locator('button:has-text("Action Completed"), button:has-text("Next")').first().click()
   await page.getByRole('button', { name: 'Pass' }).click()
   await page.locator('#passModal').getByRole('button', { name: 'Pass' }).click()
-  await page.getByRole('button', { name: 'Action Completed' }).click()
+  await page.locator('button:has-text("Action Completed"), button:has-text("Next")').first().click()
 
   // finish game
   await page.getByRole('button', { name: 'Abort Game' }).click()
