@@ -5,11 +5,11 @@ import DifficultyLevel from '@/services/enum/DifficultyLevel'
 
 describe('util/getDifficultyLevelSettings', () => {
   it('getDifficultyLevelSettings', () => {
-    getAllEnumValues(DifficultyLevel).forEach(difficultyLevel => {
+    for (const difficultyLevel of getAllEnumValues(DifficultyLevel)) {
       const settings = getDifficultyLevelSettings(difficultyLevel)
       expect(settings.startingMoney).to.greaterThanOrEqual(50)
       expect(settings.round5VP).to.greaterThanOrEqual(10)
       expect(settings.round5VPTrain).to.greaterThanOrEqual(10)
-    })
+    }
   })
 })
