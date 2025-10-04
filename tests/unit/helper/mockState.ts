@@ -3,7 +3,7 @@ import Expansion from '@/services/enum/Expansion'
 import PlayerColor from '@/services/enum/PlayerColor'
 import { Round, State } from '@/store/state'
 
-export default function (params?: MockStateParams) : State {  
+export default function mockState(params?: MockStateParams) : State {  
   return {
     language: 'en',
     baseFontSize: 1,

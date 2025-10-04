@@ -2,7 +2,7 @@ import UnitType from '@/services/enum/UnitType'
 import { CardDeckPersistence, RoundTurn } from '@/store/state'
 import mockCardDeck from './mockCardDeck'
 
-export default function (params?: MockTurnParams) : RoundTurn {
+export default function mockTurn(params?: MockTurnParams) : RoundTurn {
   const turn : RoundTurn = {
     round: params?.round ?? 1,
     turn: params?.turn ?? 1,
