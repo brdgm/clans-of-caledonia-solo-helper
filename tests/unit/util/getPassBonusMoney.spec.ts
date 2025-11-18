@@ -29,7 +29,7 @@ describe('util/getPassBonusMoney', () => {
     expect(getPassBonusMoney(state, 1, 4, 0)).to.eq(10)
   })
 
-  it('standard', () => {
+  it('farmers-market', () => {
     const state = mockState({playerCount:1, botCount:2,
       expansions: [Expansion.INDUSTRIA_FARMERS_MARKET],
       rounds:[
@@ -45,5 +45,41 @@ describe('util/getPassBonusMoney', () => {
     expect(getPassBonusMoney(state, 1, 1, 0)).to.eq(12)
     expect(getPassBonusMoney(state, 1, 2, 0)).to.eq(8)
     expect(getPassBonusMoney(state, 1, 3, 0)).to.eq(6)
+  })
+
+  it('standard-2p', () => {
+    const state = mockState({playerCount:1, botCount:1,
+      expansions: [],
+      rounds:[
+        mockRound({round:1, playerOrder:[{player:1},{bot:1}], turns:[
+          mockTurn({round:1,turn:1,player:1}),
+          mockTurn({round:1,turn:1,bot:1}),
+          mockTurn({round:1,turn:2,player:1,pass:true}),
+          mockTurn({round:1,turn:2,bot:1}),
+          mockTurn({round:1,turn:3,bot:1,pass:true})
+        ]})
+      ]
+    })
+    
+    expect(getPassBonusMoney(state, 1, 1, 0)).to.eq(16)
+    expect(getPassBonusMoney(state, 1, 2, 0)).to.eq(16)
+    expect(getPassBonusMoney(state, 1, 2, 1)).to.eq(13)
+    expect(getPassBonusMoney(state, 1, 3, 0)).to.eq(13)
+  })
+
+  it('farmers-market-2p', () => {
+    const state = mockState({playerCount:1, botCount:1,
+      expansions: [Expansion.INDUSTRIA_FARMERS_MARKET],
+      rounds:[
+        mockRound({round:1, playerOrder:[{player:1},{bot:1}], turns:[
+          mockTurn({round:1,turn:1,player:1}),
+          mockTurn({round:1,turn:1,bot:1,pass:true}),
+          mockTurn({round:1,turn:2,player:1,pass:true})
+        ]})
+      ]
+    })
+    
+    expect(getPassBonusMoney(state, 1, 1, 0)).to.eq(12)
+    expect(getPassBonusMoney(state, 1, 2, 0)).to.eq(9)
   })
 })

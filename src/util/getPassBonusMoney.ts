@@ -24,7 +24,17 @@ export default function getPassBonusMoney(state: State, round: number, turn: num
 const PASSING_BONUS_LIST : number[] = [16, 14, 12, 10]
 const PASSING_BONUS_LIST_FARMERS_MARKET : number[] = [12, 10, 8, 6]
 
+const PASSING_BONUS_LIST_2P : number[] = [16, 13]
+const PASSING_BONUS_LIST_FARMERS_MARKET_2P : number[] = [12, 9]
+
 function getPassingBonusList(state: State) : number[] {
   const hasFarmersMarket = state.setup.expansions.includes(Expansion.INDUSTRIA_FARMERS_MARKET)
-  return hasFarmersMarket ? PASSING_BONUS_LIST_FARMERS_MARKET : PASSING_BONUS_LIST
+  const { playerCount, botCount } = state.setup.playerSetup
+  const is2P = (playerCount + botCount) == 2
+  if (is2P) {
+    return hasFarmersMarket ? PASSING_BONUS_LIST_FARMERS_MARKET_2P : PASSING_BONUS_LIST_2P
+  }
+  else {
+    return hasFarmersMarket ? PASSING_BONUS_LIST_FARMERS_MARKET : PASSING_BONUS_LIST
+  }
 }
