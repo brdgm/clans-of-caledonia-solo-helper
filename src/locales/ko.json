@@ -1,0 +1,285 @@
+{
+  "gameTitle": "클랜 오브 칼레도니아",
+  "home": {
+    "title": "클랜 오브 칼레도니아 솔로 헬퍼",
+    "play1": "솔로 상대인 오토마와 함께 <a href='https://boardgamegeek.com/boardgame/216132/clans-of-caledonia' target='_blank' rel='noopener'><b>클랜 오브 칼레도니아</b></a>를 플레이하세요.",
+    "play2": "이 앱은 오토마 카드를 대체하며, 게임 진행을 도와줍니다. <a href='https://boardgamegeek.com/boardgameexpansion/391913/clans-of-caledonia-industria' target='_blank' rel='noopener'><b>클랜 오브 칼레도니아: 인두스트리아</b></a> 확장판의 모듈도 지원됩니다. 하나 또는 여러 오토마와 플레이할 수 있습니다.",
+    "feedback": "토론 및 피드백:"
+  },
+  "setup": {
+    "title": "게임 설정",
+    "players": {
+      "title": "플레이어",
+      "playerCount": "인간 플레이어",
+      "playerCountItem": "플레이어 {count}명 | 플레이어 {count}명",
+      "playerColor": "플레이어 색깔 | 플레이어 {index} 색깔",
+      "botCount": "오토마",
+      "botCountItem": "오토마 {count}개 | 오토마 {count}개",
+      "botColor": "오토마 색깔 | 오토마 {index} 색깔",
+      "multiAutomaWarning": "여러 오토마와 플레이하는 것은 실험적 기능입니다."
+    },
+    "difficultyLevel": {
+      "title": "난이도",
+      "easy": "쉬움",
+      "hard": "어려움"
+    },
+    "expansions": {
+      "title": "확장판",
+      "intro": "인두스트리아 확장판을 소유하고 있다면, 모든 새로운 구성품을 오토마와 함께 사용할 수 있습니다. 여기에 나열된 세 모듈은 오토마 게임플레이에 영향을 미칩니다.",
+      "industria-farmers-market": "인두스트리아: 농민 시장",
+      "industria-award": "인두스트리아: 어워드",
+      "industria-train": "인두스트리아: 기차 모듈"
+    }
+  },
+  "setupBot": {
+    "title": "오토마 설정",
+    "setup": {
+      "title": "게임 보드",
+      "setupGame": "{playerCount}명 플레이어를 위한 게임을 평상시와 같이 설정합니다.",
+      "playerBoard": "<b>플레이어 보드</b>: 오토마를 위한 모든 구성품과 함께 플레이어 보드를 준비합니다.",
+      "shipLevel": "오토마는 <b>+2 항해</b>(1-로크 항해)로 시작합니다.",
+      "money": "오토마는 <b>£{startingMoney}</b>를 받습니다.",
+      "clansSelection": "<b>클랜 선택</b>: 오토마는 클랜이 없습니다. 당신이 {clanCount}쌍의 클랜 타일과 시작 타일 중에서 선택합니다.",
+      "farmersMarket2Players": "<b>농민 시장</b>: 지도 모듈 A & C 또는 B & D에 농민 시장 2개를 배치합니다.",
+      "farmersMarket": "<b>농민 시장</b>: {playerCount}개의 서로 다른 지도 모듈에 농민 시장 {playerCount}개를 배치합니다.",
+      "farmersMarketWorkerPlacement": "자신의 시작 일꾼을 배치할 때, 시작 일꾼과 농민 시장 사이에는 최소 2칸의 간격이 있어야 합니다.",
+      "farmersMarketWorkerPlacementBot": "이는 오토마의 시작 일꾼에는 적용되지 않습니다.",
+      "botStartingWorkers": {
+        "title": "<b>오토마 시작 일꾼</b>: 오토마는 당신이 일꾼을 배치하기 전에 일꾼 <b>4개</b>를 배치합니다. 오토마는 각 지도 모듈에 일꾼 1개씩 배치합니다:",
+        "port": "일꾼 {worker} (지도 모듈 <b>{mapModule}</b>): <b>항구 타일</b>에 가장 가까운 곳",
+        "loch": "일꾼 {worker} (지도 모듈 <b>{mapModule}</b>): <b>중앙 호수</b>에 가장 가까운 곳",
+        "tieBreaker": {
+          "title": "다음 우선순위에 따라 칸을 선택합니다:",
+          "price": "£1 또는 £2 비용의 칸",
+          "port": "항구 타일에 가장 가깝다면, 항구 타일 범위에 들어갈 수 있는 칸을 선호",
+          "cheapest": "가장 저렴한 칸",
+          "random": "무작위 선택"
+        },
+        "payCosts": "오토마는 이 일꾼들을 배치하는 <b>비용을 지불</b>하며, 시작 자금을 사용합니다."
+      },
+      "turnOrder": "<b>턴 순서</b>: 오토마는 1라운드에서 마지막입니다. 이후 라운드는 일반적인 패스 순서를 따릅니다."
+    },
+    "award": {
+      "title": "어워드",
+      "drawCard": "오토마 어워드 카드 1장을 뽑아 5번째 득점 타일 아래에 놓습니다.",
+      "conditions": "조건은 멀티플레이어 어워드 타일과 동일합니다.",
+      "scoringDifferent": "오토마 모드에서 어워드를 득점하는 방식은 일반 게임과 다릅니다.",
+      "scoring": "해당 항목을 얼마나 가지고 있느냐에 따라 4VP를 얻거나, 0VP를 얻거나, 심지어 4VP를 잃을 수도 있습니다.",
+      "multipleHumanPlayers": {
+        "awardTiles": "여러 인간 플레이어: 표준 멀티플레이어 게임처럼 어워드 타일을 사용합니다.",
+        "playerCount": "플레이어 수를 결정할 때 오토마는 제외합니다.",
+        "botDoesNotParticipate": "오토마는 어워드 득점에 참여하지 않습니다."
+      }
+    },
+    "train": {
+      "title": "기차 모듈",
+      "setup": "표준 마일스톤 대신, 기차 지도용 오토마 마일스톤 카드를 사용하고 기차 지도의 해당 마일스톤 영역에 배치합니다.",
+      "noActions": "오토마는 기차 지도와 관련된 행동을 수행하지 않습니다.",
+      "playerDeliver": "장소에 배송할 때, 그 곳의 <b>배송 보너스</b> 타일을 버립니다. <b>즉, 각 장소에는 한 번만 배송할 수 있습니다.</b>",
+      "twoHumanPlayersSetup": "인간 플레이어 2명: 기차 지도의 2인 면을 사용하고 표준 2인 게임으로 기차 모듈을 플레이합니다.",
+      "threeHumanPlayersSetup": "인간 플레이어 3명: 기차 지도의 3-4인 면을 사용하고 표준 3인 게임으로 플레이합니다."
+    },
+    "ruleChanges": {
+      "title": "오토마용 규칙 변경",
+      "moneyNoGoods": "오토마는 돈을 관리하지만, <b>재화를 보유하지는 않습니다.</b>",
+      "contracts": "계약을 이행할 수 있지만, 재화 대신 돈을 사용하여 이행합니다.",
+      "merchants": "거래 행동을 수행하거나 근린 보너스나 농민 시장을 이용할 때 항상 금전 보너스를 받습니다.",
+      "production": "생산 페이즈에서 재화 대신 추가 돈을 받습니다.",
+      "noScoringPhase": "오토마는 득점 페이즈를 건너뛰지만 게임 종료 시 난이도별로 정해진 영광을 받습니다."
+    }
+  },
+  "roundPreparation": {
+    "title": "준비",
+    "execute": "준비 페이즈를 실행합니다.",
+    "botMoney": "오토마는 <b>£10을 받습니다</b>."
+  },
+  "roundTurnPlayer": {
+    "execute": "턴을 실행하거나 패스하세요.",
+    "pass": {
+      "confirm": "패스하시겠습니까?",
+      "info": "패스 보너스로 <b>£{amount}</b>를 받습니다."
+    }
+  },
+  "roundTurnBot": {
+    "executed": "행동 완료",
+    "notPossible": "불가능",
+    "skipTurn": "오토마가 이 턴을 건너뜁니다.",
+    "passInfo": "오토마 패스: 패스 보너스로 <b>£{amount}</b>를 받습니다.",
+    "rules": "규칙"
+  },
+  "roundProduction": {
+    "title": "생산",
+    "execute": "생산 페이즈를 실행합니다.",
+    "bot": {
+      "workers": "오토마는 일꾼으로부터 <b>돈을 받습니다</b> (일반과 동일).",
+      "goodsIncome": "오토마는 기본 재화나 가공 재화를 받지 않고, 대신 표시된 <b>수입 아이콘마다 £5씩 받습니다</b>.",
+      "noProductionChain": "치즈 공장, 제빵소, 증류소에서 수입을 얻기 위해 소나 밭이 필요하지 않습니다."
+    }
+  },
+  "roundScoring": {
+    "title": "득점",
+    "execute": "득점 페이즈를 실행합니다.",
+    "botNoScoring": "오토마는 득점 타일로 영광을 얻지 않습니다.",
+    "lastRoundGlory": "마지막 라운드: 오토마는 <b>영광 {glory}점</b>을 얻습니다."
+  },
+  "endOfGameAmounts": {
+    "title": "게임 종료: 수량",
+    "amounts": "수량:",
+    "victoryPoints": "승점:"
+  },
+  "endOfGame": {
+    "title": "게임 종료",
+    "finalScoring": "최종 득점",
+    "difficultyLevel": "난이도:"
+  },
+  "botAction": {
+    "randomized": "표시된 규칙은 무작위로 선택되었습니다.",
+    "expand": {
+      "title": "확장",
+      "tooltip": {
+        "mapModules": "이 지도 모듈에서 확장",
+        "criteria": "확장 기준 순서",
+        "unitPreference": "유닛 선호 순서",
+        "neighborhood": "오토마가 근린 보너스를 사용할 수 있는지 확인",
+        "neighborhoodFarmersMarket": "오토마가 근린 보너스나 농민 시장을 사용할 수 있는지 확인"
+      },
+      "rulesSpace": {
+        "expand": "오토마는 강조된 지도 모듈에서 확장을 시도합니다. 다음 기준에 가장 적합한 공간을 선택합니다:",
+        "settlements": "<b>최대 정착지:</b> 오토마는 확장하는 클러스터에서 연결된 정착지 수에 가장 많이 추가되는 공간에 배치합니다:",
+        "settlementsConnect": "분리되어 있던 두 정착지 그룹을 연결하려고 시도합니다.",
+        "settlementsNew": "정착지 그룹에 새 정착지를 추가하려고 시도합니다.",
+        "costs": "<b>최소 비용:</b> 오토마는 가장 저렴한 비용의 공간에 배치합니다.",
+        "neighborhood": "<b>최대 근린 보너스:</b> 오토마는 근린 보너스 시장에서 수익을 최대화합니다.",
+        "neighborhoodFarmersMarket": "<b>최대 근린 보너스 / 농민 시장:</b> 오토마는 근린 보너스나 농민 시장에서 수익을 최대화합니다.",
+        "port": "<b>항구 타일:</b> 오토마는 항구 타일 범위 내의 공간에 배치합니다."
+      },
+      "rulesUnit": {
+        "title": "유닛 선택:",
+        "unitPreference": "여러 유닛 타입이 가능하다면, 위에 표시된 선호 순서에 따라 선택합니다.",
+        "workerPreference": "여러 일꾼 타입이 가능하다면, 다음 순서로 선택합니다:",
+        "upgradedWorkers": "업그레이드된 일꾼",
+        "payUnitHex": "오토마는 유닛 + 공간 비용을 지불하고 선택한 유닛을 선택한 공간에 배치합니다."
+      },
+      "rulesNeighborhood": {
+        "title": "근린 보너스",
+        "restrictions": "일반과 같이, 오토마는 같은 재화에 대해 '구매'와 '판매' 모두에 상인을 배치할 수 없습니다. 따라서 처리할 수 없는 재화에 대한 근린 보너스는 무시합니다. 거래 행동과 달리, 오토마는 이 라운드에 이미 구매한 타입의 재화를 구매할 수 있습니다.",
+        "buyGoods": "오토마가 근린 보너스를 사용하여 재화를 구매할 수 있는 공간에 확장할 때, 재화가 속한 가격대에 따라 재화를 구매합니다:",
+        "buyGoodsUpper": "상위 가격대: 오토마는 구매하지 않습니다.",
+        "buyGoodsMedium": "중위 가격대: 오토마는 해당 재화를 최대 2개까지 구매합니다 (사용 가능한 상인 수에 따라).",
+        "buyGoodsLower": "하위 가격대: 오토마는 해당 재화를 최대 4개까지 구매합니다 (사용 가능한 상인 수에 따라).",
+        "tiebreaker": "오토마가 여러 타입의 재화를 구매할 수 있다면, 시장 트랙에서 가격 마커가 가장 낮은 재화를 구매합니다. 여전히 여러 재화가 해당된다면, 무작위로 선택합니다.",
+        "earnMoney": "오토마는 근린 보너스를 통해 시장에 배치한 <b>상인마다 £3씩</b> 얻습니다."
+      },
+      "rulesFarmersMarket": {
+        "title": "농민 시장",
+        "restrictions": "일반과 같이, 오토마는 같은 재화에 대해 '구매'와 '판매' 모두에 상인을 배치할 수 없습니다. 따라서 처리할 수 없는 재화에 대한 농민 시장은 무시합니다. 거래 행동과 달리, 오토마는 이 라운드에 이미 판매한 타입의 재화를 판매할 수 있습니다.",
+        "sellGoods": "오토마가 농민 시장을 사용하여 재화를 판매할 수 있는 공간에 확장할 때, 재화가 속한 가격대에 따라 재화를 판매합니다:",
+        "sellGoodsUpper": "상위 가격대: 오토마는 해당 재화를 최대 4개까지 판매합니다 (사용 가능한 상인 수에 따라).",
+        "sellGoodsMedium": "중위 가격대: 오토마는 해당 재화를 최대 2개까지 판매합니다 (사용 가능한 상인 수에 따라).",
+        "sellGoodsLower": "하위 가격대: 오토마는 판매하지 않습니다.",
+        "tiebreaker": "오토마가 여러 타입의 재화를 판매할 수 있다면, 시장 트랙에서 가격 마커가 가장 높은 재화를 판매합니다. 여전히 여러 재화가 해당된다면, 무작위로 선택합니다.",
+        "earnMoney": "오토마는 농민 시장을 통해 시장에 배치한 <b>상인마다 £3씩</b> 얻습니다."
+      }
+    },
+    "export-contract-fulfill": {
+      "title": "수출 계약 이행",
+      "summary": "오토마가 <b>수출 계약을 가지고 있다면</b>, 이를 이행하려고 시도합니다.",
+      "pay": "오토마는 수출 계약을 이행하기 위해 양모마다 £5, 가공품과 고기마다 £10를 지불해야 합니다.",
+      "bonus": "오토마는 수입 재화에서 일반적인 돈을 얻고(득점 트랙의 £1 보너스) 수출 계약 자체에 표시된 보너스 돈을 얻습니다. 수출 계약에 보너스 업그레이드나 무료 공간 확장 보너스가 있다면, 오토마는 이를 받는 대신 각각에 대해 £5를 얻습니다.",
+      "per": "마다"
+    },
+    "export-contract-take": {
+      "title": "수출 계약 획득",
+      "get": "오토마가 <b>수출 계약이 없다면</b>, 하나를 획득합니다.",
+      "getLastRound": "오토마가 <b>수출 계약이 없다면</b>, 하나를 획득하고 <b>즉시 이행합니다</b>.",
+      "gainForTaking": "오토마는 {round}라운드에 수출 계약을 획득하여 <b>£{amount}</b>를 받습니다.",
+      "payForTaking": "오토마는 {round}라운드에 수출 계약을 획득하기 위해 <b>£{amount}</b>를 지불해야 합니다.",
+      "per": "마다",
+      "tiebreakerRandom": "여전히 동점이면, 무작위로 선택합니다.",
+      "rulesCheapest": {
+        "prefer": "다음을 계산하여 <b>가장 저렴한</b> 수출 계약을 선택합니다:",
+        "tiebreaker": "동점이면, 다음을 포함하여 <b>금전 보너스가 가장 높은</b> 수출 계약을 선호합니다:"
+      },
+      "rulesRarest": {
+        "prefer": "<b>수입 재화가 득점 트랙에서 가장 희귀한</b> 수출 계약을 선호합니다 - 인간 플레이어의 수출 상자에 있는 수출 계약은 이행된 것으로 간주합니다.",
+        "tiebreaker": "동점이면, 다음을 계산하여 <b>가장 비싼</b> 수출 계약을 선택합니다:",
+        "lastRound": "<b>마지막 라운드:</b> 오토마는 수출 계약을 획득한 후 <b>즉시 이행합니다</b>. 따라서 감당할 수 있는 수출 계약만 고려하고(획득비 £15 + 이행 비용) 위 기준에 가장 적합한 완료 가능한 계약을 선택합니다."
+      }
+    },
+    "technology-upgrade": {
+      "title": "기술 업그레이드",
+      "fullRule": "오토마가 배치되었지만 업그레이드되지 않은 같은 타입의 일꾼을 3개 이상 가지고 있다면, 플레이어 보드의 기술 타일을 뒤집어 이 일꾼 기술을 업그레이드하기 위해 <b>£10</b>를 지불해야 합니다.",
+      "tiebreaker": "두 일꾼 타입 모두 이 기준에 해당한다면, 다음 순서로 선택합니다:"
+    },
+    "trade": {
+      "title": "거래",
+      "preferMerchantAction": "선호: <b>{merchantAction}</b>.",
+      "reroll": "다시 굴리기",
+      "rules": {
+        "selectGood": "오토마가 이 라운드에 이미 표시된 재화를 거래했다면, 다시 굴려서 다른 것을 선택합니다.",
+        "priceBracket": "해당 재화의 <b>현재</b> 가격대에 따라 선택합니다:",
+        "placeMerchants": "오토마는 최대 <b>상인 {merchantCount}개</b>를 배치합니다.",
+        "gainMoney": "오토마는 배치한 <b>상인마다 £1씩</b> 얻습니다.",
+        "adjustPriceMarkers": "가격 마커를 일반적으로 조정합니다. 오토마는 재화를 판매할 때도 추가 돈을 얻지 않고, 재화를 구매할 때도 돈을 지불하지 않습니다.",
+        "notPossible": "오토마가 남은 상인이 없거나, 모든 타입의 재화를 이미 거래했다면 행동이 불가능합니다."
+      }
+    },
+    "upgrade": {
+      "title": "업그레이드",
+      "rules": "오토마는 아직 완전히 업그레이드되지 않았다면 상인이나 항해를 업그레이드하기 위해 <b>£4</b>를 지불해야 합니다. 선호 순서는 위를 참조하세요."
+    },
+    "port-bonus": {
+      "title": "항구 보너스 획득",
+      "rules": "오토마는 범위 내에서 이용 가능해지는 즉시 항상 항구 보너스를 획득합니다. 그럴 때 자신의 마커를 항구에 놓고 묘사된 항구 보너스 대신 <b>£10</b>를 받습니다."
+    }
+  },
+  "sideBar": {
+    "round": "라운드 {round}",
+    "turn": "턴 {turn}"
+  },
+  "player": {
+    "player": "플레이어 | 플레이어 {player}",
+    "bot": "오토마 | 오토마 {bot}"
+  },
+  "workerType": {
+    "woodcutter": "벌목꾼",
+    "miner": "광부"
+  },
+  "merchantAction": {
+    "buy": "구매",
+    "sell": "판매"
+  },
+  "difficultyLevel": {
+    "1": "1 - 매우 쉬움",
+    "2": "2 - 쉬움",
+    "3": "3 - 보통",
+    "4": "4 - 어려움",
+    "5": "5 - 매우 어려움"
+  },
+  "notfound": {
+    "title": "찾을 수 없음"
+  },
+  "action": {
+    "playGame": "게임 플레이",
+    "startGame": "게임 시작",
+    "next": "다음",
+    "pass": "패스",
+    "abortGame": "게임 중단",
+    "abortGameConfirm": "진행 중인 게임을 중단합니다 - 확실합니까?",
+    "endGame": "게임 종료",
+    "endGameConfirm": "이 게임을 종료하고 홈 화면으로 돌아갑니다 - 확실합니까?",
+    "cancel": "취소",
+    "backToHome": "홈으로 돌아가기",
+    "back": "뒤로",
+    "close": "닫기",
+    "ok": "확인",
+    "reset": "리셋"
+  },
+  "footer": {
+    "credits": "크레딧"
+  },
+  "serviceWorkerUpdatedRefresh": {
+    "title": "앱 새로고침",
+    "notice": "앱이 업데이트되었습니다 - 최신 버전을 사용하기 위해 새로고침하시겠습니까?"
+  }
+}
