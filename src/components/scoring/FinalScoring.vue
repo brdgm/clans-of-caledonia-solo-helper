@@ -333,9 +333,9 @@ export default defineComponent({
             + (toNumber(this.amount.sugarCane[i]) * toNumber(this.sugarCaneValue))
             + toNumber(this.exportContractVP[i])
             + toNumber(this.settlementVP[i])
-            + toNumber(this.awardVP[i])
-            + toNumber(this.milestoneVP[i])
-            + toNumber(this.trainDeliveryVP[i])
+            + (this.hasAwards ? toNumber(this.awardVP[i]) : 0)
+            + (this.hasTrainModule ? toNumber(this.milestoneVP[i]) : 0)
+            + (this.hasTrainModule ? toNumber(this.trainDeliveryVP[i]) : 0)
       }
       return result
     }
