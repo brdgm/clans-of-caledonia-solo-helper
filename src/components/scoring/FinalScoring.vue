@@ -390,9 +390,9 @@ export default defineComponent({
         stats[`hops${suffix}`] = this.amount.hops[index]
         stats[`exportContract${suffix}`] = this.amount.exportContract[index]
         stats[`settlement${suffix}`] = this.amount.settlement[index]
-        stats[`awardVP${suffix}`] = this.amount.awardVP[index]
-        stats[`milestoneVP${suffix}`] = this.amount.milestoneVP[index]
-        stats[`trainDeliveryVP${suffix}`] = this.trainDeliveryVP[index]
+        stats[`awardVP${suffix}`] = (this.hasAwards ? this.amount.awardVP[index] : 0)
+        stats[`milestoneVP${suffix}`] = (this.hasTrainModule ? this.amount.milestoneVP[index] : 0)
+        stats[`trainDeliveryVP${suffix}`] = (this.hasTrainModule ? this.trainDeliveryVP[index] : 0)
         for (let round=1; round<=5; round++) {
           const turns = isPlayer
             ? this.countPlayerTurnsPerRound(round, index + 1)
