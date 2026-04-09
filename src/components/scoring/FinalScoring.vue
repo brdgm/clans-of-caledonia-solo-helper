@@ -287,8 +287,11 @@ export default defineComponent({
     },
     trainDeliveryVP() : number[] {
       const result = [...this.amount.trainDeliveryVP]
-      for (let i=this.playerCount; i<this.playerCount+this.botCount; i++) {
-        result[i] = this.difficultySettings.round5VPTrain
+      if (this.hasTrainModule) {
+        // add bot VP for train module
+        for (let i=this.playerCount; i<this.playerCount+this.botCount; i++) {
+          result[i] = this.difficultySettings.round5VPTrain
+        }
       }
       return result
     },
