@@ -287,8 +287,11 @@ export default defineComponent({
     },
     trainDeliveryVP() : number[] {
       const result = [...this.amount.trainDeliveryVP]
-      for (let i=this.playerCount; i<this.playerCount+this.botCount; i++) {
-        result[i] = this.difficultySettings.round5VPTrain
+      if (this.hasTrainModule) {
+        // add bot VP for train module
+        for (let i=this.playerCount; i<this.playerCount+this.botCount; i++) {
+          result[i] = this.difficultySettings.round5VPTrain
+        }
       }
       return result
     },
@@ -333,9 +336,9 @@ export default defineComponent({
             + (toNumber(this.amount.sugarCane[i]) * toNumber(this.sugarCaneValue))
             + toNumber(this.exportContractVP[i])
             + toNumber(this.settlementVP[i])
-            + (this.hasAwards ? toNumber(this.awardVP[i]) : 0)
-            + (this.hasTrainModule ? toNumber(this.milestoneVP[i]) : 0)
-            + (this.hasTrainModule ? toNumber(this.trainDeliveryVP[i]) : 0)
+            + toNumber(this.awardVP[i])
+            + toNumber(this.milestoneVP[i])
+            + toNumber(this.trainDeliveryVP[i])
       }
       return result
     }
@@ -390,9 +393,9 @@ export default defineComponent({
         stats[`hops${suffix}`] = this.amount.hops[index]
         stats[`exportContract${suffix}`] = this.amount.exportContract[index]
         stats[`settlement${suffix}`] = this.amount.settlement[index]
-        stats[`awardVP${suffix}`] = (this.hasAwards ? this.amount.awardVP[index] : 0)
-        stats[`milestoneVP${suffix}`] = (this.hasTrainModule ? this.amount.milestoneVP[index] : 0)
-        stats[`trainDeliveryVP${suffix}`] = (this.hasTrainModule ? this.trainDeliveryVP[index] : 0)
+        stats[`awardVP${suffix}`] = this.amount.awardVP[index]
+        stats[`milestoneVP${suffix}`] = this.amount.milestoneVP[index]
+        stats[`trainDeliveryVP${suffix}`] = this.trainDeliveryVP[index]
         for (let round=1; round<=5; round++) {
           const turns = isPlayer
             ? this.countPlayerTurnsPerRound(round, index + 1)
