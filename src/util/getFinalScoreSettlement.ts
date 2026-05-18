@@ -1,3 +1,5 @@
+import calculateTieredScores from './calculateTieredScores'
+
 /**
  * Calculate each players score for settlements.
  * @param amounts Amount of settlements for each player
@@ -26,24 +28,5 @@ export default function getFinalScoreSettlement(amounts: number[]) : number[] {
   }
 
   // 3-4P: 18 VP for most, 12 VP for second, 6 VP for third.
-  // Tied players evenly split the combined VP of their tied tiers (rounded down).
-  const tiers = [18, 12, 6]
-  const sorted = [...amounts].sort((a, b) => b - a)
-
-  let tierIndex = 0
-  while (tierIndex < tiers.length) {
-    const value = sorted[tierIndex]
-    const tied = sorted.filter(v => v === value).length
-    if (tied === 0) break
-    const vpPool = tiers.slice(tierIndex, tierIndex + tied).reduce((sum, v) => sum + v, 0)
-    const vpEach = Math.floor(vpPool / tied)
-    for (let i = 0; i < amounts.length; i++) {
-      if (amounts[i] === value) {
-        scores[i] += vpEach
-      }
-    }
-    tierIndex += tied
-  }
-
-  return scores
+  return calculateTieredScores(amounts, [18, 12, 6])
 }
