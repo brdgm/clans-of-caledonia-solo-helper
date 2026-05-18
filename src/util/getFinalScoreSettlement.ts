@@ -6,6 +6,10 @@
 export default function getFinalScoreSettlement(amounts: number[]) : number[] {
   const scores = new Array(amounts.length).fill(0)
 
+  if (amounts.length < 2) {
+    return scores
+  }
+
   if (amounts.length === 2) {
     // 2P automa rules: winner always gets 12 VP.
     // Loser gets 6 VP only if they have 1 or 2 fewer settlements; otherwise 0 VP.
@@ -30,6 +34,7 @@ export default function getFinalScoreSettlement(amounts: number[]) : number[] {
   while (tierIndex < tiers.length) {
     const value = sorted[tierIndex]
     const tied = sorted.filter(v => v === value).length
+    if (tied === 0) break
     const vpPool = tiers.slice(tierIndex, tierIndex + tied).reduce((sum, v) => sum + v, 0)
     const vpEach = Math.floor(vpPool / tied)
     for (let i = 0; i < amounts.length; i++) {

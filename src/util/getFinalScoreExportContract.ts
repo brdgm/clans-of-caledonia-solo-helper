@@ -3,8 +3,12 @@
  * @param amounts Amount of export contracts for each player
  * @returns Scores for each player
  */
-export default function getFinalScoreExport(amounts: number[]) : number[] {
+export default function getFinalScoreExportContract(amounts: number[]) : number[] {
   const scores = new Array(amounts.length).fill(0)
+
+  if (amounts.length < 2) {
+    return scores
+  }
 
   if (amounts.length === 2) {
     // 2P automa rules: winner always gets 8 VP.
@@ -30,6 +34,7 @@ export default function getFinalScoreExport(amounts: number[]) : number[] {
   while (tierIndex < tiers.length) {
     const value = sorted[tierIndex]
     const tied = sorted.filter(v => v === value).length
+    if (tied === 0) break
     const vpPool = tiers.slice(tierIndex, tierIndex + tied).reduce((sum, v) => sum + v, 0)
     const vpEach = Math.floor(vpPool / tied)
     for (let i = 0; i < amounts.length; i++) {
