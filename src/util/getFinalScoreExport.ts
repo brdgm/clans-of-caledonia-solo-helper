@@ -7,9 +7,11 @@ export default function getFinalScoreExport(amounts: number[]) : number[] {
   const scores = new Array(amounts.length).fill(0)
 
   if (amounts.length === 2) {
+    // 2P automa rules: winner always gets 8 VP.
+    // Loser gets 4 VP only if they fulfilled exactly one contract less; otherwise 0 VP.
+    // In case of a tie both players get 4 VP.
     const [a, b] = amounts
     if (a === b) {
-      // tie: both get 4 VP
       return [4, 4]
     }
     const winner = a > b ? 0 : 1
@@ -19,6 +21,8 @@ export default function getFinalScoreExport(amounts: number[]) : number[] {
     return scores
   }
 
+  // 3-4P: 12 VP for most, 6 VP for second most.
+  // Tied players evenly split the combined VP of their tied tiers (rounded down).
   const tiers = [12, 6]
   const sorted = [...amounts].sort((a, b) => b - a)
 

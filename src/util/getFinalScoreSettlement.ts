@@ -5,6 +5,9 @@
  */
 export default function getFinalScoreSettlement(amounts: number[]) : number[] {
   const scores = new Array(amounts.length).fill(0)
+  // 2P: 12 VP for most, 0 VP for second.
+  // 3-4P: 18 VP for most, 12 VP for second, 6 VP for third.
+  // Tied players evenly split the combined VP of their tied tiers (rounded down).
   const tiers = amounts.length === 2
     ? [12]
     : [18, 12, 6]
