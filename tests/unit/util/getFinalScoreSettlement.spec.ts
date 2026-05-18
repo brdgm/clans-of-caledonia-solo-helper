@@ -3,15 +3,27 @@ import getFinalScoreSettlement from '@/util/getFinalScoreSettlement'
 
 describe('util/getFinalScoreSettlement', () => {
   describe('2 players', () => {
-    it('no tie', () => {
-      expect(getFinalScoreSettlement([5, 3])).to.deep.eq([12, 0])
+    it('no tie, difference > 2: winner gets 12 VP, loser gets 0 VP', () => {
+      expect(getFinalScoreSettlement([5, 2])).to.deep.eq([12, 0])
     })
 
-    it('no tie – reversed order', () => {
-      expect(getFinalScoreSettlement([3, 5])).to.deep.eq([0, 12])
+    it('no tie, difference > 2 – reversed order', () => {
+      expect(getFinalScoreSettlement([2, 5])).to.deep.eq([0, 12])
     })
 
-    it('tie – both players share 12 VP (floor(12/2) = 6 each)', () => {
+    it('no tie, difference exactly 1: winner gets 12 VP, loser gets 6 VP', () => {
+      expect(getFinalScoreSettlement([5, 4])).to.deep.eq([12, 6])
+    })
+
+    it('no tie, difference exactly 2: winner gets 12 VP, loser gets 6 VP', () => {
+      expect(getFinalScoreSettlement([5, 3])).to.deep.eq([12, 6])
+    })
+
+    it('no tie, difference exactly 2 – reversed order', () => {
+      expect(getFinalScoreSettlement([3, 5])).to.deep.eq([6, 12])
+    })
+
+    it('tie – both players get 6 VP', () => {
       expect(getFinalScoreSettlement([4, 4])).to.deep.eq([6, 6])
     })
   })
