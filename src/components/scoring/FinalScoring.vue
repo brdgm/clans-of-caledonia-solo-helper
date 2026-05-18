@@ -150,6 +150,8 @@ import MoneyIcon from '../structure/MoneyIcon.vue'
 import toNumber from '@brdgm/brdgm-commons/src/util/form/toNumber'
 import postGameStats from '@brdgm/brdgm-commons/src/util/stats/postGameStats'
 import { version } from '@/../package.json'
+import getFinalScoreExportContract from '@/util/getFinalScoreExportContract'
+import getFinalScoreSettlement from '@/util/getFinalScoreSettlement'
 
 export default defineComponent({
   name: 'FinalScoring',
@@ -201,83 +203,10 @@ export default defineComponent({
       return this.amount.hops
     },
     exportContractVP() : number[] {
-      const amounts = this.amount.exportContract
-      const firstPlaceAmount = Math.max(...amounts)
-      const secondPlaceAmount = Math.max(...amounts.filter(amount => amount < firstPlaceAmount))
-      const firstPlaceCount = amounts.filter(amount => amount == firstPlaceAmount).length
-      const secondPlaceCount = amounts.filter(amount => amount == secondPlaceAmount).length
-      const result : number[] = []
-      if (this.playerCount + this.botCount == 2) {
-        // player vs automa scoring
-        for (let i=0; i<this.playerCount+this.botCount; i++) {
-          if (amounts[i] == firstPlaceAmount) {
-            result[i] = Math.floor(8 / firstPlaceCount)
-          }
-          else if (amounts[i] == firstPlaceAmount - 1) {
-            result[i] = 4
-          }
-          else {
-            result[i] = 0
-          }
-        }
-      }
-      else {
-        // 3-4 player scoring
-        for (let i=0; i<this.playerCount+this.botCount; i++) {
-          if (amounts[i] == firstPlaceAmount) {
-            result[i] = Math.floor(12 / firstPlaceCount)
-          }
-          else if (amounts[i] == secondPlaceAmount) {
-            result[i] = Math.floor(6 / secondPlaceCount)
-          }
-          else {
-            result[i] = 0
-          }
-        }
-      }
-      return result
+      return getFinalScoreExportContract(this.amount.exportContract ?? [0,0])
     },
     settlementVP() : number[] {
-      const amounts = this.amount.settlement
-      const firstPlaceAmount = Math.max(...amounts)
-      const secondPlaceAmount = Math.max(...amounts.filter(amount => amount < firstPlaceAmount))
-      const thirdPlaceAmount = Math.max(...amounts.filter(amount => amount < secondPlaceAmount))
-      const firstPlaceCount = amounts.filter(amount => amount == firstPlaceAmount).length
-      const secondPlaceCount = amounts.filter(amount => amount == secondPlaceAmount).length
-      const thirdPlaceCount = amounts.filter(amount => amount == thirdPlaceAmount).length
-      const result : number[] = []
-      if (this.playerCount + this.botCount == 2) {
-        // player vs automa scoring
-        for (let i=0; i<this.playerCount+this.botCount; i++) {
-          if (amounts[i] == firstPlaceAmount) {
-            result[i] = Math.floor(12 / firstPlaceCount)
-          }
-          else if (amounts[i] == firstPlaceAmount - 1 || amounts[i] == firstPlaceAmount - 2) {
-            result[i] = 6
-          }
-          else {
-            result[i] = 0
-          }
-        }
-      }
-      else {
-        // 3-4 player scoring
-        for (let i=0; i<this.playerCount+this.botCount; i++) {
-          if (amounts[i] == firstPlaceAmount) {
-            result[i] = Math.floor(18 / firstPlaceCount)
-          }
-          else if (amounts[i] == secondPlaceAmount) {
-            result[i] = Math.floor(12 / secondPlaceCount)
-          }
-          else if (amounts[i] == thirdPlaceAmount) {
-            result[i] = Math.floor(6 / thirdPlaceCount)
-          }
-          else {
-            result[i] = 0
-          }
-        }
-      }
-      return result
+      return getFinalScoreSettlement(this.amount.settlement ?? [0,0])
     },
     awardVP() : number[] {
       return this.amount.awardVP
