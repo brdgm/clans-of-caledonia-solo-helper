@@ -25,7 +25,7 @@
     },
     "expansions": {
       "title": "Erweiterungen",
-      "intro": "Wenn du die Industria-Erweiterung besitzt, kannst du alles neue Material verwenden. Die drei Module die hier aufgeführt sind haben einfluss auf das Verhalten der Automa.",
+      "intro": "Wenn du die Industria-Erweiterung besitzt, kannst du alles neue Material verwenden. Die drei Module, die hier aufgeführt sind, haben Einfluss auf das Verhalten der Automa.",
       "industria-farmers-market": "Industria: Bauernmärkte",
       "industria-award": "Industria: Auszeichnungen",
       "industria-train": "Industria: Zugmodul"
@@ -37,7 +37,7 @@
       "title": "Spielbrett",
       "setupGame": "Bereite das Spiel wie üblich für {playerCount} Personen vor.",
       "playerBoard": "<b>Spielertableau</b>: Bereite ein Spielertableau mit allen Komponenten für die Automa vor.",
-      "shipLevel": "Die Automa startet mit <b>+2 Schifffahrt</b> (1-Loch-Schifffahrt)).",
+      "shipLevel": "Die Automa startet mit <b>+2 Schifffahrt</b> (1-Loch-Schifffahrt).",
       "money": "Die Automa erhält <b>£{startingMoney}</b>.",
       "clansSelection": "<b>Clanauswahl</b>: Die Automa hat keinen Clan. Du wählst aus {clanCount} Paaren von Clan und Startplättchen aus.",
       "farmersMarket2Players": "<b>Bauernmärkte</b>: Platziere 2 Bauernmärkte in den Spielplanmodulen A & C oder B & D.",
@@ -49,7 +49,7 @@
         "port": "Arbeiter {worker} auf Spielplanmodul <b>{mapModule}</b>: Am nächsten zum <b>Hafen</b>",
         "loch": "Arbeiter {worker} auf Spielplanmodul <b>{mapModule}</b>: Am nächsten zum <b>zentralen Loch</b>",
         "tieBreaker": {
-          "title": "Wähle das Feld in nach folgenden Kriterien in der Reihenfolge ihrer Priorität aus:",
+          "title": "Wähle das Feld nach folgenden Kriterien in der Reihenfolge ihrer Priorität aus:",
           "price": "Maximale Feldkosten von £2",
           "port": "(nur für Häfen) Innerhalb der Schifffahrtsreichweite des Hafens",
           "cheapest": "Günstigste Feldkosten",
@@ -81,7 +81,7 @@
     },
     "ruleChanges": {
       "title": "Regeländerungen für die Automa",
-      "moneyNoGoods": "Die Automa verwaltet Geld, hat aber <b>niemals Waren im Vorrat<b/>.",
+      "moneyNoGoods": "Die Automa verwaltet Geld, hat aber <b>niemals Waren im Vorrat</b>.",
       "contracts": "Sie kann Aufträge erfüllen, verwendet dafür jedoch Geld anstelle von Waren.",
       "merchants": "Sie erhält immer einen festen Geldbonus, wenn sie die Handelsaktion ausführt oder den Nachbarschaftsbonus oder den Bauernmarkt nutzt.",
       "production": "In der Produktionsphase erhält sie zusätzliches Geld anstelle von Waren.",
@@ -191,7 +191,7 @@
     "export-contract-take": {
       "title": "Exportauftrag nehmen",
       "get": "Wenn die Automa <b>keinen Exportauftrag hat</b>, versucht sie einen zu nehmen.",
-      "getLastRound": "If the Automa <b>has no Export contract</b>, it will get one and <b>fulfill it immediately</b>.",
+      "getLastRound": "Wenn die Automa <b>keinen Exportauftrag hat</b>, nimmt sie einen und <b>erfüllt ihn sofort</b>.",
       "gainForTaking": "Die Automa erhält <b>£{amount}</b> für das Nehmen eines Exportauftrags in Runde {round}.",
       "payForTaking": "Die Automa muss <b>£{amount}</b> für das Nehmen eines Exportauftrags in Runde {round} zahlen.",
       "per": "pro",
@@ -230,7 +230,7 @@
     },
     "port-bonus": {
       "title": "Hafenplättchen nutzen",
-      "rules": "Wenn die Automa in Reichweite eines Hafenplättchens gelangt, nutzt sie es sofort. Sie legt sie einen ihrer Hafenmarker neben das Hafenplättchen und erhält sofort £10."
+      "rules": "Wenn die Automa in Reichweite eines Hafenplättchens gelangt, nutzt sie es sofort. Sie legt einen ihrer Hafenmarker neben das Hafenplättchen und erhält sofort £10."
     }
   },
   "sideBar": {
