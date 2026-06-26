@@ -198,7 +198,7 @@
       "tiebreakerRandom": "If still tied, choose randomly.",
       "rulesCheapest": {
         "prefer": "It will take the <b>cheapest</b> export contract, by counting:",
-        "tiebreaker": "If tied, it prefers export contracts with the <b>hightest monetary bonus</b>, including:"
+        "tiebreaker": "If tied, it prefers export contracts with the <b>highest monetary bonus</b>, including:"
       },
       "rulesRarest": {
         "prefer": "It will prefer export contracts whose <b>import Good is rarest</b> on the Scoring track - treat any Export contract on a human player’s Export box as fulfilled for this purpose.",
@@ -209,7 +209,7 @@
     "technology-upgrade": {
       "title": "Technology Upgrade",
       "fullRule": "If the Automa has 3 or more Workers of the same type deployed and not upgraded, then it must pay <b>£10</b> to upgrade this Worker technology by flipping the Technology tile on its player board.",
-      "tiebreaker": "If both Worker types fit this criterion, chose in this order:"
+      "tiebreaker": "If both Worker types fit this criterion, choose in this order:"
     },
     "trade": {
       "title": "Trade",
